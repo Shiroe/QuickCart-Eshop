@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives', 'ngAnimate'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -19,6 +19,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    
+    // then override any default you want
+        window.plugins.nativepagetransitions.globalOptions.duration = 500;
+        window.plugins.nativepagetransitions.globalOptions.iosdelay = 350;
+        window.plugins.nativepagetransitions.globalOptions.androiddelay = 350;
+        window.plugins.nativepagetransitions.globalOptions.winphonedelay = 350;
+        window.plugins.nativepagetransitions.globalOptions.slowdownfactor = 4;
+        // these are used for slide left/right only currently
+        window.plugins.nativepagetransitions.globalOptions.fixedPixelsTop = 0;
+        window.plugins.nativepagetransitions.globalOptions.fixedPixelsBottom = 0;
+     
+    
   });
 })
 
@@ -42,17 +54,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/dashboard',
     views: {
       'menuContent': {
-        templateUrl: 'templates/dashboard.html'
+        templateUrl: 'templates/dashboard.html',
+		controller: 'DashCtrl'
       }
     }
   })
-
-  .state('app.search', {
-    url: '/search',
+  .state('app.qcart', {
+    url: '/qcart',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html',
-          controller: 'PlaylistsCtrl'
+        templateUrl: 'templates/qcart.html',
+		controller: 'QcartCtrl'
       }
     }
   })
@@ -85,5 +97,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/login');
 });

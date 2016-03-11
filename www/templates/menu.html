@@ -14,21 +14,41 @@
 
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+      <h1 class="title">Menu</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
+        <ion-item menu-close style="" href="#/app/dashboard">
+          <img width="25px" ng-src="img/board.png"/>
+          <span> Dashboard </span>
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
+        <ion-item menu-close href="#/app/qcart">
+          <img width="25px" ng-src="img/bag.png"/>
+          <span> Quick cart </span>
         </ion-item>
         <ion-item menu-close href="#/app/browse">
-          Browse
+          <img width="25px" ng-src="img/user.png"/>
+          <span> Profile </span>
         </ion-item>
         <ion-item menu-close href="#/app/playlists">
-          Playlists
+          <img width="25px" ng-src="img/box.png"/>
+          <span> Orders </span>
+        </ion-item>
+        <ion-item menu-close href="#/app/playlists">
+          <img width="25px" ng-src="img/cog.png"/>
+          <span> Settings </span>
+        </ion-item>
+        <ion-item menu-close href="#/app/playlists">
+          <img width="25px"  ng-src="img/reward.png"/>
+          <span> My score </span>
+        </ion-item>
+        <ion-item menu-close href="#/app/playlists">
+          <img width="25px" ng-src="img/contact.png"/>
+          <span> Contact us </span>
+        </ion-item>
+        <ion-item menu-close ng-click="logout()" href="#">
+          <img width="25px" ng-src="img/logout.png"/>
+          <span> Log out </span>
         </ion-item>
       </ion-list>
     </ion-content>

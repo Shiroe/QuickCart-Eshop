@@ -1,25 +1,44 @@
 <ion-modal-view>
-  <ion-header-bar>
+  <!--ion-header-bar>
     <h1 class="title">Login</h1>
     <div class="buttons">
       <button class="button button-clear" ng-click="closeLogin()">Close</button>
     </div>
-  </ion-header-bar>
-  <ion-content>
-    <form ng-submit="doLogin()">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
-        </label>
-      </div>
-    </form>
+  </ion-header-bar-->
+  <ion-content scroll="false"  style="background: url('img/login-bg.jpg');background-size: cover;" >
+	<div id="logindiv" style="-webkit-transform: translate3d(0,-{{contentHeight}},0)">
+		<div class="row eyuplogo">
+			<div class="col" style="text-align: center"><img class="eyuplogo" style="-webkit-transform: translate3d(0,{{imgContentHeight}},0)" style="-webkit-mask-image:white" ng-src="img/eyup-logo-w.png" width="80%"/></div>
+		</div>
+		  <div class="row responsive-sm" style="padding: 5%;">
+			  
+		  <div class="{{inputmaskClass}}" style="height: {{inputHeight * 2}}px;" ng-click="inputDidFocus('pass_input')"></div>
+		  <div class="{{inputmaskClass}}" style="height: {{inputHeight}}px" ng-click="inputDidFocus('user_input')"></div>
+
+			    
+		    <form ng-submit="doLogin()">
+		      <div class="list " style="background-color: transparent">
+		        <label class="item item-input">
+		          <i style="color: #2b92ce; font-size: 30px; margin-right: 10px;" class="icon ion-ios-person-outline"></i>
+		          <!--span class="input-label"></span-->
+		          <input type="email" id="user_input" ng-model="loginData.username"   placeholder="Email" >
+		        </label>
+		        
+		        <label class="item item-input">
+		          <i style="color: #2b92ce; font-size: 30px; margin-right: 10px;" class="icon ion-ios-locked-outline"></i>
+		          <!--span class="input-label">Password:</span-->
+		          <input type="password" id="pass_input" ng-click="inputDidFocus($event)"  ng-model="loginData.password" placeholder="Password">
+		        </label>
+		          <button ng-click="login()" class="button button-block button-balanced" style="margin-bottom: 20px" type="submit">Log in</button>
+		        	<a style="text-align: center; color: white; text-decoration: underline;" onclick="window.open('http://mouroutis.com', '_system', 'location=yes'); return false;"><p>I forgot my password</p></a>
+		      </div>
+		    </form>
+		    
+		</div>
+	</div>
+	<!--ion-footer-bar align-title="left" keyboard-attach class="bar-assertive">
+		<h1 class="title">Title!</h1>
+	</ion-footer-bar-->
   </ion-content>
 </ion-modal-view>
+</div>

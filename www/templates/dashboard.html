@@ -1,0 +1,53 @@
+<ion-view view-title="Dashboard">
+<!ion-view hide-nav-bar="true">
+  	<img style="position: absolute;width: 100%;min-height: 200px;" ng-src="img/dash-bg.png"/>
+  <ion-content>
+  	<div id="dash-content" style="margin-top: 200px; background: white;">
+	  	<button  ng-click="showQuickCart()" class="button button-block button-balanced" style="position: absolute; width: 80%; margin: 10%;margin-top: -35px; height: 70px;">
+	  	<img width="25px" ng-src="img/bag-white.png"/>
+        <span style="font-size: 25px;font-weight: 300; margin-left: 10px;"> Quick cart </span></button>
+        <div class="dash-order-box" >
+	        <h1>LAST ORDER</h1>
+	        <div class="lines"></div>
+	        <div class="states row row-center">
+		        <div class="col">
+			        <div class="state active"><img ng-src="img/bag-white.png"/></div>
+		        </div>
+		        <div class="col">
+			        <div class="state"><img ng-src="img/box.png"/></div>
+			    </div>
+		        <div class="col">
+			        <div class="state"><img ng-src="img/truck.png"/></div>
+			    </div>
+		        <div class="col">
+			        <div class="state"><img ng-src="img/house.png"/></div>
+			    </div>
+	        </div>
+	        <div style="width: 90%; margin: auto;">
+		        <div class="row data">
+			        <div class="col col-50" style="text-align: left">
+				        <div class="title">Order id: 12345</div>
+				        <div class="info"><i class="ion-ios-calendar-outline"></i> Order id: 12345</div>
+				        <div class="info"><i class="ion-ios-box-outline"></i> Order id: 12345</div>
+			        </div>
+			        <div class="col col-50" style="text-align: right">
+				        <div class="title">Total price</div>
+				        <div class="price">
+					        <span class="float">40<br/>€</span>
+					        <span class="int">33</span>
+				        </div>
+			        </div>
+		        </div>
+		        <div class="row">
+			        <div class="col col-50">
+				        <button ng-click="" class="button button-block view">View</button>
+			        </div>
+			        <div class="col col-50">
+				        <button ng-click="" class="button button-block repeat">Repeat order</button>
+			        </div>
+		        </div>
+	        </div>
+        </div>
+  	</div>
+  </ion-content>
+</ion-view>
