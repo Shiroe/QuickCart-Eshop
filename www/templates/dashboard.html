@@ -1,5 +1,4 @@
-<ion-view view-title="Dashboard">
-<!ion-view hide-nav-bar="true">
+<ion-view hide-nav-bar="true">
   	<img style="position: absolute;width: 100%;min-height: 200px;" ng-src="img/dash-bg.png"/>
   <ion-content>
   	<div id="dash-content" style="margin-top: 200px; background: white;">
@@ -23,7 +22,7 @@
 			        <div class="state"><img ng-src="img/house.png"/></div>
 			    </div>
 	        </div>
-	        <div style="width: 90%; margin: auto;">
+	        <div class="order-box" style="width: 90%; margin: auto;">
 		        <div class="row data">
 			        <div class="col col-50" style="text-align: left">
 				        <div class="title">Order id: 12345</div>
@@ -40,11 +39,12 @@
 		        </div>
 		        <div class="row">
 			        <div class="col col-50">
-				        <button ng-click="" class="button button-block view">View</button>
+				        <a href="#/app/orders/1234"><button  class="button button-block view">View</button></a>
 			        </div>
 			        <div class="col col-50">
-				        <button ng-click="" class="button button-block repeat">Repeat order</button>
+				        <a href="#/app/orders/repeatOrder/1234"><button ng-click="" class="button button-block repeat">Repeat order</button></a>
 			        </div>
+
 		        </div>
 	        </div>
         </div>

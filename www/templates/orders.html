@@ -1,0 +1,30 @@
+<ion-view view-title="Orders" id="ordersView">
+	<ion-content style="background-color: #f3f3f3;">
+		<div class="row" ng-repeat="n in [0,1,2,3,4,5,6,7,8,9]">
+			<div class="order-box">
+				<div class="row data">
+			        <div class="col col-50" style="text-align: left">
+				        <div class="title">Order id: 12345</div>
+				        <div class="info"><i class="ion-ios-calendar-outline"></i> Order id: 12345</div>
+				        <div class="info"><i class="ion-ios-box-outline"></i> Order id: 12345</div>
+			        </div>
+			        <div class="col col-50" style="text-align: right">
+				        <div class="title">Total price</div>
+				        <div class="price">
+					        <span class="float">40<br/>€</span>
+					        <span class="int">33</span>
+				        </div>
+			        </div>
+		        </div>
+		        <div class="row">
+			        <div class="col col-50">
+				        <a href="#/app/orders/1234"><button  class="button button-block view">View</button></a>
+			        </div>
+			        <div class="col col-50">
+				        <a href="#/app/orders/repeatOrder/1234"><button ng-click="" class="button button-block repeat">Repeat order</button></a>
+			        </div>
+		        </div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

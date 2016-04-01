@@ -1,0 +1,78 @@
+<ion-view  view-title=" "   class="modal editProduct">
+	<ion-content scroll="false">
+    <div class="wrap row row-center">
+      <div class="col">
+        <div class="alertview" scroll="true">
+
+					<div class="list list-inset">
+
+					
+
+          <div class="subtitle">Select options:</div>
+					<label class="item item-input item-select">
+              <div class="input-label">
+                Size:
+              </div>
+              <select>
+                <option>Small</option>
+                <option selected>Medium</option>
+                <option>Large</option>
+              </select>
+            </label>
+            <div class="designSelect">
+              <!-- <div class="subtitle">Select design:</div> -->
+              <div class="row">
+                <div class="col design selected"> <img ng-src="img/design_1.png"/> </div>
+                <div class="col design"> <img ng-src="img/design_2.png"/> </div>
+                <div class="col design"> <img ng-src="img/design_1.png"/> </div>
+                <div class="col design"> <img ng-src="img/design_2.png"/> </div>
+                <div class="col design"> <img ng-src="img/design_1.png"/> </div>
+              </div>
+            </div>
+            <div class="row row-center">
+	            <div class="col">
+		            <div class="subtitle">Select quantity:</div>
+	            </div>
+	            <div class="col">
+		            <div class="stockChange row">
+		              <div class="">
+		                <button class="button button-change" style="float: left;">-</button>
+		              </div>
+		              <div class="col col-100" style="text-align: center;">
+		                <button class="button button-dark button-clear">5</button>
+		              </div>
+		              <div class="">
+		                <button class="button button-change" style="float: right;">+</button>
+		              </div>
+		            </div>
+	            </div>
+            </div>
+<!--
+					<div class="button-bar quantity">
+						<a class="button selected">1</a>
+						<a class="button">2</a>
+						<a class="button">3</a>
+						<a class="button">4</a>
+						<a class="button">5</a>
+						<a class="button">></a>
+					</div>
+-->
+
+          </div>
+          <div class="buttons row">
+            <div class="col">
+                 <button ng-click="productEdit.hide()" class="button button-block repeat">Cancel</button>
+            </div>
+            <div class="col">
+                 <button ng-click="productEdit.show()" class="button {{editProduct.btnColor}} button-block repeat">{{editProduct.btnTitle}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	</ion-content>
+  <ion-footer-bar align-title="left" keyboard-attach class="setbar">
+    <h1 class="title">Select color</h1>
+    <button class="button">set</button>
+  </ion-footer-bar>
+</ion-view>
