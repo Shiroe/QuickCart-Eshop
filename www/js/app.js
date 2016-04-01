@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives', 'ngAnimate'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives', 'starter.services', 'ngAnimate'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -19,7 +19,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-    
+
     // then override any default you want
         window.plugins.nativepagetransitions.globalOptions.duration = 500;
         window.plugins.nativepagetransitions.globalOptions.iosdelay = 350;
@@ -29,8 +29,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
         // these are used for slide left/right only currently
         window.plugins.nativepagetransitions.globalOptions.fixedPixelsTop = 0;
         window.plugins.nativepagetransitions.globalOptions.fixedPixelsBottom = 0;
-     
-    
+
+
   });
 })
 
@@ -42,7 +42,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl'
   })
-  	
+
   .state('app', {
     url: '/app',
     abstract: true,
@@ -59,15 +59,79 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
       }
     }
   })
+
   .state('app.qcart', {
     url: '/qcart',
     views: {
       'menuContent': {
         templateUrl: 'templates/qcart.html',
 		controller: 'QcartCtrl'
+      },
+	  'right-menu' : {
+	    templateUrl : "templates/menu.html"
+	  }
+
+    }
+  })
+
+  .state('app.offers', {
+    url: '/offers',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/offers.html',
+		controller: 'OffersCtrl'
       }
     }
   })
+
+  .state('app.checkout', {
+    url: '/checkout',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/checkout.html',
+        controller: 'checkoutCtrl'
+      }
+    }
+  })
+
+  .state('app.orders', {
+    url: '/orders',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/orders.html',
+		controller: 'OrdersCtrl'
+      }
+    }
+  })
+
+  .state('app.order', {
+    url: '/orders/:orderId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/order.html',
+		controller: 'OrderCtrl'
+      }
+    }
+  })
+
+   .state('app.repeatOrder', {
+    url: '/orders/repeatOrder/:orderId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/repeatOrder.html',
+		controller: 'repeatOrderCtrl'
+      }
+    }
+  })
+
+  .state('app.profile', {
+      url: '/profile',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/profile.html'
+        }
+      }
+    })
 
   .state('app.browse', {
       url: '/browse',
@@ -77,6 +141,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
         }
       }
     })
+
     .state('app.playlists', {
       url: '/playlists',
       views: {
