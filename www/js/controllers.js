@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
 .controller('LoginCtrl', function($scope, $state, $ionicViewSwitcher, $ionicModal, $timeout, $ionicPlatform,$ionicLoading,focus,$window) {
-	
+
 	$scope.$on('$ionicView.enter', function(e) {
 		$scope.inputHeight = 55;
 		$scope.inputmaskClass = 'input-mask';
@@ -11,7 +11,7 @@ angular.module('starter.controllers', [])
 		$scope.hideKeyboardTimer;
 		$scope.loginact = false;
 	});
-	
+
 	$scope.inputDidFocus = function (inp){
 	    $scope.contentHeight =  220+'px';
 		$scope.imgContentHeight = 110+'px';
@@ -24,29 +24,29 @@ angular.module('starter.controllers', [])
 			focus(inp);
 		},650);
 	}
-	
-	
+
+
 	window.addEventListener('native.keyboardshow', function(e){
 		$scope.keyboardShowHandler(e);
 	    $scope.contentHeight =  e.keyboardHeight+'px';
 		$scope.imgContentHeight = (e.keyboardHeight/2.0)+'px';
 	    $scope.$digest();
 	});
-	
+
 	$scope.keyboardShowHandler = function(e){
 	    $timeout.cancel($scope.hideKeyboardTimer);
 	};
-	
+
 	// This event fires when the keyboard will hide
-	
+
 	window.addEventListener('native.keyboardhide',  function(e){
 		$scope.hideKeyboardTimer = $timeout(function() { $scope.keyboardHideHandler(e); }, 100);
-		
+
 	});
-	
+
 	$scope.keyboardHideHandler = function(e){
 	    //console.log('Goodnight, sweet prince');
-	    if(!$scope.loginact){ 
+	    if(!$scope.loginact){
 		    $scope.contentHeight =  '0px';
 		    $scope.imgContentHeight = 0+'px';
 		}
@@ -54,10 +54,10 @@ angular.module('starter.controllers', [])
 		$scope.inputmaskClass = 'input-mask';
 	    $scope.$digest();
 	};
-	
-	
-	
-	
+
+
+
+
 	$scope.login = function(){
 		// Setup the loader
 		$scope.loginact = true;
@@ -74,22 +74,89 @@ angular.module('starter.controllers', [])
 			//$ionicLoading.hide();
 		//}, 5000);
 	};
-	
+
 })
 .controller('DashCtrl', function($scope, $state, $ionicViewSwitcher, $ionicModal, $timeout, $ionicPlatform,$ionicLoading,focus,$window) {
+	
 	$scope.showQuickCart = function(){
-		$state.go('app.qcart');   
-		/*window.plugins.nativepagetransitions.slide(
-		  {"direction":"up"},
-		  function (msg) {console.log("success: " + msg)}, // called when the animation has finished
-		  function (msg) {alert("error: " + msg)} // called in case you pass in weird values
-		);*/
+		$state.go('app.qcart');
 	};
-	
-	
+
+
 })
 .controller('QcartCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
 	$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
+
+	$scope.showOffers = function(){
+		$state.go('app.offers');
+	};
+	
+	
+	$ionicModal.fromTemplateUrl('templates/cart.html', function($ionicModal) {
+        $scope.modal = $ionicModal;
+    }, {
+        // Use our scope for the scope of the modal to keep it simple
+        scope: $scope,
+        // The animation we want to use for the modal entrance
+        animation: 'slide-right-left'
+    });
+
+		$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
+					$scope.editProduct={
+						btnColor : 'add',
+						btnTitle : 'Add to cart',
+						sizes:[
+							{
+								title:"Large",
+								designs:[
+									{ title:"design_name", img:"http://name_to_img.png" },
+									{ title:"design_name", img:"http://name_to_img.png" },
+									{ title:"design_name", img:"http://name_to_img.png" },
+									{ title:"design_name", img:"http://name_to_img.png" },
+								]
+							}
+						]
+					};
+				  $scope.productEdit = $ionicModal;
+	    }, {
+	        // Use our scope for the scope of the modal to keep it simple
+	        scope: $scope,
+	        // The animation we want to use for the modal entrance
+	        animation: 'scale-in'
+	    });
+
+})
+.controller('OffersCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
+	$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
+	$scope.showCheckout = function(){
+		$state.go('app.checkout');
+	};
+})
+.controller('checkoutCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
+	$scope.products=[1,2,3,4];
+})
+
+.controller('OrdersCtrl', function($scope, $stateParams) {
+})
+.controller('OrderCtrl', function($scope, $stateParams) {
+	$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
+})//repeatOrderCtrl
+
+.controller('repeatOrderCtrl', function($scope, $stateParams, $ionicModal) {
+	$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
+
+	$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
+				$scope.editProduct={
+					btnColor : 'orange',
+					btnTitle : 'Chenge'
+				};
+				$scope.productEdit = $ionicModal;
+		}, {
+				// Use our scope for the scope of the modal to keep it simple
+				scope: $scope,
+				// The animation we want to use for the modal entrance
+				animation: 'scale-in'
+		});
 })
 .controller('AppCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
 
@@ -98,9 +165,9 @@ angular.module('starter.controllers', [])
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
   $scope.$on('$ionicView.enter', function(e) {
-  
+
   });
-	
+
   // Form data for the login modal
   $scope.loginData = {};
 
