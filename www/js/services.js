@@ -22,7 +22,186 @@ angular.module("starter.services", [])
     return true;
   }
   this.login = function functionName(email,password) {
-    return true;
+    //return true;
+      var response = {
+        "status":"success|fail",
+        "token":"JSD4345JjdSD32s#!@3",
+        "user_info":{
+          "user_id":1234,
+          "first_name":"Nick",
+          "last_name":"Mouroutis",
+          "email":"nikos@mouroutis.com",
+          "phone":"+357899123456",
+          "addresses":[
+            {
+              "name":"home",
+              "default":true,
+              "country":"Greece",
+              "state":"Attika",
+              "city":"N. Iraklio",
+              "zipcode":"14122",
+              "street":"Irakliou Ave",
+              "number":"313",
+              "flour":2,
+              "notes":"some notes for the home"
+            }
+          ]
+        },
+        "user_products":[
+          {
+            "product_id":1234,
+            "category":["shampoo","diapers"],
+            "name":"Name of the product 1",
+            "img":"img/pufies-pack.png",
+            "price":10.50,
+            "regular_price":20.12,
+            "attributes":{
+              "size":["L","M","S"],
+              "design":[
+                {
+                  "name":"name of design",
+                  "img":"http://url-to-design.png",
+                  "slug":"design_1"
+                },
+                {
+                  "name":"name of design",
+                  "img":"http://url-to-design.png",
+                  "slug":"design_1"
+                }
+              ]
+            }
+          },
+          {
+            "product_id":1235,
+            "category":["shampoo","diapers"],
+            "name":"Name of the product 2",
+            "img":"img/pufies-pack.png",
+            "price":11.50,
+            "regular_price":21.12,
+            "attributes":{
+              "size":["L","M","S"],
+              "design":[
+                {
+                  "name":"name of design",
+                  "img":"http://url-to-design.png",
+                  "slug":"design_1"
+                },
+                {
+                  "name":"name of design",
+                  "img":"http://url-to-design.png",
+                  "slug":"design_1"
+                }
+              ]
+            }
+          },
+          {
+            "product_id":1236,
+            "category":["shampoo","diapers"],
+            "name":"Name of the product 3",
+            "img":"img/pufies-pack.png",
+            "price":12.50,
+            "regular_price":22.12,
+            "attributes":{
+              "size":["L","M","S"],
+              "design":[
+                {
+                  "name":"name of design",
+                  "img":"http://url-to-design.png",
+                  "slug":"design_1"
+                },
+                {
+                  "name":"name of design",
+                  "img":"http://url-to-design.png",
+                  "slug":"design_1"
+                }
+              ]
+            }
+          },
+          {
+            "product_id":1237,
+            "category":["shampoo","diapers"],
+            "name":"Name of the product 4",
+            "img":"img/pufies-pack.png",
+            "price":13.50,
+            "regular_price":23.12,
+            "attributes":{
+              "size":["L","M","S"],
+              "design":[
+                {
+                  "name":"name of design",
+                  "img":"http://url-to-design.png",
+                  "slug":"design_1"
+                },
+                {
+                  "name":"name of design",
+                  "img":"http://url-to-design.png",
+                  "slug":"design_1"
+                }
+              ]
+            }
+          },
+          {
+            "product_id":1238,
+            "category":["shampoo","diapers"],
+            "name":"Name of the product 5",
+            "img":"img/pufies-pack.png",
+            "price":10.50,
+            "regular_price":20.12,
+            "attributes":{
+              "size":["L","M","S"],
+              "design":[
+                {
+                  "name":"name of design",
+                  "img":"http://url-to-design.png",
+                  "slug":"design_1"
+                },
+                {
+                  "name":"name of design",
+                  "img":"http://url-to-design.png",
+                  "slug":"design_1"
+                }
+              ]
+            }
+          }
+        ],
+        "user_offers":[
+          {
+            "product_id":1234,
+            "category":["shampoo","diapers"],
+            "name":"Name of the offer",
+            "img":"http://url-to-image.png",
+            "price":10.50,
+            "regular_price":20.12,
+            "attributes":{
+              "size":["L","M","S"],
+              "design":[
+                {
+                  "name":"name of design",
+                  "img":"http://url-to-design.png",
+                  "slug":"design_1"
+                },
+                {
+                  "name":"name of design",
+                  "img":"http://url-to-design.png",
+                  "slug":"design_1"
+                }
+              ]
+            }
+          }
+        ],
+        "user_orders":[
+          {
+            "order_id":12345,
+            "date":"dd-MM-YYYY+hh:mm",
+            "shipped":"dd-MM-YYYY+hh:mm",
+            "total":23.40,
+            "status":"order_status",
+            "repeat_available":true
+          }
+        ]
+      };
+
+      return response;
   }
   this.order = function functionName(order_id) {
     return true;

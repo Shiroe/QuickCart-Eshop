@@ -1,0 +1,161 @@
+<ion-view view-title="Checkout" class="checkout" id="checkoutContent" style="background-color: #ececec">
+	<!--ion-nav-buttons side="right">
+		<div class="right-nav">
+	    	<div class="level">
+		    	<span class="discount">-7%</span><span class="text">DISCOUNT<br/>LEVEL 4</span>
+	    	</div>
+	    	<div class="cart"  ng-click="modal.show()">
+		    	<img ng-src="img/nav-cart-white.png"/>
+		    	<span class="items">11</span>
+		    	<span class="text">
+		    		<span class="product nav">
+		    			<div class="price">
+						    <span class="float">40<br/>euro</span>
+						    <span class="int">33</span>
+					    </div>
+		    		</span>
+				</span>
+	    	</div>
+		</div>
+  </ion-nav-buttons-->
+  <ion-content class="greybg" style="margin-bottom: 43px;" >
+
+  	<div class="row wizardbar-wrap" style="text-align: center;">
+	    <div class="wizardbar" style="display: inline-block !important;">
+			<a class="wizardbar-item current">
+				1 View cart
+			</a>
+			<a class="wizardbar-item current" >
+				2 Promotions
+			</a>
+			<a class="wizardbar-item current" >
+				3 Preview & payment
+			</a>
+		</div>
+  	</div>
+
+      <ion-list class="cart">
+        <ion-item class="row"  ng-repeat="product in products" ng-class="{greybg:!($index % 2)}">
+              <div class="col col-100">
+                <div class="product cart row" >
+                  <div class="col col-100">
+                    <div class="category">Shampoo</div>
+                    <div class="title">All Nature Honey & Linden Blossom</div>
+                    <div class="attributes">
+                      <span class="label">Size:</span> <span class="value">Large</span>
+                      <span class="label">Color:</span> <span class="value">blue</span>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="stockChange row">
+                          <div class="col">
+                            <button class="button button-change">-</button>
+                          </div>
+                          <div class="col">
+                            <button class="button button-dark button-clear">5</button>
+                          </div>
+                          <div class="col">
+                            <button class="button button-change">+</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="prices">
+                          <div class="offer price">
+                            <span class="float">40<br/>€</span>
+                            <span class="int">33</span>
+                          </div>
+                          <div class="price">
+                            <span class="float">40<br/>€</span>
+                            <span class="int">33</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <ion-option-button side="left" class="button-assertive icon ion-trash-a"></ion-option-button>
+          </ion-item>
+      </ion-list>
+
+      <div class="row total">
+        <div class="col">
+          <div class="title">Order total:</div>
+        </div>
+        <div class="col prices">
+          <div class="price">
+            <span class="float">40<br/>€</span>
+            <span class="int">33</span>
+          </div>
+        </div>
+      </div>
+      <div class="shipping">
+	      <div class="title">Shipping address:</div>
+		  <div class="value"><img ng-src="img/pin.png"> 313 Irakleiou Ave. 14122 (Athens, Greece)<br/></div>
+      </div>
+
+      <div class="payment">
+
+	      <div class="pay_tabs">
+		      <div class="row">
+			      <div class="col">
+
+				  	<div class="button button-block pay_tab selected">
+					  	pay with card
+						<div class="arrow-wrap"><div class="arrow"></div></div>
+					</div>
+
+			      </div>
+
+			      <div class="col">
+
+				    <div class="button button-block pay_tab">
+					  	pay with cash
+						<div class="arrow-wrap"><div class="arrow"></div></div>
+					</div>
+
+			      </div>
+		      </div>
+	      </div>
+
+	      <div class="cardDetails">
+		      <div class="list">
+		    	<div class="row">
+			    	<div class="col">
+				  		<label class="item item-input">
+				  			<input type="tel" placeholder="Card Number">
+				  		</label>
+			    	</div>
+		      	</div>
+		    	<div class="row">
+			    	<div class="col">
+				  		<label class="item item-input">
+				  			<input type="month" placeholder="mm/Year">
+				  		</label>
+			    	</div>
+			    	<div class="col">
+				  		<label class="item item-input">
+				  			<input type="tel" placeholder="CCV">
+				  		</label>
+			    	</div>
+		      	</div>
+		    	<div class="row">
+			    	<div class="col">
+				  		<label class="item item-input">
+				  			<input type="text" placeholder="Name on card">
+				  		</label>
+			    	</div>
+		      	</div>
+		      </div>
+	      </div>
+      </div>
+
+
+  </ion-content>
+
+	    <div ng-click="showOffers()" keyboard-attach class="bar bar-footer green">
+		  <div class="title">Complete Order</div>
+		</div>
+
+</ion-view>

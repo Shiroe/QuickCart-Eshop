@@ -84,14 +84,28 @@ angular.module('starter.controllers', [])
 
 
 })
-.controller('QcartCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
-	$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
+.controller('QcartCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, $server) {
+
+	//$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
+
+	$scope.chunk = function(arr, size){
+		var newArr = [];
+			for (var i=0; i<arr.length; i+=size) {
+				newArr.push(arr.slice(i, i+size));
+			}
+			return newArr;
+	};
+
+	var data = $server.login();
+	$scope.products = $scope.chunk(data.user_products, 2);
+
+	console.log($scope.products);
 
 	$scope.showOffers = function(){
 		$state.go('app.offers');
 	};
-	
-	
+
+
 	$ionicModal.fromTemplateUrl('templates/cart.html', function($ionicModal) {
         $scope.modal = $ionicModal;
     }, {
@@ -158,6 +172,15 @@ angular.module('starter.controllers', [])
 				animation: 'scale-in'
 		});
 })
+
+.controller('editProductCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
+	
+	$scope.product_options = {
+		
+	}
+	
+})
+
 .controller('AppCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
