@@ -6,12 +6,12 @@
 	    	</div>
 	    	<div class="cart"  ng-click="modal.show()">
 		    	<img ng-src="img/nav-cart-white.png"/>
-		    	<span class="items">11</span>
+		    	<span class="items">{{cart.count}}</span>
 		    	<span class="text">
 		    		<span class="product nav">
-		    			<div class="price">
-						    <span class="float">40<br/>euro</span>
-						    <span class="int">33</span>
+		    			<div class="price" ng-model="$scope.cart">
+						    <span class="float">{{cart.total | float}}<br/></span>
+						    <span class="int">{{cart.total | integer}}</span>
 					    </div>
 		    		</span>
 				</span>
@@ -49,7 +49,7 @@
 					        <span class="int">{{item.price | integer}}</span>
 				        </div>
 			        </div>
-			        <button ng-click="" class="button add button-block repeat">Add to cart</button>
+			        <button ng-click="productEdit.show()" class="button add button-block repeat">Add to cart</button>
 		        </div>
 	    	</div>
 	    </div>

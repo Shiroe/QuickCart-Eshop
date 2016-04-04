@@ -77,17 +77,17 @@ angular.module('starter.controllers', [])
 
 })
 .controller('DashCtrl', function($scope, $state, $ionicViewSwitcher, $ionicModal, $timeout, $ionicPlatform,$ionicLoading,focus,$window) {
-	
+
 	$scope.showQuickCart = function(){
 		$state.go('app.qcart');
 	};
 
 
 })
-.controller('QcartCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, $server) {
+.controller('QcartCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, $server, Cart) {
 
 	//$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
-
+	$scope.cart = Cart.getProducts();
 	$scope.chunk = function(arr, size){
 		var newArr = [];
 			for (var i=0; i<arr.length; i+=size) {
@@ -99,7 +99,7 @@ angular.module('starter.controllers', [])
 	var data = $server.login();
 	$scope.products = $scope.chunk(data.user_products, 2);
 
-	console.log($scope.products);
+	console.log($scope.cart);
 
 	$scope.showOffers = function(){
 		$state.go('app.offers');
@@ -173,12 +173,97 @@ angular.module('starter.controllers', [])
 		});
 })
 
-.controller('editProductCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
-	
-	$scope.product_options = {
-		
+.controller('editProductCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, Cart) {
+	$scope.quantity = 1;
+	$scope.product = {
+				  "product_id":1234,
+				  "category":["shampoo","diapers"],
+				  "name":"Name of the product",
+				  "img":"http://url-to-image.png",
+				  "price":10.50,
+				  "regular_price":20.12,
+				  "attributes":[
+						{
+				    "size":"Medium",
+				    "designs":[
+							{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_1"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_2"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      }
+						]
+				  },
+					{
+					"size":"Large",
+
+					"designs":[
+						{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_1"
+						},{
+							"name":"name of design",
+							"img":"img/design_1.png",
+							"slug":"design_2"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						}
+					]
+				}
+				]
+				};
+	//$scope.current_designs = [];
+	$scope.size_changed = function(selected){
+		console.log(selected);
+		$scope.size = selected.size;
+		$scope.current_designs = selected.designs;
+	};
+
+	$scope.designSelected = function(selected){
+		console.log(selected);
+		$scope.selectedDesign = selected;
 	}
-	
+
+	$scope.addToCart = function(){
+			//$scope.product.attributes = {};
+			$scope.product.attributes.size = $scope.size;
+			$scope.product.attributes.design = $scope.selectedDesign;
+			$scope.product.attributes.count = $scope.quantity;
+			console.log($scope.product);
+			Cart.add($scope.product);
+			//productEdit.hide();
+	};
+
+	$scope.removeCount = function(){
+		if($scope.quantity > 1){
+			$scope.quantity -= 1;
+		}else{
+			//do nothing
+		}
+	};
+
+	$scope.addCount = function(){
+		$scope.quantity += 1;
+	};
+
 })
 
 .controller('AppCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {

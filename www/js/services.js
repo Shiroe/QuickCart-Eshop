@@ -17,6 +17,88 @@ angular.module("starter.services", [])
   }
 }])
 
+.factory('Cart', [function(){
+  var total = 0;
+  var count = 0;
+  var products = {"products": [
+    {"product_id":1234,
+    "category":["shampoo","diapers"],
+    "name":"Name of the product 1",
+    "img":"http://url-to-image.png",
+    "price":10.50,
+    "regular_price":20.12,
+    "attributes":{
+      "size":"Small",
+      "design":{
+          "name":"name of design",
+          "img":"http://url-to-design.png",
+          "slug":"design_1"
+        },
+      "count": 1
+      }
+    },{
+    "product_id":1234,
+    "category":["shampoo","diapers"],
+    "name":"Name of the product 2",
+    "img":"http://url-to-image.png",
+    "price":10.50,
+    "regular_price":20.12,
+    "attributes":{
+      "size":"Large",
+      "design":{
+          "name":"name of design",
+          "img":"http://url-to-design.png",
+          "slug":"design_1"
+        },
+      "count": 1
+      }
+    },{
+    "product_id":1235,
+    "category":["shampoo"],
+    "name":"Name of the product 3",
+    "img":"http://url-to-image.png",
+    "price":11.00,
+    "regular_price":20.12,
+    "attributes":{
+      "size":"Large",
+      "design":{
+          "name":"name of design",
+          "img":"http://url-to-design.png",
+          "slug":"design_1"
+        },
+      "count": 2
+      }
+    }],
+    "total" : 32.00 ,
+    "count" : 4
+  };
+
+  var getProducts = function(){
+    return products;
+  }
+
+  var add = function(product){
+    products.total += (product.price * product.attributes.count);
+    products.count += product.attributes.count;
+    products.products.push(product);
+  };
+
+  var remove = function(id){
+
+  };
+
+  var removeAll = function(){
+    products = { "products": [{}], "total": 0, "count": 0};
+  };
+
+  return {
+    removeAll: removeAll,
+    remove: remove,
+    add: add,
+    getProducts: getProducts
+  }
+}])
+
 .service('$server',['$localstorage', function($localstorage) {
   this.connect = function functionName(user_id,token) {
     return true;

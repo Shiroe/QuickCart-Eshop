@@ -6,27 +6,20 @@
 
 					<div class="list list-inset">
 
-					
+
 
           <div class="subtitle">Select options:</div>
 					<label class="item item-input item-select">
               <div class="input-label">
                 Size:
               </div>
-              <select>
-                <option>Small</option>
-                <option selected>Medium</option>
-                <option>Large</option>
+              <select ng-model="product_options_size" ng-options="attribute.size for attribute in product.attributes" ng-change="size_changed(product_options_size)" ng-init="product_options_size = product.attributes[0]">
               </select>
             </label>
             <div class="designSelect">
               <!-- <div class="subtitle">Select design:</div> -->
-              <div class="row">
-                <div class="col design selected"> <img ng-src="img/design_1.png"/> </div>
-                <div class="col design"> <img ng-src="img/design_2.png"/> </div>
-                <div class="col design"> <img ng-src="img/design_1.png"/> </div>
-                <div class="col design"> <img ng-src="img/design_2.png"/> </div>
-                <div class="col design"> <img ng-src="img/design_1.png"/> </div>
+              <div class="row" ng-model="$scope.current_designs">
+                <div class="col design" ng-repeat="design in current_designs" ng-click="designSelected(design)"> <img ng-src="{{design.img}}"/> </div>
               </div>
             </div>
             <div class="row row-center">
@@ -36,13 +29,13 @@
 	            <div class="col">
 		            <div class="stockChange row">
 		              <div class="">
-		                <button class="button button-change" style="float: left;">-</button>
+		                <button class="button button-change" style="float: left;" ng-click="removeCount()">-</button>
 		              </div>
 		              <div class="col col-100" style="text-align: center;">
-		                <button class="button button-dark button-clear">5</button>
+		                <button class="button button-dark button-clear" ng-model="$scope.quantity">{{quantity}}</button>
 		              </div>
 		              <div class="">
-		                <button class="button button-change" style="float: right;">+</button>
+		                <button class="button button-change" style="float: right;" ng-click="addCount()">+</button>
 		              </div>
 		            </div>
 	            </div>
@@ -64,7 +57,7 @@
                  <button ng-click="productEdit.hide()" class="button button-block repeat">Cancel</button>
             </div>
             <div class="col">
-                 <button ng-click="productEdit.show()" class="button {{editProduct.btnColor}} button-block repeat">{{editProduct.btnTitle}}</button>
+                 <button ng-click="addToCart()" class="button {{editProduct.btnColor}} button-block repeat">{{editProduct.btnTitle}}</button>
             </div>
           </div>
         </div>
