@@ -69,13 +69,18 @@ angular.module("starter.services", [])
       "count": 2
       }
     }],
-    "total" : 32.00 ,
+    "total" : 43.00 ,
     "count" : 4
   };
 
   var getProducts = function(){
     return products;
-  }
+  };
+
+  var updateCount = function(product){
+    console.log(products.products[product]);
+    //products.products[product].count = product.attributes.count;
+  };
 
   var add = function(product){
     products.total += (product.price * product.attributes.count);
@@ -83,8 +88,10 @@ angular.module("starter.services", [])
     products.products.push(product);
   };
 
-  var remove = function(id){
-
+  var remove = function(product){
+     products.products.splice(product, 1);
+     //console.log(products.products);
+     //delete products.products[product];
   };
 
   var removeAll = function(){
@@ -95,7 +102,8 @@ angular.module("starter.services", [])
     removeAll: removeAll,
     remove: remove,
     add: add,
-    getProducts: getProducts
+    getProducts: getProducts,
+    updateCount: updateCount
   }
 }])
 

@@ -1,43 +1,43 @@
-<ion-view  view-title=" "   class="modal cart cartmodal">
+<ion-view  view-title=" "   class="modal cart cartmodal" ng-controller="CartCtrl">
 	<div class="bar bar-header bar-light">
 		<div class="icon ion-android-close"></div>
 		<h1 class="title">Basket</h1>
 	</div>
 	<ion-content>
 	<ion-list>
-		<ion-item class="row"  ng-repeat="product in products" ng-class="{greybg:!($index % 2)}">
+		<ion-item class="row"  ng-repeat="product in products.products" ng-class="{greybg:!($index % 2)}">
 	        <div class="col col-100">
 		        <div class="product cart row" >
 			        <div class="col col-100">
-				        <div class="category">Shampoo</div>
-				        <div class="title">All Nature Honey & Linden Blossom</div>
+				        <div class="category" ng-repeat="cat in product.category">{{cat}}</div>
+				        <div class="title">{{product.name}}</div>
 				        <div class="attributes">
-					        <span class="label">Size:</span> <span class="value">Large</span>
+					        <span class="label">Size:</span> <span class="value">{{product.attributes.size}}</span>
 					        <span class="label">Color:</span> <span class="value">blue</span>
 				        </div>
 				        <div class="row">
 					        <div class="col">
 						        <div class="stockChange row">
 							        <div class="col">
-							        	<button class="button button-change">-</button>
+							        	<button class="button button-change" ng-click="removeCount(product)">-</button>
 							        </div>
 							        <div class="col">
-							        	<button class="button button-dark button-clear">5</button>
+							        	<button class="button button-dark button-clear">{{product.attributes.count}}</button>
 							        </div>
 							        <div class="col">
-							        	<button class="button button-change">+</button>
+							        	<button class="button button-change" ng-click="addCount(product)">+</button>
 							        </div>
 						        </div>
 					        </div>
 					        <div class="col">
 						        <div class="prices">
 							        <div class="offer price">
-								        <span class="float">40<br/>€</span>
-								        <span class="int">33</span>
+								        <span class="float">{{ getRegularTotal(product) | float}}<br/>€</span>
+								        <span class="int">{{ getRegularTotal(product) | integer}}</span>
 							        </div>
-							        <div class="price">
-								        <span class="float">40<br/>€</span>
-								        <span class="int">33</span>
+							        <div class="price" >
+								        <span class="float">{{ getTotal(product) | float }}<br/>€</span>
+								        <span class="int">{{ getTotal(product) | integer }}</span>
 							        </div>
 						        </div>
 					        </div>
@@ -45,7 +45,7 @@
 			        </div>
 		        </div>
 	    	</div>
-	    	<ion-option-button side="left" class="button-assertive icon ion-trash-a"></ion-option-button>
+	    	<ion-option-button side="left" class="button-assertive icon ion-trash-a" ng-click="deleteItem($index)"></ion-option-button>
 	    </ion-item>
 	</ion-list>
 	</ion-content>

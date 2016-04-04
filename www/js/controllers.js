@@ -184,6 +184,32 @@ angular.module('starter.controllers', [])
 				  "regular_price":20.12,
 				  "attributes":[
 						{
+				    "size":"Small",
+				    "designs":[
+							{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_1"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_2"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      }
+						]
+				  },
+						{
 				    "size":"Medium",
 				    "designs":[
 							{
@@ -194,6 +220,14 @@ angular.module('starter.controllers', [])
 				        "name":"name of design",
 				        "img":"img/design_2.png",
 				        "slug":"design_2"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
@@ -304,6 +338,44 @@ angular.module('starter.controllers', [])
     console.log('Doing login', $scope.loginData);
 	$scope.login();
   };*/
+})
+
+.controller('CartCtrl', function($scope, Cart) {
+  $scope.products = Cart.getProducts();
+	console.log($scope.products);
+
+	$scope.getTotal = function(product){
+    var total = 0;
+  	total += (product.price * product.attributes.count);
+    return total;
+	}
+
+	$scope.getRegularTotal = function(product){
+		var total = 0;
+		total += (product.regular_price * product.attributes.count);
+		return total;
+	}
+
+	$scope.deleteItem = function(product){
+		console.log("deleting" + product);
+		Cart.remove(product);
+	}
+
+	$scope.removeCount = function(product){
+		if(product.attributes.count > 1){
+			product.attributes.count -= 1;
+			Cart.updateCount(product);
+		}else{
+			//do nothing
+		}
+	};
+
+	$scope.addCount = function(product){
+		product.attributes.count += 1;
+		Cart.updateCount(product);
+	};
+
+
 })
 
 .controller('PlaylistsCtrl', function($scope) {
