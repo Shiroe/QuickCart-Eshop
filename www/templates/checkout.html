@@ -39,35 +39,35 @@
               <div class="col col-100">
                 <div class="product cart row" >
                   <div class="col col-100">
-                    <div class="category">Shampoo</div>
-                    <div class="title">All Nature Honey & Linden Blossom</div>
+                    <div class="category" ng-repeat="cat in prouct.category">{{cat}}</div>
+                    <div class="title">{{product.name}}</div>
                     <div class="attributes">
-                      <span class="label">Size:</span> <span class="value">Large</span>
-                      <span class="label">Color:</span> <span class="value">blue</span>
+                      <span class="label">Size:</span> <span class="value">{{product.attributes.size}}</span>
+                      <span class="label">Color:</span> <span class="value">{{product.attributes.design.name}}</span>
                     </div>
                     <div class="row">
                       <div class="col">
                         <div class="stockChange row">
                           <div class="col">
-                            <button class="button button-change">-</button>
+                            <button class="button button-change" ng-click="removeCount(product)">-</button>
                           </div>
                           <div class="col">
-                            <button class="button button-dark button-clear">5</button>
+                            <button class="button button-dark button-clear">{{product.attributes.count}}</button>
                           </div>
                           <div class="col">
-                            <button class="button button-change">+</button>
+                            <button class="button button-change" ng-click="addCount(product)">+</button>
                           </div>
                         </div>
                       </div>
                       <div class="col">
                         <div class="prices">
                           <div class="offer price">
-                            <span class="float">40<br/>€</span>
-                            <span class="int">33</span>
+                            <span class="float">{{ getRegularTotal(product) | float}}<br/>€</span>
+                            <span class="int">{{ getRegularTotal(product) | integer}}</span>
                           </div>
                           <div class="price">
-                            <span class="float">40<br/>€</span>
-                            <span class="int">33</span>
+                            <span class="float">{{ getTotal(product) | float }}<br/>€</span>
+                            <span class="int">{{ getTotal(product) | integer }}</span>
                           </div>
                         </div>
                       </div>
@@ -75,7 +75,7 @@
                   </div>
                 </div>
             </div>
-            <ion-option-button side="left" class="button-assertive icon ion-trash-a"></ion-option-button>
+            <ion-option-button side="left" class="button-assertive icon ion-trash-a" ng-click="deleteItem(product)"></ion-option-button>
           </ion-item>
       </ion-list>
 
@@ -85,8 +85,8 @@
         </div>
         <div class="col prices">
           <div class="price">
-            <span class="float">40<br/>€</span>
-            <span class="int">33</span>
+            <span class="float">{{cart.total | float}}<br/>€</span>
+            <span class="int">{{cart.total | integer}}</span>
           </div>
         </div>
       </div>

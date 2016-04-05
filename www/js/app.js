@@ -65,7 +65,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
     views: {
       'menuContent': {
         templateUrl: 'templates/qcart.html',
-		controller: 'QcartCtrl'
+		    controller: 'QcartCtrl'
       },
 	  'right-menu' : {
 	    templateUrl : "templates/menu.html"

@@ -5,7 +5,7 @@
 	</div>
 	<ion-content>
 	<ion-list>
-		<ion-item class="row"  ng-repeat="product in products.products" ng-class="{greybg:!($index % 2)}">
+		<ion-item class="row" ng-model="cart" ng-repeat="product in cart.products" ng-class="{greybg:!($index % 2)}">
 	        <div class="col col-100">
 		        <div class="product cart row" >
 			        <div class="col col-100">
@@ -45,12 +45,12 @@
 			        </div>
 		        </div>
 	    	</div>
-	    	<ion-option-button side="left" class="button-assertive icon ion-trash-a" ng-click="deleteItem($index)"></ion-option-button>
+	    	<ion-option-button side="left" class="button-assertive icon ion-trash-a" ng-click="deleteItem(product)"></ion-option-button>
 	    </ion-item>
 	</ion-list>
 	</ion-content>
 	<div class="tabs">
-	  <a class="tab-item col-75">
+	  <a class="tab-item col-75" ng-click="Close()">
 	    Continue shopping
 	  </a>
 	  <a class="tab-item col-25">

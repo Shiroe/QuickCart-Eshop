@@ -18,36 +18,54 @@ angular.module("starter.services", [])
 }])
 
 .factory('Cart', [function(){
-  var cart_data = { "products": [{}], "total": 0, "count": 0};
-  /*
-var total = 0;
-  var count = 0;
-*/
-  
+  var cart_data = { "products": [], "total": 0, "count": 0};
+
   var getProducts = function(){
-    return cart_data.products;
+    return cart_data;
   };
 
   var updateCount = function(product){
-    console.log(cart_data.products[product]);
-    //products.products[product].count = product.attributes.count;
+    var lcount = 0;
+    var ltotal = 0;
+    angular.forEach(cart_data.products, function(value, key){
+			if(value === product){
+        cart_data.products[key].attributes.count = product.attributes.count;
+        calculate();
+			}else{
+
+      }
+		})
+    //console.log(cart_data);
   };
 
   var add = function(product){
     cart_data.total += (product.price * product.attributes.count);
     cart_data.count += product.attributes.count;
     cart_data.products.push(product);
+    //console.log(product);
   };
 
   var remove = function(product){
+     cart_data.total -= (product.price * product.attributes.count);
+     cart_data.count -= product.attributes.count;
      cart_data.products.splice(product, 1);
-     //console.log(products.products);
-     //delete products.products[product];
+     calculate();
   };
 
   var removeAll = function(){
     cart_data = { "products": [{}], "total": 0, "count": 0};
   };
+  var calculate = function(){
+    var cc = 0;
+    var tt = 0;
+    for(var i=0; i<cart_data.products.length; i++){
+      tt += (cart_data.products[i].attributes.count * cart_data.products[i].price);
+      cc += cart_data.products[i].attributes.count;
+    }
+    cart_data.total = tt;
+    cart_data.count = cc;
+    //console.log("total count : " + cc + " " + "total price : " + tt);
+  }
 
   return {
     removeAll: removeAll,
@@ -90,12 +108,12 @@ var total = 0;
         },
         "user_products":[
         	{
-				"product_id":1234,
+				"product_id":1,
 				"category":["shampoo","diapers"],
 				"name":"Name of the product",
-				"img":"http://url-to-image.png",
-				"price":10.50,
-				"regular_price":20.12,
+				"img":"img/pufies-pack.png",
+				"price":11.50,
+				"regular_price":21.12,
 				"attributes":[
 					{
 				    "size":"Small",
@@ -179,12 +197,12 @@ var total = 0;
 				]
 			},
         	{
-				"product_id":1234,
+				"product_id":2,
 				"category":["shampoo","diapers"],
 				"name":"Name of the product",
-				"img":"http://url-to-image.png",
-				"price":10.50,
-				"regular_price":20.12,
+				"img":"img/pufies-pack.png",
+				"price":12.50,
+				"regular_price":22.12,
 				"attributes":[
 					{
 				    "size":"Small",
@@ -268,12 +286,12 @@ var total = 0;
 				]
 			},
         	{
-				"product_id":1234,
+				"product_id":3,
 				"category":["shampoo","diapers"],
 				"name":"Name of the product",
-				"img":"http://url-to-image.png",
-				"price":10.50,
-				"regular_price":20.12,
+				"img":"img/pufies-pack.png",
+				"price":13.50,
+				"regular_price":23.12,
 				"attributes":[
 					{
 				    "size":"Small",
@@ -357,12 +375,12 @@ var total = 0;
 				]
 			},
         	{
-				"product_id":1234,
+				"product_id":4,
 				"category":["shampoo","diapers"],
 				"name":"Name of the product",
-				"img":"http://url-to-image.png",
-				"price":10.50,
-				"regular_price":20.12,
+				"img":"img/pufies-pack.png",
+				"price":14.50,
+				"regular_price":24.12,
 				"attributes":[
 					{
 				    "size":"Small",
@@ -444,14 +462,102 @@ var total = 0;
 					]
 				}
 				]
-			},
+			},{
+            "product_id":5,
+            "category":["shampoo","diapers"],
+            "name":"Name of the product",
+            "img":"img/pufies-pack.png",
+            "price":15.50,
+            "regular_price":25.12,
+            "attributes":[
+              {
+                "size":"Small",
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_1"
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_2"
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_3"
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3"
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_3"
+                  }
+                ]
+              },
+              {
+                "size":"Medium",
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_1"
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_2"
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_3"
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_3"
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_3"
+                  }
+                ]
+              },
+              {
+              "size":"Large",
+
+              "designs":[
+                {
+                  "name":"name of design",
+                  "img":"img/design_2.png",
+                  "slug":"design_1"
+                },{
+                  "name":"name of design",
+                  "img":"img/design_1.png",
+                  "slug":"design_2"
+                },{
+                  "name":"name of design",
+                  "img":"img/design_2.png",
+                  "slug":"design_3"
+                },{
+                  "name":"name of design",
+                  "img":"img/design_2.png",
+                  "slug":"design_3"
+                },{
+                  "name":"name of design",
+                  "img":"img/design_2.png",
+                  "slug":"design_3"
+                }
+              ]
+            }
+            ]
+          }
         ],
         "user_offers":[
           {
             "product_id":1234,
             "category":["shampoo","diapers"],
             "name":"Name of the offer",
-            "img":"http://url-to-image.png",
+            "img":"img/pufies-pack.png",
             "price":10.50,
             "regular_price":20.12,
             "attributes":{

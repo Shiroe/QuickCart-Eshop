@@ -4,12 +4,12 @@
 	    	<div class="level">
 		    	<span class="discount">-7%</span><span class="text">DISCOUNT<br/>LEVEL 4</span>
 	    	</div>
-	    	<div class="cart"  ng-click="modal.show()">
+	    	<div class="cart" ng-click="modal.show()">
 		    	<img ng-src="img/nav-cart-white.png"/>
 		    	<span class="items">{{cart.count}}</span>
 		    	<span class="text">
 		    		<span class="product nav">
-		    			<div class="price" ng-model="$scope.cart">
+		    			<div class="price" ng-model="cart">
 						    <span class="float">{{cart.total | float}}<br/></span>
 						    <span class="int">{{cart.total | integer}}</span>
 					    </div>

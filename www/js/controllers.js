@@ -87,7 +87,7 @@ angular.module('starter.controllers', [])
 .controller('QcartCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, $server, Cart) {
 
 	//$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
-	$scope.cart = Cart.getProducts();
+	$scope.cart = Cart.getProducts(); //JSON.stringify(Cart.getProducts());
 	$scope.chunk = function(arr, size){
 		var newArr = [];
 			for (var i=0; i<arr.length; i+=size) {
@@ -98,14 +98,14 @@ angular.module('starter.controllers', [])
 
 	var data = $server.login();
 	$scope.products = $scope.chunk(data.user_products, 2);
-	
-	console.log($scope.cart);
+
+	//console.log($scope.cart);
 
 	$scope.showOffers = function(){
 		$state.go('app.offers');
 	};
 
-	
+
 	$ionicModal.fromTemplateUrl('templates/cart.html', function($ionicModal) {
         $scope.modal = $ionicModal;
     }, {
@@ -114,16 +114,16 @@ angular.module('starter.controllers', [])
         // The animation we want to use for the modal entrance
         animation: 'slide-right-left'
     });
-	
+
 	$scope.showEditProduct = function(product){
-					  
+		var selectedProd = product;
 		$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
 					$scope.editProduct={
 						btnColor : 'add',
 						btnTitle : 'Add to cart'
 					};
 					$scope.productEdit = $ionicModal;
-				  
+
 	    }, {
 	        // Use our scope for the scope of the modal to keep it simple
 	        scope: $scope,
@@ -132,23 +132,54 @@ angular.module('starter.controllers', [])
 	    }).then(function(modal) {
 			$scope.productEdit.show();
 			$scope.quantity = 1;
-			console.log($scope.quantity);
-			$scope.product = product;
+			//console.log($scope.quantity);
+			$scope.product = selectedProd;
 		});
-	    
-	    
-		
+
+
+
 	};
 
 })
 .controller('OffersCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
 	$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
-	$scope.showCheckout = function(){
+		$scope.showCheckout = function(){
 		$state.go('app.checkout');
 	};
 })
-.controller('checkoutCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
-	$scope.products=[1,2,3,4];
+.controller('checkoutCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, Cart) {
+	$scope.cart = Cart.getProducts();
+	$scope.products = $scope.cart.products;
+
+	$scope.getRegularTotal = function(product){
+		var total = 0;
+		total += (product.regular_price * product.attributes.count);
+		return total;
+	}
+
+	$scope.getTotal = function(product){
+		var total = 0;
+		total += (product.price * product.attributes.count);
+		return total;
+	}
+
+	$scope.deleteItem = function(product){
+		//console.log("deleting" + product);
+		Cart.remove(product);
+	}
+
+	$scope.removeCount = function(product){
+		if(product.attributes.count > 1){
+			product.attributes.count -= 1;
+			Cart.updateCount(product);
+		}else{
+		}
+	};
+
+	$scope.addCount = function(product){
+		product.attributes.count += 1;
+		Cart.updateCount(product);
+	};
 })
 
 .controller('OrdersCtrl', function($scope, $stateParams) {
@@ -175,16 +206,20 @@ angular.module('starter.controllers', [])
 })
 
 .controller('editProductCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, Cart) {
-	
+
 	$scope.size_changed = function(selected){
-		console.log(selected);
-		$scope.size = selected.size;
-		$scope.current_designs = selected.designs;
+		var attrs = angular.fromJson($scope.product.attributes);
+		angular.forEach(attrs, function(value, key){
+			if(value['size'] == selected){
+				$scope.current_designs = attrs[key].designs;
+			}
+		})
+		$scope.size = selected;
 	};
 
 	$scope.designSelected = function(selected){
-		console.log(selected);
-		$scope.selectedDesign = selected;
+			//console.log(selected);
+    	$scope.selectedDesign = selected;
 	}
 
 	$scope.addToCart = function(){
@@ -194,16 +229,11 @@ angular.module('starter.controllers', [])
 			productToAdd.attributes.size = $scope.size;
 			productToAdd.attributes.design = $scope.selectedDesign;
 			productToAdd.attributes.count = $scope.quantity;
-			console.log(productToAdd);
+			//console.log(productToAdd);
 			Cart.add(productToAdd);
 			$scope.productEdit.hide();
 	};
-	
-	//Cleanup the modal when we're done with it!
-	$scope.$on('$destroy', function() {
-		$scope.modal.remove();
-	});
-	
+
 	$scope.removeCount = function(){
 		if($scope.quantity > 1){
 			$scope.quantity -= 1;
@@ -259,15 +289,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('CartCtrl', function($scope, Cart) {
-	$scope.$on('modal-shown', function() {
-		refreshCart();
-	});
-	
-	function refreshCart(){
-  		$scope.products = Cart.getProducts();
-  		console.log('cart did refresh: '+$scope.products);
-	}
-  	
+
+	$scope.cart = Cart.getProducts();
 
 	$scope.getTotal = function(product){
     var total = 0;
@@ -282,7 +305,7 @@ angular.module('starter.controllers', [])
 	}
 
 	$scope.deleteItem = function(product){
-		console.log("deleting" + product);
+		//console.log("deleting" + product);
 		Cart.remove(product);
 	}
 
@@ -291,7 +314,6 @@ angular.module('starter.controllers', [])
 			product.attributes.count -= 1;
 			Cart.updateCount(product);
 		}else{
-			//do nothing
 		}
 	};
 
@@ -299,6 +321,10 @@ angular.module('starter.controllers', [])
 		product.attributes.count += 1;
 		Cart.updateCount(product);
 	};
+
+	$scope.Close = function(){
+		console.log($scope.cart);
+	}
 
 
 })

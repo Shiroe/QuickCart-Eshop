@@ -13,13 +13,13 @@
               <div class="input-label">
                 Size:
               </div>
-              <select ng-model="product_options_size" ng-options="attribute.size for attribute in product.attributes" ng-change="size_changed(product_options_size)" ng-init="product_options_size = product.attributes[0]">
+              <select ng-model="product_options_size" ng-options="attribute as attribute.size for attribute in product.attributes" ng-change="size_changed(product_options_size.size)" ngRequired>
               </select>
             </label>
             <div class="designSelect">
               <!-- <div class="subtitle">Select design:</div> -->
               <div class="row" ng-model="$scope.current_designs" >
-                <div class="col design" ng-repeat="design in current_designs" ng-click="designSelected(design)" ng-init="size_changed(product_options_size)"> <img ng-src="{{design.img}}"/> </div>
+                <div class="col design" ng-repeat="design in current_designs" ng-click="designSelected(design)"> <img ng-src="{{design.img}}"/> </div>
               </div>
             </div>
             <div class="row row-center">
