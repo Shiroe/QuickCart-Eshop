@@ -18,84 +18,35 @@ angular.module("starter.services", [])
 }])
 
 .factory('Cart', [function(){
-  var total = 0;
+  var cart_data = { "products": [{}], "total": 0, "count": 0};
+  /*
+var total = 0;
   var count = 0;
-  var products = {"products": [
-    {"product_id":1234,
-    "category":["shampoo","diapers"],
-    "name":"Name of the product 1",
-    "img":"http://url-to-image.png",
-    "price":10.50,
-    "regular_price":20.12,
-    "attributes":{
-      "size":"Small",
-      "design":{
-          "name":"name of design",
-          "img":"http://url-to-design.png",
-          "slug":"design_1"
-        },
-      "count": 1
-      }
-    },{
-    "product_id":1234,
-    "category":["shampoo","diapers"],
-    "name":"Name of the product 2",
-    "img":"http://url-to-image.png",
-    "price":10.50,
-    "regular_price":20.12,
-    "attributes":{
-      "size":"Large",
-      "design":{
-          "name":"name of design",
-          "img":"http://url-to-design.png",
-          "slug":"design_1"
-        },
-      "count": 1
-      }
-    },{
-    "product_id":1235,
-    "category":["shampoo"],
-    "name":"Name of the product 3",
-    "img":"http://url-to-image.png",
-    "price":11.00,
-    "regular_price":20.12,
-    "attributes":{
-      "size":"Large",
-      "design":{
-          "name":"name of design",
-          "img":"http://url-to-design.png",
-          "slug":"design_1"
-        },
-      "count": 2
-      }
-    }],
-    "total" : 43.00 ,
-    "count" : 4
-  };
-
+*/
+  
   var getProducts = function(){
-    return products;
+    return cart_data.products;
   };
 
   var updateCount = function(product){
-    console.log(products.products[product]);
+    console.log(cart_data.products[product]);
     //products.products[product].count = product.attributes.count;
   };
 
   var add = function(product){
-    products.total += (product.price * product.attributes.count);
-    products.count += product.attributes.count;
-    products.products.push(product);
+    cart_data.total += (product.price * product.attributes.count);
+    cart_data.count += product.attributes.count;
+    cart_data.products.push(product);
   };
 
   var remove = function(product){
-     products.products.splice(product, 1);
+     cart_data.products.splice(product, 1);
      //console.log(products.products);
      //delete products.products[product];
   };
 
   var removeAll = function(){
-    products = { "products": [{}], "total": 0, "count": 0};
+    cart_data = { "products": [{}], "total": 0, "count": 0};
   };
 
   return {
@@ -117,7 +68,7 @@ angular.module("starter.services", [])
         "status":"success|fail",
         "token":"JSD4345JjdSD32s#!@3",
         "user_info":{
-          "user_id":1234,
+          "user_id":12,
           "first_name":"Nick",
           "last_name":"Mouroutis",
           "email":"nikos@mouroutis.com",
@@ -138,121 +89,362 @@ angular.module("starter.services", [])
           ]
         },
         "user_products":[
-          {
-            "product_id":1234,
-            "category":["shampoo","diapers"],
-            "name":"Name of the product 1",
-            "img":"img/pufies-pack.png",
-            "price":10.50,
-            "regular_price":20.12,
-            "attributes":{
-              "size":["L","M","S"],
-              "design":[
-                {
-                  "name":"name of design",
-                  "img":"http://url-to-design.png",
-                  "slug":"design_1"
-                },
-                {
-                  "name":"name of design",
-                  "img":"http://url-to-design.png",
-                  "slug":"design_1"
-                }
-              ]
-            }
-          },
-          {
-            "product_id":1235,
-            "category":["shampoo","diapers"],
-            "name":"Name of the product 2",
-            "img":"img/pufies-pack.png",
-            "price":11.50,
-            "regular_price":21.12,
-            "attributes":{
-              "size":["L","M","S"],
-              "design":[
-                {
-                  "name":"name of design",
-                  "img":"http://url-to-design.png",
-                  "slug":"design_1"
-                },
-                {
-                  "name":"name of design",
-                  "img":"http://url-to-design.png",
-                  "slug":"design_1"
-                }
-              ]
-            }
-          },
-          {
-            "product_id":1236,
-            "category":["shampoo","diapers"],
-            "name":"Name of the product 3",
-            "img":"img/pufies-pack.png",
-            "price":12.50,
-            "regular_price":22.12,
-            "attributes":{
-              "size":["L","M","S"],
-              "design":[
-                {
-                  "name":"name of design",
-                  "img":"http://url-to-design.png",
-                  "slug":"design_1"
-                },
-                {
-                  "name":"name of design",
-                  "img":"http://url-to-design.png",
-                  "slug":"design_1"
-                }
-              ]
-            }
-          },
-          {
-            "product_id":1237,
-            "category":["shampoo","diapers"],
-            "name":"Name of the product 4",
-            "img":"img/pufies-pack.png",
-            "price":13.50,
-            "regular_price":23.12,
-            "attributes":{
-              "size":["L","M","S"],
-              "design":[
-                {
-                  "name":"name of design",
-                  "img":"http://url-to-design.png",
-                  "slug":"design_1"
-                },
-                {
-                  "name":"name of design",
-                  "img":"http://url-to-design.png",
-                  "slug":"design_1"
-                }
-              ]
-            }
-          },
-          {
-            "product_id":1238,
-            "category":["shampoo","diapers"],
-            "name":"Name of the product 5",
-            "img":"img/pufies-pack.png",
-            "price":10.50,
-            "regular_price":20.12,
-            "attributes":{
-              "size":["L","M","S"],
-              "design":[
-                {
-                  "name":"name of design",
-                  "img":"http://url-to-design.png",
-                  "slug":"design_1"
-                },
-                {
-                  "name":"name of design",
-                  "img":"http://url-to-design.png",
-                  "slug":"design_1"
-                }
-              ]
-            }
-          }
+        	{
+				"product_id":1234,
+				"category":["shampoo","diapers"],
+				"name":"Name of the product",
+				"img":"http://url-to-image.png",
+				"price":10.50,
+				"regular_price":20.12,
+				"attributes":[
+					{
+				    "size":"Small",
+				    "designs":[
+							{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_1"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_2"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      }
+						]
+				  },
+					{
+				    "size":"Medium",
+				    "designs":[
+							{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_1"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_2"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      }
+						]
+				  },
+					{
+					"size":"Large",
+
+					"designs":[
+						{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_1"
+						},{
+							"name":"name of design",
+							"img":"img/design_1.png",
+							"slug":"design_2"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						}
+					]
+				}
+				]
+			},
+        	{
+				"product_id":1234,
+				"category":["shampoo","diapers"],
+				"name":"Name of the product",
+				"img":"http://url-to-image.png",
+				"price":10.50,
+				"regular_price":20.12,
+				"attributes":[
+					{
+				    "size":"Small",
+				    "designs":[
+							{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_1"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_2"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      }
+						]
+				  },
+					{
+				    "size":"Medium",
+				    "designs":[
+							{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_1"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_2"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      }
+						]
+				  },
+					{
+					"size":"Large",
+
+					"designs":[
+						{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_1"
+						},{
+							"name":"name of design",
+							"img":"img/design_1.png",
+							"slug":"design_2"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						}
+					]
+				}
+				]
+			},
+        	{
+				"product_id":1234,
+				"category":["shampoo","diapers"],
+				"name":"Name of the product",
+				"img":"http://url-to-image.png",
+				"price":10.50,
+				"regular_price":20.12,
+				"attributes":[
+					{
+				    "size":"Small",
+				    "designs":[
+							{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_1"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_2"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      }
+						]
+				  },
+					{
+				    "size":"Medium",
+				    "designs":[
+							{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_1"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_2"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      }
+						]
+				  },
+					{
+					"size":"Large",
+
+					"designs":[
+						{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_1"
+						},{
+							"name":"name of design",
+							"img":"img/design_1.png",
+							"slug":"design_2"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						}
+					]
+				}
+				]
+			},
+        	{
+				"product_id":1234,
+				"category":["shampoo","diapers"],
+				"name":"Name of the product",
+				"img":"http://url-to-image.png",
+				"price":10.50,
+				"regular_price":20.12,
+				"attributes":[
+					{
+				    "size":"Small",
+				    "designs":[
+							{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_1"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_2"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      }
+						]
+				  },
+					{
+				    "size":"Medium",
+				    "designs":[
+							{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_1"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_2.png",
+				        "slug":"design_2"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      },{
+				        "name":"name of design",
+				        "img":"img/design_1.png",
+				        "slug":"design_3"
+				      }
+						]
+				  },
+					{
+					"size":"Large",
+
+					"designs":[
+						{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_1"
+						},{
+							"name":"name of design",
+							"img":"img/design_1.png",
+							"slug":"design_2"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3"
+						}
+					]
+				}
+				]
+			},
         ],
         "user_offers":[
           {

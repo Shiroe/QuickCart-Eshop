@@ -98,14 +98,14 @@ angular.module('starter.controllers', [])
 
 	var data = $server.login();
 	$scope.products = $scope.chunk(data.user_products, 2);
-
+	
 	console.log($scope.cart);
 
 	$scope.showOffers = function(){
 		$state.go('app.offers');
 	};
 
-
+	
 	$ionicModal.fromTemplateUrl('templates/cart.html', function($ionicModal) {
         $scope.modal = $ionicModal;
     }, {
@@ -114,30 +114,31 @@ angular.module('starter.controllers', [])
         // The animation we want to use for the modal entrance
         animation: 'slide-right-left'
     });
-
+	
+	$scope.showEditProduct = function(product){
+					  
 		$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
 					$scope.editProduct={
 						btnColor : 'add',
-						btnTitle : 'Add to cart',
-						sizes:[
-							{
-								title:"Large",
-								designs:[
-									{ title:"design_name", img:"http://name_to_img.png" },
-									{ title:"design_name", img:"http://name_to_img.png" },
-									{ title:"design_name", img:"http://name_to_img.png" },
-									{ title:"design_name", img:"http://name_to_img.png" },
-								]
-							}
-						]
+						btnTitle : 'Add to cart'
 					};
-				  $scope.productEdit = $ionicModal;
+					$scope.productEdit = $ionicModal;
+				  
 	    }, {
 	        // Use our scope for the scope of the modal to keep it simple
 	        scope: $scope,
 	        // The animation we want to use for the modal entrance
 	        animation: 'scale-in'
-	    });
+	    }).then(function(modal) {
+			$scope.productEdit.show();
+			$scope.quantity = 1;
+			console.log($scope.quantity);
+			$scope.product = product;
+		});
+	    
+	    
+		
+	};
 
 })
 .controller('OffersCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
@@ -174,97 +175,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('editProductCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, Cart) {
-	$scope.quantity = 1;
-	$scope.product = {
-				  "product_id":1234,
-				  "category":["shampoo","diapers"],
-				  "name":"Name of the product",
-				  "img":"http://url-to-image.png",
-				  "price":10.50,
-				  "regular_price":20.12,
-				  "attributes":[
-						{
-				    "size":"Small",
-				    "designs":[
-							{
-				        "name":"name of design",
-				        "img":"img/design_1.png",
-				        "slug":"design_1"
-				      },{
-				        "name":"name of design",
-				        "img":"img/design_2.png",
-				        "slug":"design_2"
-				      },{
-				        "name":"name of design",
-				        "img":"img/design_1.png",
-				        "slug":"design_3"
-				      },{
-				        "name":"name of design",
-				        "img":"img/design_2.png",
-				        "slug":"design_3"
-				      },{
-				        "name":"name of design",
-				        "img":"img/design_1.png",
-				        "slug":"design_3"
-				      }
-						]
-				  },
-						{
-				    "size":"Medium",
-				    "designs":[
-							{
-				        "name":"name of design",
-				        "img":"img/design_1.png",
-				        "slug":"design_1"
-				      },{
-				        "name":"name of design",
-				        "img":"img/design_2.png",
-				        "slug":"design_2"
-				      },{
-				        "name":"name of design",
-				        "img":"img/design_1.png",
-				        "slug":"design_3"
-				      },{
-				        "name":"name of design",
-				        "img":"img/design_1.png",
-				        "slug":"design_3"
-				      },{
-				        "name":"name of design",
-				        "img":"img/design_1.png",
-				        "slug":"design_3"
-				      }
-						]
-				  },
-					{
-					"size":"Large",
-
-					"designs":[
-						{
-							"name":"name of design",
-							"img":"img/design_2.png",
-							"slug":"design_1"
-						},{
-							"name":"name of design",
-							"img":"img/design_1.png",
-							"slug":"design_2"
-						},{
-							"name":"name of design",
-							"img":"img/design_2.png",
-							"slug":"design_3"
-						},{
-							"name":"name of design",
-							"img":"img/design_2.png",
-							"slug":"design_3"
-						},{
-							"name":"name of design",
-							"img":"img/design_2.png",
-							"slug":"design_3"
-						}
-					]
-				}
-				]
-				};
-	//$scope.current_designs = [];
+	
 	$scope.size_changed = function(selected){
 		console.log(selected);
 		$scope.size = selected.size;
@@ -278,14 +189,21 @@ angular.module('starter.controllers', [])
 
 	$scope.addToCart = function(){
 			//$scope.product.attributes = {};
-			$scope.product.attributes.size = $scope.size;
-			$scope.product.attributes.design = $scope.selectedDesign;
-			$scope.product.attributes.count = $scope.quantity;
-			console.log($scope.product);
-			Cart.add($scope.product);
-			//productEdit.hide();
+			var productToAdd = $scope.product;
+			productToAdd.attributes = {};
+			productToAdd.attributes.size = $scope.size;
+			productToAdd.attributes.design = $scope.selectedDesign;
+			productToAdd.attributes.count = $scope.quantity;
+			console.log(productToAdd);
+			Cart.add(productToAdd);
+			$scope.productEdit.hide();
 	};
-
+	
+	//Cleanup the modal when we're done with it!
+	$scope.$on('$destroy', function() {
+		$scope.modal.remove();
+	});
+	
 	$scope.removeCount = function(){
 		if($scope.quantity > 1){
 			$scope.quantity -= 1;
@@ -341,8 +259,15 @@ angular.module('starter.controllers', [])
 })
 
 .controller('CartCtrl', function($scope, Cart) {
-  $scope.products = Cart.getProducts();
-	console.log($scope.products);
+	$scope.$on('modal-shown', function() {
+		refreshCart();
+	});
+	
+	function refreshCart(){
+  		$scope.products = Cart.getProducts();
+  		console.log('cart did refresh: '+$scope.products);
+	}
+  	
 
 	$scope.getTotal = function(product){
     var total = 0;

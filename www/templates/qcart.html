@@ -37,7 +37,7 @@
 	        <div class="col col-50" ng-repeat="item in row">
 		        <div class="product" >
 			        <img ng-src="{{item.img}}"/>
-			        <div class="category" ng-repeat="cat in item.category">{{cat}}</div>
+			        <div class="category"> <span ng-repeat="cat in item.category">{{cat}} </span></div>
 			        <div class="title">{{item.name}}</div>
 			        <div class="prices">
 				        <div class="offer price">
@@ -49,7 +49,7 @@
 					        <span class="int">{{item.price | integer}}</span>
 				        </div>
 			        </div>
-			        <button ng-click="productEdit.show()" class="button add button-block repeat">Add to cart</button>
+			        <button ng-click="showEditProduct(item)" class="button add button-block repeat">Add to cart</button>
 		        </div>
 	    	</div>
 	    </div>
