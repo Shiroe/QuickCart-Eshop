@@ -116,7 +116,7 @@ angular.module('starter.controllers', [])
     });
 
 	$scope.showEditProduct = function(product){
-		var selectedProd = product;
+		var selectedProd = angular.copy(product);
 		$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
 					$scope.editProduct={
 						btnColor : 'add',
@@ -130,6 +130,7 @@ angular.module('starter.controllers', [])
 	        // The animation we want to use for the modal entrance
 	        animation: 'scale-in'
 	    }).then(function(modal) {
+
 			$scope.productEdit.show();
 			$scope.quantity = 1;
 			//console.log($scope.quantity);
@@ -207,6 +208,8 @@ angular.module('starter.controllers', [])
 
 .controller('editProductCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, Cart) {
 
+
+
 	$scope.size_changed = function(selected){
 		var attrs = angular.fromJson($scope.product.attributes);
 		angular.forEach(attrs, function(value, key){
@@ -218,9 +221,16 @@ angular.module('starter.controllers', [])
 	};
 
 	$scope.designSelected = function(selected){
-			//console.log(selected);
+			console.log(selected);
+			$scope.selected = selected;
     	$scope.selectedDesign = selected;
-	}
+	};
+
+	$scope.isActive = function(selected){
+		/*console.log("selected design");
+		console.log(selected);*/
+		return $scope.selected === selected;
+	};
 
 	$scope.addToCart = function(){
 			//$scope.product.attributes = {};
@@ -229,7 +239,9 @@ angular.module('starter.controllers', [])
 			productToAdd.attributes.size = $scope.size;
 			productToAdd.attributes.design = $scope.selectedDesign;
 			productToAdd.attributes.count = $scope.quantity;
-			//console.log(productToAdd);
+
+			productToAdd.uniqueTag = productToAdd.product_id.toString() + productToAdd.attributes.size + productToAdd.attributes.design.id.toString();
+			console.log(productToAdd.uniqueTag);
 			Cart.add(productToAdd);
 			$scope.productEdit.hide();
 	};

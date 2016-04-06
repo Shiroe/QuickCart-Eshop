@@ -25,31 +25,47 @@ angular.module("starter.services", [])
   };
 
   var updateCount = function(product){
-    var lcount = 0;
-    var ltotal = 0;
     angular.forEach(cart_data.products, function(value, key){
 			if(value === product){
         cart_data.products[key].attributes.count = product.attributes.count;
-        calculate();
-			}else{
-
-      }
+			}
 		})
-    //console.log(cart_data);
+    calculate();
   };
 
-  var add = function(product){
-    cart_data.total += (product.price * product.attributes.count);
-    cart_data.count += product.attributes.count;
+  var exists = function(tempproduct){
+
+  };
+
+  var add = function(tempproduct){
+    var product = angular.copy(tempproduct);
+    /*for(var i=0; i<cart_data.products.length; i++){
+      if(cart_data.products[i].uniqueTag === product.uniqueTag){
+        console.log("Is Identical");
+        cart_data.products[i].attributes.count += product.attributes.count;
+      }else {
+        cart_data.products.push(product);
+      }
+    }*/
+    angular.forEach(cart_data.products, function(value, key){
+			if(value === product){
+        cart_data.products[key].attributes.count = product.attributes.count;
+			}else{
+        cart_data.products.push(product);
+      }
+		})
+    //cart_data.products[key].attributes.count = product.attributes.count;
     cart_data.products.push(product);
-    //console.log(product);
+    calculate();
   };
 
   var remove = function(product){
-     cart_data.total -= (product.price * product.attributes.count);
-     cart_data.count -= product.attributes.count;
-     cart_data.products.splice(product, 1);
-     calculate();
+     angular.forEach(cart_data.products, function(value, key){
+     			if(value === product){
+             cart_data.products.splice(cart_data.products.indexOf(product), 1);
+     			}
+      })
+      calculate();
   };
 
   var removeAll = function(){
@@ -64,8 +80,7 @@ angular.module("starter.services", [])
     }
     cart_data.total = tt;
     cart_data.count = cc;
-    //console.log("total count : " + cc + " " + "total price : " + tt);
-  }
+  };
 
   return {
     removeAll: removeAll,
@@ -121,23 +136,28 @@ angular.module("starter.services", [])
 							{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_1"
+				        "slug":"design_1",
+                "id" : 1
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_2.png",
-				        "slug":"design_2"
+				        "slug":"design_2",
+                "id" : 2
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 3
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_2.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 4
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 5
 				      }
 						]
 				  },
@@ -147,23 +167,28 @@ angular.module("starter.services", [])
 							{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_1"
+				        "slug":"design_1",
+                "id" : 1
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_2.png",
-				        "slug":"design_2"
+				        "slug":"design_2",
+                "id" : 2
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 3
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 4
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 5
 				      }
 						]
 				  },
@@ -174,23 +199,28 @@ angular.module("starter.services", [])
 						{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_1"
+							"slug":"design_1",
+              "id" : 1
 						},{
 							"name":"name of design",
 							"img":"img/design_1.png",
-							"slug":"design_2"
+							"slug":"design_2",
+              "id" : 2
 						},{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_3"
+							"slug":"design_3",
+              "id" : 3
 						},{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_3"
+							"slug":"design_3",
+              "id" : 4
 						},{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_3"
+							"slug":"design_3",
+              "id" : 5
 						}
 					]
 				}
@@ -210,23 +240,28 @@ angular.module("starter.services", [])
 							{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_1"
+				        "slug":"design_1",
+                "id" : 1
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_2.png",
-				        "slug":"design_2"
+				        "slug":"design_2",
+                "id" : 2
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 3
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_2.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 4
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 5
 				      }
 						]
 				  },
@@ -236,23 +271,28 @@ angular.module("starter.services", [])
 							{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_1"
+				        "slug":"design_1",
+                "id" : 1
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_2.png",
-				        "slug":"design_2"
+				        "slug":"design_2",
+                "id" : 2
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 3
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 4
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 5
 				      }
 						]
 				  },
@@ -263,23 +303,28 @@ angular.module("starter.services", [])
 						{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_1"
+							"slug":"design_1",
+              "id" : 1
 						},{
 							"name":"name of design",
 							"img":"img/design_1.png",
-							"slug":"design_2"
+							"slug":"design_2",
+              "id" : 2
 						},{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_3"
+							"slug":"design_3",
+              "id" : 3
 						},{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_3"
+							"slug":"design_3",
+              "id" : 4
 						},{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_3"
+							"slug":"design_3",
+              "id" : 5
 						}
 					]
 				}
@@ -299,23 +344,28 @@ angular.module("starter.services", [])
 							{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_1"
+				        "slug":"design_1",
+                "id" : 1
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_2.png",
-				        "slug":"design_2"
+				        "slug":"design_2",
+                "id" : 2
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 3
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_2.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 4
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 5
 				      }
 						]
 				  },
@@ -325,23 +375,28 @@ angular.module("starter.services", [])
 							{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_1"
+				        "slug":"design_1",
+                "id" : 1
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_2.png",
-				        "slug":"design_2"
+				        "slug":"design_2",
+                "id" : 2
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 3
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 4
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 5
 				      }
 						]
 				  },
@@ -352,23 +407,28 @@ angular.module("starter.services", [])
 						{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_1"
+							"slug":"design_1",
+              "id" : 1
 						},{
 							"name":"name of design",
 							"img":"img/design_1.png",
-							"slug":"design_2"
+							"slug":"design_2",
+              "id" : 2
 						},{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_3"
+							"slug":"design_3",
+              "id" : 3
 						},{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_3"
+							"slug":"design_3",
+              "id" : 4
 						},{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_3"
+							"slug":"design_3",
+              "id" : 5
 						}
 					]
 				}
@@ -388,23 +448,28 @@ angular.module("starter.services", [])
 							{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_1"
+				        "slug":"design_1",
+                "id" : 1
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_2.png",
-				        "slug":"design_2"
+				        "slug":"design_2",
+                "id" : 2
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 3
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_2.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 4
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 5
 				      }
 						]
 				  },
@@ -414,23 +479,28 @@ angular.module("starter.services", [])
 							{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_1"
+				        "slug":"design_1",
+                "id" : 1
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_2.png",
-				        "slug":"design_2"
+				        "slug":"design_2",
+                "id" : 2
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 3
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 4
 				      },{
 				        "name":"name of design",
 				        "img":"img/design_1.png",
-				        "slug":"design_3"
+				        "slug":"design_3",
+                "id" : 5
 				      }
 						]
 				  },
@@ -441,23 +511,28 @@ angular.module("starter.services", [])
 						{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_1"
+							"slug":"design_1",
+              "id" : 1
 						},{
 							"name":"name of design",
 							"img":"img/design_1.png",
-							"slug":"design_2"
+							"slug":"design_2",
+              "id" : 2
 						},{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_3"
+							"slug":"design_3",
+              "id" : 3
 						},{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_3"
+							"slug":"design_3",
+              "id" : 4
 						},{
 							"name":"name of design",
 							"img":"img/design_2.png",
-							"slug":"design_3"
+							"slug":"design_3",
+              "id" : 5
 						}
 					]
 				}
@@ -476,23 +551,28 @@ angular.module("starter.services", [])
                   {
                     "name":"name of design",
                     "img":"img/design_1.png",
-                    "slug":"design_1"
+                    "slug":"design_1",
+                    "id" : 1
                   },{
                     "name":"name of design",
                     "img":"img/design_2.png",
-                    "slug":"design_2"
+                    "slug":"design_2",
+                    "id" : 2
                   },{
                     "name":"name of design",
                     "img":"img/design_1.png",
-                    "slug":"design_3"
+                    "slug":"design_3",
+                    "id" : 3
                   },{
                     "name":"name of design",
                     "img":"img/design_2.png",
-                    "slug":"design_3"
+                    "slug":"design_3",
+                    "id" : 4
                   },{
                     "name":"name of design",
                     "img":"img/design_1.png",
-                    "slug":"design_3"
+                    "slug":"design_3",
+                    "id" : 5
                   }
                 ]
               },
@@ -502,23 +582,28 @@ angular.module("starter.services", [])
                   {
                     "name":"name of design",
                     "img":"img/design_1.png",
-                    "slug":"design_1"
+                    "slug":"design_1",
+                    "id" : 1
                   },{
                     "name":"name of design",
                     "img":"img/design_2.png",
-                    "slug":"design_2"
+                    "slug":"design_2",
+                    "id" : 2
                   },{
                     "name":"name of design",
                     "img":"img/design_1.png",
-                    "slug":"design_3"
+                    "slug":"design_3",
+                    "id" : 3
                   },{
                     "name":"name of design",
                     "img":"img/design_1.png",
-                    "slug":"design_3"
+                    "slug":"design_3",
+                    "id" : 4
                   },{
                     "name":"name of design",
                     "img":"img/design_1.png",
-                    "slug":"design_3"
+                    "slug":"design_3",
+                    "id" : 5
                   }
                 ]
               },
@@ -529,23 +614,28 @@ angular.module("starter.services", [])
                 {
                   "name":"name of design",
                   "img":"img/design_2.png",
-                  "slug":"design_1"
+                  "slug":"design_1",
+                  "id" : 1
                 },{
                   "name":"name of design",
                   "img":"img/design_1.png",
-                  "slug":"design_2"
+                  "slug":"design_2",
+                  "id" : 2
                 },{
                   "name":"name of design",
                   "img":"img/design_2.png",
-                  "slug":"design_3"
+                  "slug":"design_3",
+                  "id" : 3
                 },{
                   "name":"name of design",
                   "img":"img/design_2.png",
-                  "slug":"design_3"
+                  "slug":"design_3",
+                  "id" : 4
                 },{
                   "name":"name of design",
                   "img":"img/design_2.png",
-                  "slug":"design_3"
+                  "slug":"design_3",
+                  "id" : 5
                 }
               ]
             }

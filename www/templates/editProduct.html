@@ -19,7 +19,7 @@
             <div class="designSelect">
               <!-- <div class="subtitle">Select design:</div> -->
               <div class="row" ng-model="$scope.current_designs" >
-                <div class="col design" ng-repeat="design in current_designs" ng-click="designSelected(design)"> <img ng-src="{{design.img}}"/> </div>
+                <div class="col design"  ng-repeat="design in current_designs" ng-click="designSelected(design)" ng-class="{selected:  isActive(design)}"> <img ng-src="{{design.img}}"/> </div>
               </div>
             </div>
             <div class="row row-center">

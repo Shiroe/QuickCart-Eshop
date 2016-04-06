@@ -488,12 +488,16 @@ ion-footer-bar.setbar .button{
   margin-left: 0px;
   padding: 0px;
   overflow: hidden;
+  opacity: .8;
  }
  .designSelect .design img{
    border-radius: 90px;
    width: 100%;
    border: rgb(150, 150, 150) 3px solid;
  }
+  .designSelect .design.selected{
+      opacity: 1;
+  }
  .designSelect .design.selected img{
    border-color: green;
  }
