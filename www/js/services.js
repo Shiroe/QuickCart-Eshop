@@ -32,30 +32,22 @@ angular.module("starter.services", [])
 		})
     calculate();
   };
-
-  var exists = function(tempproduct){
-
-  };
-
   var add = function(tempproduct){
     var product = angular.copy(tempproduct);
-    /*for(var i=0; i<cart_data.products.length; i++){
-      if(cart_data.products[i].uniqueTag === product.uniqueTag){
-        console.log("Is Identical");
-        cart_data.products[i].attributes.count += product.attributes.count;
-      }else {
-        cart_data.products.push(product);
-      }
-    }*/
-    angular.forEach(cart_data.products, function(value, key){
-			if(value === product){
-        cart_data.products[key].attributes.count = product.attributes.count;
-			}else{
-        cart_data.products.push(product);
-      }
-		})
-    //cart_data.products[key].attributes.count = product.attributes.count;
-    cart_data.products.push(product);
+    if(cart_data.products.length<1){
+      cart_data.products.push(product);
+    }else{
+      var exist = false;
+      angular.forEach(cart_data.products, function(value, key){
+  			if((!exist)&&(cart_data.products[key].uniqueTag === product.uniqueTag)){
+          cart_data.products[key].attributes.count += product.attributes.count;
+          exist = true;
+        }
+  		});
+      if(!exist){
+         cart_data.products.push(product);
+       }
+    }
     calculate();
   };
 
