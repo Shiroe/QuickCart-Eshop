@@ -12,8 +12,8 @@
 				        <div class="category" ng-repeat="cat in product.category">{{cat}}</div>
 				        <div class="title">{{product.name}}</div>
 				        <div class="attributes">
-					        <span class="label">Size:</span> <span class="value">{{product.attributes.size}}</span>
-					        <span class="label">Color:</span> <span class="value">{{product.attributes.design.slug}}</span>
+					        <span class="label">Size:</span> <span class="value">{{product.selected_attributes.size}}</span>
+					        <span class="label">Color:</span> <span class="value">{{product.selected_attributes.design.slug}}</span>
 				        </div>
 				        <div class="row">
 					        <div class="col">
@@ -22,7 +22,7 @@
 							        	<button class="button button-change" ng-click="removeCount(product)">-</button>
 							        </div>
 							        <div class="col">
-							        	<button class="button button-dark button-clear">{{product.attributes.count}}</button>
+							        	<button class="button button-dark button-clear">{{product.selected_attributes.count}}</button>
 							        </div>
 							        <div class="col">
 							        	<button class="button button-change" ng-click="addCount(product)">+</button>

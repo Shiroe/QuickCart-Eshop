@@ -4,14 +4,14 @@
 	    	<div class="level">
 		    	<span class="discount">-7%</span><span class="text">DISCOUNT<br/>LEVEL 4</span>
 	    	</div>
-	    	<div class="cart">
+	    	<div class="cart" ng-click="modal.show()">
 		    	<img ng-src="img/nav-cart-white.png"/>
-		    	<span class="items">11</span>
+		    	<span class="items">{{cart.count}}</span>
 		    	<span class="text">
 		    		<span class="product nav">
 		    			<div class="price">
-						    <span class="float">40<br/>euro</span>
-						    <span class="int">33</span>
+						    <span class="float">{{cart.total | float}}<br/>euro</span>
+						    <span class="int">{{cart.total | integer}}</span>
 					    </div>
 		    		</span>
 				</span>
@@ -40,19 +40,19 @@
 			        	<img ng-src="img/pufies-pack.png"/>
 			        </div>
 			        <div class="col col-50">
-				        <div class="category">Shampoo</div>
-				        <div class="title">All Nature Honey & Linden Blossom</div>
+				        <div class="category"><span ng-repeat="cat in product.category">{{cat}} </span></div>
+				        <div class="title">{{product.name}}</div>
 				        <div class="prices">
 					        <div class="offer price">
-						        <span class="float">40<br/>€</span>
-						        <span class="int">33</span>
+										<span class="float">{{product.regular_price | float}}<br/>€</span>
+						        <span class="int">{{product.regular_price | integer}}</span>
 					        </div>
 					        <div class="price">
-						        <span class="float">40<br/>€</span>
-						        <span class="int">33</span>
+										<span class="float">{{product.price | float}}<br/>€</span>
+						        <span class="int">{{product.price | integer}}</span>
 					        </div>
 				        </div>
-				        <button ng-click="" class="button add button-block repeat">Add to cart</button>
+				        <button ng-click="showEditProduct(product)" class="button add button-block repeat">Add to cart</button>
 			        </div>
 		        </div>
 	    	</div>
