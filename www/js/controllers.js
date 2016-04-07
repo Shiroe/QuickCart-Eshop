@@ -136,10 +136,8 @@ angular.module('starter.controllers', [])
 			//console.log($scope.quantity);
 			$scope.product = selectedProd;
 		});
-
-
-
 	};
+
 
 })
 .controller('OffersCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, $server, Cart) {
@@ -829,18 +827,28 @@ angular.module('starter.controllers', [])
 
 	//$scope.cart = Cart.getProducts
 
-	$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
-				$scope.editProduct={
-					btnColor : 'orange',
-					btnTitle : 'Chenge'
-				};
-				$scope.productEdit = $ionicModal;
-		}, {
-				// Use our scope for the scope of the modal to keep it simple
-				scope: $scope,
-				// The animation we want to use for the modal entrance
-				animation: 'scale-in'
-		});
+		$scope.showEditProduct = function(product){
+			var selectedProd = angular.copy(product);
+			$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
+						$scope.editProduct={
+							btnColor : 'orange',
+							btnTitle : 'Chenge'
+						};
+						$scope.productEdit = $ionicModal;
+				}, {
+						// Use our scope for the scope of the modal to keep it simple
+						scope: $scope,
+						// The animation we want to use for the modal entrance
+						animation: 'scale-in'
+				}).then(function(modal) {
+
+				$scope.productEdit.show();
+				$scope.quantity = selectedProd.selected_attributes.count;
+				$scope.size = selectedProd.selected_attributes.size;
+				//console.log($scope.quantity);
+				$scope.product = selectedProd;
+			});
+	};
 })
 
 .controller('editProductCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, Cart) {
@@ -864,8 +872,6 @@ angular.module('starter.controllers', [])
 	};
 
 	$scope.isActive = function(selected){
-		/*console.log("selected design");
-		console.log(selected);*/
 		return $scope.selected === selected;
 	};
 
