@@ -27,7 +27,7 @@ angular.module("starter.services", [])
   var updateCount = function(product){
     angular.forEach(cart_data.products, function(value, key){
 			if(value === product){
-        cart_data.products[key].attributes.count = product.attributes.count;
+        cart_data.products[key].selected_attributes.count = product.selected_attributes.count;
 			}
 		})
     calculate();
@@ -40,7 +40,7 @@ angular.module("starter.services", [])
       var exist = false;
       angular.forEach(cart_data.products, function(value, key){
   			if((!exist)&&(cart_data.products[key].uniqueTag === product.uniqueTag)){
-          cart_data.products[key].attributes.count += product.attributes.count;
+          cart_data.products[key].selected_attributes.count += product.selected_attributes.count;
           exist = true;
         }
   		});
@@ -67,8 +67,8 @@ angular.module("starter.services", [])
     var cc = 0;
     var tt = 0;
     for(var i=0; i<cart_data.products.length; i++){
-      tt += (cart_data.products[i].attributes.count * cart_data.products[i].price);
-      cc += cart_data.products[i].attributes.count;
+      tt += (cart_data.products[i].selected_attributes.count * cart_data.products[i].price);
+      cc += cart_data.products[i].selected_attributes.count;
     }
     cart_data.total = tt;
     cart_data.count = cc;

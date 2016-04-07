@@ -142,11 +142,49 @@ angular.module('starter.controllers', [])
 	};
 
 })
-.controller('OffersCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
-	$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
-		$scope.showCheckout = function(){
+.controller('OffersCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, $server, Cart) {
+
+	$scope.cart = Cart.getProducts();
+	var data = $server.login();
+	$scope.products = data.user_products;
+	console.log(data.user_products);
+
+	$scope.showCheckout = function(){
 		$state.go('app.checkout');
 	};
+
+	$ionicModal.fromTemplateUrl('templates/cart.html', function($ionicModal) {
+				$scope.modal = $ionicModal;
+		}, {
+				// Use our scope for the scope of the modal to keep it simple
+				scope: $scope,
+				// The animation we want to use for the modal entrance
+				animation: 'slide-right-left'
+		});
+
+		$scope.showEditProduct = function(product){
+			var selectedProd = angular.copy(product);
+			$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
+						$scope.editProduct={
+							btnColor : 'add',
+							btnTitle : 'Add to cart'
+						};
+						$scope.productEdit = $ionicModal;
+
+		    }, {
+		        // Use our scope for the scope of the modal to keep it simple
+		        scope: $scope,
+		        // The animation we want to use for the modal entrance
+		        animation: 'scale-in'
+		    }).then(function(modal) {
+
+				$scope.productEdit.show();
+				$scope.quantity = 1;
+				//console.log($scope.quantity);
+				$scope.product = selectedProd;
+			});
+		}
+
 })
 .controller('checkoutCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, Cart) {
 	$scope.cart = Cart.getProducts();
@@ -154,13 +192,13 @@ angular.module('starter.controllers', [])
 
 	$scope.getRegularTotal = function(product){
 		var total = 0;
-		total += (product.regular_price * product.attributes.count);
+		total += (product.regular_price * product.selected_attributes.count);
 		return total;
 	}
 
 	$scope.getTotal = function(product){
 		var total = 0;
-		total += (product.price * product.attributes.count);
+		total += (product.price * product.selected_attributes.count);
 		return total;
 	}
 
@@ -170,15 +208,15 @@ angular.module('starter.controllers', [])
 	}
 
 	$scope.removeCount = function(product){
-		if(product.attributes.count > 1){
-			product.attributes.count -= 1;
+		if(product.selected_attributes.count > 1){
+			product.selected_attributes.count -= 1;
 			Cart.updateCount(product);
 		}else{
 		}
 	};
 
 	$scope.addCount = function(product){
-		product.attributes.count += 1;
+		product.selected_attributes.count += 1;
 		Cart.updateCount(product);
 	};
 })
@@ -235,12 +273,13 @@ angular.module('starter.controllers', [])
 	$scope.addToCart = function(){
 			//$scope.product.attributes = {};
 			var productToAdd = $scope.product;
-			productToAdd.attributes = {};
-			productToAdd.attributes.size = $scope.size;
-			productToAdd.attributes.design = $scope.selectedDesign;
-			productToAdd.attributes.count = $scope.quantity;
+			productToAdd.attributes = $scope.product.attributes;
+			productToAdd.selected_attributes = {};
+			productToAdd.selected_attributes.size = $scope.size;
+			productToAdd.selected_attributes.design = $scope.selectedDesign;
+			productToAdd.selected_attributes.count = $scope.quantity;
 
-			productToAdd.uniqueTag = productToAdd.product_id.toString() + productToAdd.attributes.size + productToAdd.attributes.design.id.toString();
+			productToAdd.uniqueTag = productToAdd.product_id.toString() + productToAdd.selected_attributes.size + productToAdd.selected_attributes.design.id.toString();
 			console.log(productToAdd.uniqueTag);
 			Cart.add(productToAdd);
 			$scope.productEdit.hide();
@@ -306,13 +345,13 @@ angular.module('starter.controllers', [])
 
 	$scope.getTotal = function(product){
     var total = 0;
-  	total += (product.price * product.attributes.count);
+  	total += (product.price * product.selected_attributes.count);
     return total;
 	}
 
 	$scope.getRegularTotal = function(product){
 		var total = 0;
-		total += (product.regular_price * product.attributes.count);
+		total += (product.regular_price * product.selected_attributes.count);
 		return total;
 	}
 
@@ -322,15 +361,15 @@ angular.module('starter.controllers', [])
 	}
 
 	$scope.removeCount = function(product){
-		if(product.attributes.count > 1){
-			product.attributes.count -= 1;
+		if(product.selected_attributes.count > 1){
+			product.selected_attributes.count -= 1;
 			Cart.updateCount(product);
 		}else{
 		}
 	};
 
 	$scope.addCount = function(product){
-		product.attributes.count += 1;
+		product.selected_attributes.count += 1;
 		Cart.updateCount(product);
 	};
 
