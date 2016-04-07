@@ -33,46 +33,12 @@
 			</a>
 		</div>
   	</div>
-	  	<div class="row"  ng-repeat="product in products" ng-if="$index % 2 === 0">
-	        <div class="col col-50"   ng-if="$index < products.length">
-		         <div class="product editable">
-
-			        <img ng-src="img/pufies-pack.png"/>
-			        <div class="category">Shampoo</div>
-			        <div class="title">All Nature Honey & Linden Blossom</div>
-			        <div class="prices">
-				        <div class="offer price">
-					        <span class="float">40<br/>€</span>
-					        <span class="int">33</span>
-				        </div>
-				        <div class="price">
-					        <span class="float">40<br/>€</span>
-					        <span class="int">33</span>
-				        </div>
-			        </div>
-			        <div class="row details">
-				        <div class="attributes col col-50">
-					        <span class="label">Size:</span> <span class="value">Large</span>
-					        <span class="label">Color:</span> <span class="value">blue</span>
-					        <span class="label">QTY:</span> <span class="value">2</span>
-				        </div>
-				        <div class="attributes col col-50">
-					        <span>Total price</span>
-					        <div class="price">
-						        <span class="float">40<br/>€</span>
-						        <span class="int">33</span>
-					        </div>
-				        </div>
-			        </div>
-			        <button  class="button orange button-block repeat">Change</button>
-		        </div>
-	    	</div>
-	        <div class="col col-50"  ng-if="$index+1 < products.length">
+	  	<div class="row"  ng-repeat="row in products">
+	        <div class="col col-50" ng-repeat="item in row">
 		        <div class="product editable">
-
-			        <img ng-src="img/pufies-pack.png"/>
-			        <div class="category">Shampoo</div>
-			        <div class="title">All Nature Honey & Linden Blossom</div>
+			        <img ng-src="{{item.img}}"/>
+			        <div class="category"><span ng-repeat="cat in item.category">{{cat}}</span></div>
+			        <div class="title">{{item.name}}</div>
 			        <div class="prices">
 				        <div class="offer price">
 					        <span class="float">40<br/>€</span>
@@ -85,9 +51,9 @@
 			        </div>
 			        <div class="row details">
 				        <div class="attributes col col-50">
-					        <span class="label">Size:</span> <span class="value">Large</span>
-					        <span class="label">Color:</span> <span class="value">blue</span>
-					        <span class="label">QTY:</span> <span class="value">2</span>
+					        <span class="label">Size:</span> <span class="value">{{item.selected_attributes.size}}</span>
+					        <span class="label">Color:</span> <span class="value">{{item.selected_attributes.design.id}}</span>
+					        <span class="label">QTY:</span> <span class="value">{{item.selected_attributes.count}}</span>
 				        </div>
 				        <div class="attributes col col-50">
 					        <span>Total price</span>
@@ -97,7 +63,7 @@
 					        </div>
 				        </div>
 			        </div>
-			        <button ng-click="productEdit.show()" class="button orange button-block repeat">Change</button>
+			        <button ng-click="productEdit.show(item)" class="button orange button-block repeat">Change</button>
 		        </div>
 	    	</div>
 	    </div>
