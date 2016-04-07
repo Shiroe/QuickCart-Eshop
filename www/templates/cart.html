@@ -5,11 +5,12 @@
 	</div>
 	<ion-content>
 	<ion-list>
-		<ion-item class="row" ng-model="cart" ng-repeat="product in cart.products" ng-class="{greybg:!($index % 2)}">
+		<ion-item class="row" ng-model="cart" ng-repeat="product in cart.products" ng-class="{greybg:!($index % 2)}" show-reorder="true">
 	        <div class="col col-100">
 		        <div class="product cart row" >
+				        <div class="xbutton"><img ng-src="img/xbutton.png"></div>
 			        <div class="col col-100">
-				        <div class="category" ng-repeat="cat in product.category">{{cat}}</div>
+				        <div class="category"><span ng-repeat="cat in product.category">{{cat}} </span></div>
 				        <div class="title">{{product.name}}</div>
 				        <div class="attributes">
 					        <span class="label">Size:</span> <span class="value">{{product.selected_attributes.size}}</span>
