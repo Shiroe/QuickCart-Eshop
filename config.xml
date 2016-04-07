@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>HelloCordova</name>
+  <name>Quick Cart</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Viral Passion.
     </description>
-  <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
+  <author email="nm@viralpassion.gr" href="http://viralpassion.gr">
+      Nikos Mouroutis
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -46,6 +46,7 @@
     <!-- iPhone / iPod Touch -->
     <icon src="icons/ios/icon-60.png" width="60" height="60" />
     <icon src="icons/ios/icon-60@2x.png" width="120" height="120" />
+    <icon src="icons/ios/icon-60@3x.png" width="180" height="180" />
 
     <!-- iPad -->
     <icon src="icons/ios/icon-76.png" width="76" height="76" />
