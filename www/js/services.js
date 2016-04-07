@@ -83,10 +83,36 @@ angular.module("starter.services", [])
   }
 }])
 
-.service('$server',['$localstorage', function($localstorage) {
+.factory('Orders', function($http, $server){
+  var orders = [];
+  var All = function(){
+    var response = $server.orders();
+    return response;
+  }
+
+  /*var One = function(id){
+    for(var i=0; i<orders.length){
+
+    }
+    var order = [];
+    return order;
+  }*/
+
+  return{
+    All: All
+  }
+})
+
+.service('$server',['$localstorage', function($localstorage, $http) {
   this.connect = function functionName(user_id,token) {
     return true;
   }
+
+  this.orders = this.connect = function functionName() {
+    var api = 'http://127.0.0.1/orders.json';
+    return $http.get(api);
+  }
+
   this.login = function functionName(email,password) {
     //return true;
       var response = {

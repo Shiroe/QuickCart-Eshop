@@ -121,7 +121,8 @@ angular.module('starter.controllers', [])
 		$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
 					$scope.editProduct={
 						btnColor : 'add',
-						btnTitle : 'Add to cart'
+						btnTitle : 'Add to cart',
+						action : 'add'
 					};
 					$scope.productEdit = $ionicModal;
 
@@ -167,7 +168,8 @@ angular.module('starter.controllers', [])
 			$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
 						$scope.editProduct={
 							btnColor : 'add',
-							btnTitle : 'Add to cart'
+							btnTitle : 'Add to cart',
+							action : 'add'
 						};
 						$scope.productEdit = $ionicModal;
 
@@ -236,15 +238,15 @@ angular.module('starter.controllers', [])
 	$scope.orders.push(angular.copy(data.user_orders[0]));
 	console.log($scope.orders);
 
-
 })
 .controller('OrderCtrl', function($scope, $stateParams) {
 	$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
 })//repeatOrderCtrl
 
-.controller('repeatOrderCtrl', function($scope, $stateParams, $ionicModal) {
-
+.controller('repeatOrderCtrl', function($scope, $stateParams, $ionicModal, Orders) {
+	//var order = Orders.One(1);
 	var order=[{
+		"product_id":1,
 				"product_id":1,
 				"category":["shampoo","diapers"],
 				"name":"Name of the product",
@@ -832,7 +834,8 @@ angular.module('starter.controllers', [])
 			$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
 						$scope.editProduct={
 							btnColor : 'orange',
-							btnTitle : 'Chenge'
+							btnTitle : 'Change',
+							action: 'change'
 						};
 						$scope.productEdit = $ionicModal;
 				}, {
@@ -896,18 +899,28 @@ angular.module('starter.controllers', [])
 	};
 
 	$scope.addToCart = function(){
-			//$scope.product.attributes = {};
 			var productToAdd = $scope.product;
 			productToAdd.attributes = $scope.product.attributes;
 			productToAdd.selected_attributes = {};
 			productToAdd.selected_attributes.size = $scope.size;
 			productToAdd.selected_attributes.design = $scope.selectedDesign;
 			productToAdd.selected_attributes.count = $scope.quantity;
-
 			productToAdd.uniqueTag = productToAdd.product_id.toString() + productToAdd.selected_attributes.size + productToAdd.selected_attributes.design.id.toString();
 			console.log(productToAdd.uniqueTag);
 			Cart.add(productToAdd);
 			$scope.productEdit.hide();
+	};
+
+	/*$scope.action = function(action){
+		if(action === 'add'){
+			addToCart();
+		}else{
+			updateProduct();
+		}
+	};*/
+
+	$scope.updateProduct = function(){
+
 	};
 
 	$scope.removeCount = function(){
