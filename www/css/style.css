@@ -409,6 +409,11 @@ ion-side-menu ion-item img{
 */
 }
 
+.checkout .cashDetails p{
+	text-align: center;
+	margin-top: 10px;
+}
+
 /* editProduct */
 
 .editProduct {
