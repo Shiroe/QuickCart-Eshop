@@ -85,8 +85,9 @@ angular.module('starter.controllers', [])
 
 })
 .controller('QcartCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, $server, Cart) {
-
+	//$scope.size = "Small";
 	//$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
+
 	$scope.cart = Cart.getProducts(); //JSON.stringify(Cart.getProducts());
 	$scope.chunk = function(arr, size){
 		var newArr = [];
@@ -120,7 +121,8 @@ angular.module('starter.controllers', [])
 		$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
 					$scope.editProduct={
 						btnColor : 'add',
-						btnTitle : 'Add to cart'
+						btnTitle : 'Add to cart',
+						action : 'add'
 					};
 					$scope.productEdit = $ionicModal;
 
@@ -133,13 +135,12 @@ angular.module('starter.controllers', [])
 
 			$scope.productEdit.show();
 			$scope.quantity = 1;
+			$scope.size = "Small";
 			//console.log($scope.quantity);
 			$scope.product = selectedProd;
 		});
-
-
-
 	};
+
 
 })
 .controller('OffersCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, $server, Cart) {
@@ -147,7 +148,7 @@ angular.module('starter.controllers', [])
 	$scope.cart = Cart.getProducts();
 	var data = $server.login();
 	$scope.products = data.user_products;
-	console.log(data.user_products);
+	console.log(data);
 
 	$scope.showCheckout = function(){
 		$state.go('app.checkout');
@@ -167,7 +168,8 @@ angular.module('starter.controllers', [])
 			$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
 						$scope.editProduct={
 							btnColor : 'add',
-							btnTitle : 'Add to cart'
+							btnTitle : 'Add to cart',
+							action : 'add'
 						};
 						$scope.productEdit = $ionicModal;
 
@@ -219,40 +221,662 @@ angular.module('starter.controllers', [])
 		product.selected_attributes.count += 1;
 		Cart.updateCount(product);
 	};
-	
-	
+
+
 	$scope.paymentMethod = 1;//card
-	
-	
-	
+
+
+
 })
 
-.controller('OrdersCtrl', function($scope, $stateParams) {
+.controller('OrdersCtrl', function($scope, $stateParams, $server) {
+
+	var data = $server.login();
+	$scope.orders = data.user_orders;
+	$scope.orders.push(angular.copy(data.user_orders[0]));
+	$scope.orders.push(angular.copy(data.user_orders[0]));
+	$scope.orders.push(angular.copy(data.user_orders[0]));
+	console.log($scope.orders);
+
 })
 .controller('OrderCtrl', function($scope, $stateParams) {
 	$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
 })//repeatOrderCtrl
 
-.controller('repeatOrderCtrl', function($scope, $stateParams, $ionicModal) {
-	$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
+.controller('repeatOrderCtrl', function($scope, $stateParams, $ionicModal, Orders) {
+	//var order = Orders.One(1);
+	var order=[{
+		"product_id":1,
+				"product_id":1,
+				"category":["shampoo","diapers"],
+				"name":"Name of the product",
+				"img":"img/pufies-pack.png",
+				"price":11.50,
+				"regular_price":21.12,
+				"selected_attributes": {
+					"size": "Small",
+					"count": 2,
+					"design":{
+						"id": 2,
+						"img": "img/design_2.png",
+						"name":"name of the design",
+						"slug": "design_2"
+					}
+				},
+				"attributes":[
+					{
+						"size":"Small",
+						"designs":[
+							{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_1",
+								"id" : 1
+							},{
+								"name":"name of design",
+								"img":"img/design_2.png",
+								"slug":"design_2",
+								"id" : 2
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 3
+							},{
+								"name":"name of design",
+								"img":"img/design_2.png",
+								"slug":"design_3",
+								"id" : 4
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 5
+							}
+						]
+					},
+					{
+						"size":"Medium",
+						"designs":[
+							{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_1",
+								"id" : 1
+							},{
+								"name":"name of design",
+								"img":"img/design_2.png",
+								"slug":"design_2",
+								"id" : 2
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 3
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 4
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 5
+							}
+						]
+					},
+					{
+					"size":"Large",
 
-	$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
-				$scope.editProduct={
-					btnColor : 'orange',
-					btnTitle : 'Chenge'
-				};
-				$scope.productEdit = $ionicModal;
-		}, {
-				// Use our scope for the scope of the modal to keep it simple
-				scope: $scope,
-				// The animation we want to use for the modal entrance
-				animation: 'scale-in'
-		});
+					"designs":[
+						{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_1",
+							"id" : 1
+						},{
+							"name":"name of design",
+							"img":"img/design_1.png",
+							"slug":"design_2",
+							"id" : 2
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3",
+							"id" : 3
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3",
+							"id" : 4
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3",
+							"id" : 5
+						}
+					]
+				}
+				]
+				},
+					{
+				"product_id":2,
+				"category":["shampoo","diapers"],
+				"name":"Name of the product",
+				"img":"img/pufies-pack.png",
+				"price":12.50,
+				"regular_price":22.12,
+				"selected_attributes": {
+					"size": "Small",
+					"count": 1,
+					"design":{
+						"id": 1,
+						"img": "img/design_1.png",
+						"name":"name of the design",
+						"slug": "design_1"
+					}
+				},
+				"attributes":[
+					{
+						"size":"Small",
+						"designs":[
+							{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_1",
+								"id" : 1
+							},{
+								"name":"name of design",
+								"img":"img/design_2.png",
+								"slug":"design_2",
+								"id" : 2
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 3
+							},{
+								"name":"name of design",
+								"img":"img/design_2.png",
+								"slug":"design_3",
+								"id" : 4
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 5
+							}
+						]
+					},
+					{
+						"size":"Medium",
+						"designs":[
+							{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_1",
+								"id" : 1
+							},{
+								"name":"name of design",
+								"img":"img/design_2.png",
+								"slug":"design_2",
+								"id" : 2
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 3
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 4
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 5
+							}
+						]
+					},
+					{
+					"size":"Large",
+
+					"designs":[
+						{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_1",
+							"id" : 1
+						},{
+							"name":"name of design",
+							"img":"img/design_1.png",
+							"slug":"design_2",
+							"id" : 2
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3",
+							"id" : 3
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3",
+							"id" : 4
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3",
+							"id" : 5
+						}
+					]
+				}
+				]
+				},
+					{
+				"product_id":3,
+				"category":["shampoo","diapers"],
+				"name":"Name of the product",
+				"img":"img/pufies-pack.png",
+				"price":13.50,
+				"regular_price":23.12,
+				"selected_attributes": {
+					"size": "Large",
+					"count": 2,
+					"design":{
+						"id": 3,
+						"img": "img/design_2.png",
+						"name":"name of the design",
+						"slug": "design_3"
+					}
+				},
+				"attributes":[
+					{
+						"size":"Small",
+						"designs":[
+							{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_1",
+								"id" : 1
+							},{
+								"name":"name of design",
+								"img":"img/design_2.png",
+								"slug":"design_2",
+								"id" : 2
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 3
+							},{
+								"name":"name of design",
+								"img":"img/design_2.png",
+								"slug":"design_3",
+								"id" : 4
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 5
+							}
+						]
+					},
+					{
+						"size":"Medium",
+						"designs":[
+							{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_1",
+								"id" : 1
+							},{
+								"name":"name of design",
+								"img":"img/design_2.png",
+								"slug":"design_2",
+								"id" : 2
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 3
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 4
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 5
+							}
+						]
+					},
+					{
+					"size":"Large",
+
+					"designs":[
+						{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_1",
+							"id" : 1
+						},{
+							"name":"name of design",
+							"img":"img/design_1.png",
+							"slug":"design_2",
+							"id" : 2
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3",
+							"id" : 3
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3",
+							"id" : 4
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3",
+							"id" : 5
+						}
+					]
+				}
+				]
+				},
+					{
+				"product_id":4,
+				"category":["shampoo","diapers"],
+				"name":"Name of the product",
+				"img":"img/pufies-pack.png",
+				"price":14.50,
+				"regular_price":24.12,
+				"selected_attributes": {
+					"size": "Medium",
+					"count": 3,
+					"design":{
+						"id": 5,
+						"img": "img/design_1.png",
+						"name":"name of the design",
+						"slug": "design_3"
+					}
+				},
+				"attributes":[
+					{
+						"size":"Small",
+						"designs":[
+							{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_1",
+								"id" : 1
+							},{
+								"name":"name of design",
+								"img":"img/design_2.png",
+								"slug":"design_2",
+								"id" : 2
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 3
+							},{
+								"name":"name of design",
+								"img":"img/design_2.png",
+								"slug":"design_3",
+								"id" : 4
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 5
+							}
+						]
+					},
+					{
+						"size":"Medium",
+						"designs":[
+							{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_1",
+								"id" : 1
+							},{
+								"name":"name of design",
+								"img":"img/design_2.png",
+								"slug":"design_2",
+								"id" : 2
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 3
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 4
+							},{
+								"name":"name of design",
+								"img":"img/design_1.png",
+								"slug":"design_3",
+								"id" : 5
+							}
+						]
+					},
+					{
+					"size":"Large",
+
+					"designs":[
+						{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_1",
+							"id" : 1
+						},{
+							"name":"name of design",
+							"img":"img/design_1.png",
+							"slug":"design_2",
+							"id" : 2
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3",
+							"id" : 3
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3",
+							"id" : 4
+						},{
+							"name":"name of design",
+							"img":"img/design_2.png",
+							"slug":"design_3",
+							"id" : 5
+						}
+					]
+				}
+				]
+				},{
+						"product_id":5,
+						"category":["shampoo","diapers"],
+						"name":"Name of the product",
+						"img":"img/pufies-pack.png",
+						"price":15.50,
+						"regular_price":25.12,
+						"selected_attributes": {
+							"size": "Medium",
+							"count": 1,
+							"design":{
+								"id": 4,
+								"img": "img/design_1.png",
+								"name":"name of the design",
+								"slug": "design_3"
+							}
+						},
+						"attributes":[
+							{
+								"size":"Small",
+								"designs":[
+									{
+										"name":"name of design",
+										"img":"img/design_1.png",
+										"slug":"design_1",
+										"id" : 1
+									},{
+										"name":"name of design",
+										"img":"img/design_2.png",
+										"slug":"design_2",
+										"id" : 2
+									},{
+										"name":"name of design",
+										"img":"img/design_1.png",
+										"slug":"design_3",
+										"id" : 3
+									},{
+										"name":"name of design",
+										"img":"img/design_2.png",
+										"slug":"design_3",
+										"id" : 4
+									},{
+										"name":"name of design",
+										"img":"img/design_1.png",
+										"slug":"design_3",
+										"id" : 5
+									}
+								]
+							},
+							{
+								"size":"Medium",
+								"designs":[
+									{
+										"name":"name of design",
+										"img":"img/design_1.png",
+										"slug":"design_1",
+										"id" : 1
+									},{
+										"name":"name of design",
+										"img":"img/design_2.png",
+										"slug":"design_2",
+										"id" : 2
+									},{
+										"name":"name of design",
+										"img":"img/design_1.png",
+										"slug":"design_3",
+										"id" : 3
+									},{
+										"name":"name of design",
+										"img":"img/design_1.png",
+										"slug":"design_3",
+										"id" : 4
+									},{
+										"name":"name of design",
+										"img":"img/design_1.png",
+										"slug":"design_3",
+										"id" : 5
+									}
+								]
+							},
+							{
+							"size":"Large",
+
+							"designs":[
+								{
+									"name":"name of design",
+									"img":"img/design_2.png",
+									"slug":"design_1",
+									"id" : 1
+								},{
+									"name":"name of design",
+									"img":"img/design_1.png",
+									"slug":"design_2",
+									"id" : 2
+								},{
+									"name":"name of design",
+									"img":"img/design_2.png",
+									"slug":"design_3",
+									"id" : 3
+								},{
+									"name":"name of design",
+									"img":"img/design_2.png",
+									"slug":"design_3",
+									"id" : 4
+								},{
+									"name":"name of design",
+									"img":"img/design_2.png",
+									"slug":"design_3",
+									"id" : 5
+								}
+							]
+						}
+						]
+					}
+				];
+
+	$scope.chunk = function(arr, size){
+		var newArr = [];
+			for (var i=0; i<arr.length; i+=size) {
+				newArr.push(arr.slice(i, i+size));
+			}
+			return newArr;
+	};
+
+	$scope.products = $scope.chunk(order, 2);
+
+	//$scope.cart = Cart.getProducts
+
+		$scope.showEditProduct = function(product){
+			var selectedProd = angular.copy(product);
+			$ionicModal.fromTemplateUrl('templates/editProduct.html', function($ionicModal) {
+						$scope.editProduct={
+							btnColor : 'orange',
+							btnTitle : 'Change',
+							action: 'change'
+						};
+						$scope.productEdit = $ionicModal;
+				}, {
+						// Use our scope for the scope of the modal to keep it simple
+						scope: $scope,
+						// The animation we want to use for the modal entrance
+						animation: 'scale-in'
+				}).then(function(modal) {
+
+				$scope.productEdit.show();
+				$scope.quantity = selectedProd.selected_attributes.count;
+				console.log(selectedProd.selected_attributes.size);
+				$scope.size = selectedProd.selected_attributes.size;
+				//console.log($scope.quantity);
+				$scope.product = selectedProd;
+				console.log($scope.product);
+			});
+	};
 })
 
 .controller('editProductCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, Cart) {
 
-
+	$scope.$watch("product", function (newVal) {
+		if((newVal.selected_attributes === undefined ) || (newVal.selected_attributes === null)){
+			$scope.product_options_size = newVal.attributes[0];
+			$scope.size_changed(newVal.attributes[0].size);
+			$scope.designSelected(newVal.attributes[0].designs[0]);
+		}else{
+			angular.forEach(newVal.attributes, function(value, key){
+				if((value.size === newVal.selected_attributes.size)){
+					$scope.product_options_size = newVal.attributes[key];
+					$scope.size_changed(newVal.attributes[key].size);
+					angular.forEach(newVal.attributes[key].designs, function(x, y){
+						if(x.id === newVal.selected_attributes.design.id){
+							$scope.designSelected(newVal.attributes[key].designs[y]);
+						}
+					})
+				}
+			})
+		}
+	})
 
 	$scope.size_changed = function(selected){
 		var attrs = angular.fromJson($scope.product.attributes);
@@ -271,24 +895,32 @@ angular.module('starter.controllers', [])
 	};
 
 	$scope.isActive = function(selected){
-		/*console.log("selected design");
-		console.log(selected);*/
 		return $scope.selected === selected;
 	};
 
 	$scope.addToCart = function(){
-			//$scope.product.attributes = {};
 			var productToAdd = $scope.product;
 			productToAdd.attributes = $scope.product.attributes;
 			productToAdd.selected_attributes = {};
 			productToAdd.selected_attributes.size = $scope.size;
 			productToAdd.selected_attributes.design = $scope.selectedDesign;
 			productToAdd.selected_attributes.count = $scope.quantity;
-
 			productToAdd.uniqueTag = productToAdd.product_id.toString() + productToAdd.selected_attributes.size + productToAdd.selected_attributes.design.id.toString();
 			console.log(productToAdd.uniqueTag);
 			Cart.add(productToAdd);
 			$scope.productEdit.hide();
+	};
+
+	/*$scope.action = function(action){
+		if(action === 'add'){
+			addToCart();
+		}else{
+			updateProduct();
+		}
+	};*/
+
+	$scope.updateProduct = function(){
+
 	};
 
 	$scope.removeCount = function(){
@@ -345,7 +977,7 @@ angular.module('starter.controllers', [])
   };*/
 })
 
-.controller('CartCtrl', function($scope, Cart) {
+.controller('CartCtrl', function($scope, $state, Cart) {
 
 	$scope.cart = Cart.getProducts();
 
@@ -382,6 +1014,11 @@ angular.module('starter.controllers', [])
 	$scope.Close = function(){
 		console.log($scope.cart);
 	}
+
+	$scope.showCheckout = function(){
+		$scope.modal.hide();
+		$state.go('app.checkout');
+	};
 
 
 })
