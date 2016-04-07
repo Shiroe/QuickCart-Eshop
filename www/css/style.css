@@ -283,6 +283,7 @@ ion-side-menu ion-item img{
 .stockChange .col{
 	padding: 0;
 	margin: 0;
+	width: 90%;
 }
 .stockChange button{
 	min-width: 50px;
@@ -297,6 +298,8 @@ ion-side-menu ion-item img{
 	font-size: 20px;
 	padding-top: 0px;
 	font-weight: 100;
+	
+width: 100%;
 }
 .editProduct ion-footer-bar{
   transition: opacity .5s;
@@ -850,7 +853,7 @@ ion-footer-bar.setbar .button{
 	line-height: 10px;
 	margin-top: -0px;
 }
-button.add{
+button.add, button.add:hover{
 	background-color: #3e5bad;
 	color: white;
 }
