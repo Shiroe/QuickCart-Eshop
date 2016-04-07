@@ -181,6 +181,12 @@ angular.module('starter.controllers', [])
 		product.attributes.count += 1;
 		Cart.updateCount(product);
 	};
+	
+	
+	$scope.paymentMethod = 1;//card
+	
+	
+	
 })
 
 .controller('OrdersCtrl', function($scope, $stateParams) {
