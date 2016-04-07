@@ -844,9 +844,11 @@ angular.module('starter.controllers', [])
 
 				$scope.productEdit.show();
 				$scope.quantity = selectedProd.selected_attributes.count;
+				console.log(selectedProd.selected_attributes.size);
 				$scope.size = selectedProd.selected_attributes.size;
 				//console.log($scope.quantity);
 				$scope.product = selectedProd;
+				console.log($scope.product);
 			});
 	};
 })
