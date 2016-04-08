@@ -84,11 +84,12 @@ angular.module("starter.services", [])
 }])
 
 .factory('Orders', function($http, $server){
-  var orders = [];
+  var orders = {};
+  var api = 'https://api.myjson.com/bins/16vje';
+  var api2 = 'http://127.0.0.1/js/orders.js';
   var All = function(){
-    var response = $server.orders();
-    return response;
-  }
+    return $http.get(api2);
+  };
 
   /*var One = function(id){
     for(var i=0; i<orders.length){
@@ -103,14 +104,15 @@ angular.module("starter.services", [])
   }
 })
 
-.service('$server',['$localstorage', function($localstorage, $http) {
+.service('$server',['$http', '$localstorage', function($localstorage, $http) {
   this.connect = function functionName(user_id,token) {
     return true;
   }
 
-  this.orders = this.connect = function functionName() {
-    var api = 'http://127.0.0.1/orders.json';
+  this.orders = function functionName() {
+    var api = 'https://api.myjson.com/bins/16vje';
     return $http.get(api);
+
   }
 
   this.login = function functionName(email,password) {
