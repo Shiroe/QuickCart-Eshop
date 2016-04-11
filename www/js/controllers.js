@@ -192,11 +192,19 @@ angular.module('starter.controllers', [])
 	$scope.cart = Cart.getProducts();
 	$scope.products = $scope.cart.products;
 
-	$scope.getRegularTotal = function(product){
-		var total = 0;
-		total += (product.regular_price * product.selected_attributes.count);
-		return total;
-	}
+	// $scope.getRegularTotal = function(product){
+	// 	var total = 0;
+	// 	total += (product.regular_price * product.selected_attributes.count);
+	// 	return total;
+	// }
+
+	$scope.notEnough = function(total){
+		if(total < 25){
+			return true;
+		}else{
+			return false;
+		}
+	};
 
 	$scope.getTotal = function(product){
 		var total = 0;
