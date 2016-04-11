@@ -1,7 +1,28 @@
 <ion-view  view-title=" "   class="modal cart cartmodal" ng-controller="CartCtrl">
-	<div class="bar bar-header bar-light right-nav">
+	<div class="bar bar-header">
+		
+		<div class="right-nav">
+	    	<div class="level">
+		    	<span class="discount">-7%</span><span class="text">DISCOUNT<br/>LEVEL 4</span>
+	    	</div>
+	    	<div class="cart" ng-click="modal.show()">
+		    	<img ng-src="img/nav-cart-white.png"/>
+		    	<span class="items">{{cart.count}}</span>
+		    	<span class="text">
+		    		<span class="product nav">
+		    			<div class="price" ng-model="cart">
+						    <span class="float">{{cart.total | float}}<br/>&euro;</span>
+						    <span class="int">{{cart.total | integer}}</span>
+					    </div>
+		    		</span>
+				</span>
+	    	</div>
+		</div>
+		
+		<!--
 		<div class="icon ion-android-close"></div>
 		<h3 ng-model="cart" class="title">Count: {{cart.count}}, Total: {{cart.total}} &euro;</h3>
+-->
 	</div>
 	<ion-content>
 	<ion-list>
@@ -45,11 +66,11 @@
 	    </ion-item>
 	</ion-list>
 	</ion-content>
-	<div class="tabs">
-	  <a class="tab-item col-75" ng-click="Close()">
+	<div class="tabs green">
+	  <a class="tab-item col-60" ng-click="modal.hide()">
 	    Continue shopping
 	  </a>
-	  <a class="tab-item col-25" ng-click="showCheckout()">
+	  <a class="tab-item col-35 checkout" ng-click="showCheckout()">
 	    Checkout >
 	  </a>
 	</div>

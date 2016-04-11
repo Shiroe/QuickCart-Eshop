@@ -239,6 +239,22 @@ ion-side-menu ion-item img{
 }
 
 /* cart */
+.cartmodal .bar{
+	background-color: #3e5bad;
+	padding: 5px;
+}
+.cartmodal .bar .right-nav{
+	right: 0;
+	position: absolute;
+}
+
+.cartmodal .bar .right-nav .items{
+	width: 30px;
+}
+.cartmodal .bar .right-nav .product.nav .price{
+	margin-left: 40px;
+}
+/*
 
 .cart .bar .icon{
 	font-size: 30px;
@@ -253,6 +269,7 @@ ion-side-menu ion-item img{
 	color: #092c4f;
 	margin-right: 15px;
 }
+*/
 .greybg{background: #f0f0f0;}
 .product.cart{
 	border: none;
@@ -281,6 +298,17 @@ ion-side-menu ion-item img{
 
 .cart .product .price{
   margin-top: 0;
+}
+.cartmodal .tabs{
+	padding: 0px;
+}
+.cartmodal .tabs .tab-item{
+	font-size: 16px;
+	background-color: rgba(255,255,255,0.15);
+}
+.cartmodal .tabs .checkout{
+	font-weight: 500;
+	background-color: transparent;
 }
 
 .stockChange{
@@ -597,13 +625,15 @@ ion-footer-bar.setbar .button{
 }
 .right-nav .product.nav .price .int{
 	margin-top: 10px;
-	margin-right: 30px;
+	margin-right: 22px;
 }
 .right-nav .product.nav .price .float{
 	padding-top: 12px;
 	font-size: 12px;
 	line-height: 10px;
 	position: absolute;
+	right: 0;
+	width: 20px;
 }
 
 /* dashboard */
@@ -885,7 +915,7 @@ button.add, button.add:hover{
 	background-color: #3e5bad;
 	color: white;
 }
-.bar.bar-footer.green{
+.green{
 	background-color: #63ba3d;
 	color: white;
 }
