@@ -4,14 +4,14 @@
 	    	<div class="level">
 		    	<span class="discount">-7%</span><span class="text">DISCOUNT<br/>LEVEL 4</span>
 	    	</div>
-	    	<div class="cart">
+	    	<div class="cart" ng-model="orders">
 		    	<img ng-src="img/nav-cart-white.png"/>
-		    	<span class="items">11</span>
+		    	<span class="items">{{orders.count}}</span>
 		    	<span class="text">
 		    		<span class="product nav">
 		    			<div class="price">
-						    <span class="float">40<br/>euro</span>
-						    <span class="int">33</span>
+								<span class="float">{{ orders.total | float }}<br/>&euro;</span>
+								<span class="int">{{ orders.total | integer }}</span>
 					    </div>
 		    		</span>
 				</span>
@@ -23,30 +23,26 @@
   	<div class="row wizardbar-wrap" style="text-align: center;">
 	    <div class="wizardbar" style="display: inline-block !important;">
 			<a class="wizardbar-item current">
-				1 View order
+				1 Suggested
 			</a>
 			<a class="wizardbar-item current" >
-				2 Edit order
+				2 Deals
 			</a>
 			<a class="wizardbar-item" >
-				3 Complete order
+				3 Checkout
 			</a>
 		</div>
   	</div>
-	  	<div class="row"  ng-repeat="row in products">
+	  	<div class="row"  ng-repeat="row in order">
 	        <div class="col col-50" ng-repeat="item in row">
 		        <div class="product editable">
 			        <img ng-src="{{item.img}}"/>
 			        <div class="category"><span ng-repeat="cat in item.category">{{cat}}</span></div>
 			        <div class="title">{{item.name}}</div>
 			        <div class="prices">
-				        <!-- <div class="offer price">
-					        <span class="float">40<br/>€</span>
-					        <span class="int">33</span>
-				        </div> -->
 				        <div class="price">
-					        <span class="float">40<br/>€</span>
-					        <span class="int">33</span>
+									<span class="float">{{ item.price | float }}<br/>&euro;</span>
+									<span class="int">{{ item.price | integer }}</span>
 				        </div>
 			        </div>
 			        <div class="row details">
@@ -58,8 +54,8 @@
 				        <div class="attributes col col-50">
 					        <span>Total price</span>
 					        <div class="price">
-						        <span class="float">40<br/>€</span>
-						        <span class="int">33</span>
+										<span class="float">{{ getTotal(item) | float }}<br/>&euro;</span>
+										<span class="int">{{ getTotal(item) | integer }}</span>
 					        </div>
 				        </div>
 			        </div>

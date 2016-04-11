@@ -237,33 +237,29 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('OrdersCtrl', function($scope, $stateParams, $server) {
+.controller('OrdersCtrl', function($scope, $stateParams, $server, Orders ) {
 
-	var data = $server.login();
-	$scope.orders = data.user_orders;
-	$scope.orders.push(angular.copy(data.user_orders[0]));
-	$scope.orders.push(angular.copy(data.user_orders[0]));
-	$scope.orders.push(angular.copy(data.user_orders[0]));
+	var data = Orders.All();
+	$scope.orders = data.orders;
 	console.log($scope.orders);
 
 })
-.controller('OrderCtrl', function($scope, $stateParams) {
+.controller('OrderCtrl', function($scope, $stateParams, Orders) {
 	$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
+	/*var data = Orders.All();
+	$scope.orders = data.orders[0];*/
 })//repeatOrderCtrl
 
 .controller('repeatOrderCtrl', function($scope, $stateParams, $ionicModal, Orders) {
 
-   Orders.All().success(function(data){
-        $scope.orders = angular.fromJson(this);
-      })
-      .error(function(data){
-        console.log(data);
-      });
-	/*.success(function(data){
-		$scope.orders = data;
-	}).error(function(data){
-		$scope.orders = data;
-	});*/
+   var data = Orders.All();
+	 $scope.orders = data.orders[0];
+
+	$scope.getTotal = function(product){
+		var total = 0;
+		total += (product.price * product.selected_attributes.count);
+		return total;
+	}
 
 	$scope.chunk = function(arr, size){
 		var newArr = [];
@@ -272,11 +268,9 @@ angular.module('starter.controllers', [])
 			}
 			return newArr;
 	};
+	 $scope.order = $scope.chunk($scope.orders.products, 2);
 
 	console.log($scope.orders);
-	//$scope.products = $scope.chunk(orders.products[0], 2);
-
-	//$scope.cart = Cart.getProducts
 
 		$scope.showEditProduct = function(product){
 			var selectedProd = angular.copy(product);

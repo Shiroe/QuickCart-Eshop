@@ -1,5 +1,5 @@
-{{
-  "orders": [
+{
+   "orders": [
   {
    "order_id": 1,
    "date": "dd-MM-YYYY+hh:mm",
@@ -2886,5 +2886,4 @@
     ]
   }
  ]
-}
 }

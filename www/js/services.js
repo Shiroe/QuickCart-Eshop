@@ -84,11 +84,2901 @@ angular.module("starter.services", [])
 }])
 
 .factory('Orders', function($http, $server){
-  var orders = {};
+  var orders =
+  {
+     "orders": [
+    {
+     "order_id": 1,
+     "date": "01-01-2016+13:20",
+     "repeat_available": true,
+     "shipped": "07-01-2016+12:20",
+     "order_status": "order_status",
+     "total": 121.5,
+     "count": 9,
+     "products": [
+        {
+              "product_id":1,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":11.50,
+              "regular_price":21.12,
+              "selected_attributes": {
+                "size": "Small",
+                "count": 2,
+                "design":{
+                  "id": 2,
+                  "img": "img/design_2.png",
+                  "name":"name of the design",
+                  "slug": "design_2"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+            }
+            ]},
+        {
+              "product_id":2,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":12.50,
+              "regular_price":22.12,
+              "selected_attributes": {
+                "size": "Small",
+                "count": 1,
+                "design":{
+                  "id": 1,
+                  "img": "img/design_1.png",
+                  "name":"name of the design",
+                  "slug": "design_1"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+             }]
+              },
+        {
+              "product_id":3,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":13.50,
+              "regular_price":23.12,
+              "selected_attributes": {
+                "size": "Large",
+                "count": 2,
+                "design":{
+                  "id": 3,
+                  "img": "img/design_2.png",
+                  "name":"name of the design",
+                  "slug": "design_3"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+             }]
+              },
+        {
+              "product_id":4,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":14.50,
+              "regular_price":24.12,
+              "selected_attributes": {
+                "size": "Medium",
+                "count": 3,
+                "design":{
+                  "id": 5,
+                  "img": "img/design_1.png",
+                  "name":"name of the design",
+                  "slug": "design_3"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+              }
+              ]
+              },
+        {
+                  "product_id":5,
+                  "category":["shampoo","diapers"],
+                  "name":"Name of the product",
+                  "img":"img/pufies-pack.png",
+                  "price":15.50,
+                  "regular_price":25.12,
+                  "selected_attributes": {
+                    "size": "Medium",
+                    "count": 1,
+                    "design":{
+                      "id": 4,
+                      "img": "img/design_1.png",
+                      "name":"name of the design",
+                      "slug": "design_3"
+                    }
+                  },
+                  "attributes":[
+                    {
+                      "size":"Small",
+                      "designs":[
+                        {
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_1",
+                          "id" : 1
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_2",
+                          "id" : 2
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 3
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_3",
+                          "id" : 4
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 5
+                        }
+                      ]
+                    },
+                    {
+                      "size":"Medium",
+                      "designs":[
+                        {
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_1",
+                          "id" : 1
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_2",
+                          "id" : 2
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 3
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 4
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 5
+                        }
+                      ]
+                    },
+                    {
+                    "size":"Large",
+
+                    "designs":[
+                      {
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_1",
+                        "id" : 1
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_1.png",
+                        "slug":"design_2",
+                        "id" : 2
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 3
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 4
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 5
+                      }
+                    ]
+                  }]
+                }
+      ]
+    },
+      {
+     "order_id": 2,
+     "date": "10-01-2016+12:20",
+     "repeat_available": false,
+     "shipped": "17-01-2016+12:20",
+     "order_status": "completed",
+     "total": 121.5,
+     "count": 9,
+     "products": [
+        {
+              "product_id":1,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":11.50,
+              "regular_price":21.12,
+              "selected_attributes": {
+                "size": "Small",
+                "count": 2,
+                "design":{
+                  "id": 2,
+                  "img": "img/design_2.png",
+                  "name":"name of the design",
+                  "slug": "design_2"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+            }
+            ]},
+        {
+              "product_id":2,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":12.50,
+              "regular_price":22.12,
+              "selected_attributes": {
+                "size": "Small",
+                "count": 1,
+                "design":{
+                  "id": 1,
+                  "img": "img/design_1.png",
+                  "name":"name of the design",
+                  "slug": "design_1"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+             }]
+              },
+        {
+              "product_id":3,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":13.50,
+              "regular_price":23.12,
+              "selected_attributes": {
+                "size": "Large",
+                "count": 2,
+                "design":{
+                  "id": 3,
+                  "img": "img/design_2.png",
+                  "name":"name of the design",
+                  "slug": "design_3"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+             }]
+              },
+        {
+              "product_id":4,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":14.50,
+              "regular_price":24.12,
+              "selected_attributes": {
+                "size": "Medium",
+                "count": 3,
+                "design":{
+                  "id": 5,
+                  "img": "img/design_1.png",
+                  "name":"name of the design",
+                  "slug": "design_3"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+              }
+              ]
+              },
+        {
+                  "product_id":5,
+                  "category":["shampoo","diapers"],
+                  "name":"Name of the product",
+                  "img":"img/pufies-pack.png",
+                  "price":15.50,
+                  "regular_price":25.12,
+                  "selected_attributes": {
+                    "size": "Medium",
+                    "count": 1,
+                    "design":{
+                      "id": 4,
+                      "img": "img/design_1.png",
+                      "name":"name of the design",
+                      "slug": "design_3"
+                    }
+                  },
+                  "attributes":[
+                    {
+                      "size":"Small",
+                      "designs":[
+                        {
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_1",
+                          "id" : 1
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_2",
+                          "id" : 2
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 3
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_3",
+                          "id" : 4
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 5
+                        }
+                      ]
+                    },
+                    {
+                      "size":"Medium",
+                      "designs":[
+                        {
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_1",
+                          "id" : 1
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_2",
+                          "id" : 2
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 3
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 4
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 5
+                        }
+                      ]
+                    },
+                    {
+                    "size":"Large",
+
+                    "designs":[
+                      {
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_1",
+                        "id" : 1
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_1.png",
+                        "slug":"design_2",
+                        "id" : 2
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 3
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 4
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 5
+                      }
+                    ]
+                  }]
+                }
+      ]
+    },
+      {
+     "order_id": 3,
+     "date": "20-01-2016+14:20",
+     "repeat_available": true,
+     "shipped": "27-01-2016+15:20",
+     "order_status": "completed",
+     "total": 121.5,
+     "count": 9,
+     "products": [
+        {
+              "product_id":1,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":11.50,
+              "regular_price":21.12,
+              "selected_attributes": {
+                "size": "Small",
+                "count": 2,
+                "design":{
+                  "id": 2,
+                  "img": "img/design_2.png",
+                  "name":"name of the design",
+                  "slug": "design_2"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+            }
+            ]},
+        {
+              "product_id":2,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":12.50,
+              "regular_price":22.12,
+              "selected_attributes": {
+                "size": "Small",
+                "count": 1,
+                "design":{
+                  "id": 1,
+                  "img": "img/design_1.png",
+                  "name":"name of the design",
+                  "slug": "design_1"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+             }]
+              },
+        {
+              "product_id":3,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":13.50,
+              "regular_price":23.12,
+              "selected_attributes": {
+                "size": "Large",
+                "count": 2,
+                "design":{
+                  "id": 3,
+                  "img": "img/design_2.png",
+                  "name":"name of the design",
+                  "slug": "design_3"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+             }]
+              },
+        {
+              "product_id":4,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":14.50,
+              "regular_price":24.12,
+              "selected_attributes": {
+                "size": "Medium",
+                "count": 3,
+                "design":{
+                  "id": 5,
+                  "img": "img/design_1.png",
+                  "name":"name of the design",
+                  "slug": "design_3"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+              }
+              ]
+              },
+        {
+                  "product_id":5,
+                  "category":["shampoo","diapers"],
+                  "name":"Name of the product",
+                  "img":"img/pufies-pack.png",
+                  "price":15.50,
+                  "regular_price":25.12,
+                  "selected_attributes": {
+                    "size": "Medium",
+                    "count": 1,
+                    "design":{
+                      "id": 4,
+                      "img": "img/design_1.png",
+                      "name":"name of the design",
+                      "slug": "design_3"
+                    }
+                  },
+                  "attributes":[
+                    {
+                      "size":"Small",
+                      "designs":[
+                        {
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_1",
+                          "id" : 1
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_2",
+                          "id" : 2
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 3
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_3",
+                          "id" : 4
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 5
+                        }
+                      ]
+                    },
+                    {
+                      "size":"Medium",
+                      "designs":[
+                        {
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_1",
+                          "id" : 1
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_2",
+                          "id" : 2
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 3
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 4
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 5
+                        }
+                      ]
+                    },
+                    {
+                    "size":"Large",
+
+                    "designs":[
+                      {
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_1",
+                        "id" : 1
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_1.png",
+                        "slug":"design_2",
+                        "id" : 2
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 3
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 4
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 5
+                      }
+                    ]
+                  }]
+                }
+      ]
+    },
+      {
+     "order_id": 4,
+     "date": "07-02-2016+13:20",
+     "repeat_available": false,
+     "shipped": "17-02-2016+10:20",
+     "order_status": "completed",
+     "total": 121.5,
+     "count": 9,
+     "products": [
+        {
+              "product_id":1,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":11.50,
+              "regular_price":21.12,
+              "selected_attributes": {
+                "size": "Small",
+                "count": 2,
+                "design":{
+                  "id": 2,
+                  "img": "img/design_2.png",
+                  "name":"name of the design",
+                  "slug": "design_2"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+            }
+            ]},
+        {
+              "product_id":2,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":12.50,
+              "regular_price":22.12,
+              "selected_attributes": {
+                "size": "Small",
+                "count": 1,
+                "design":{
+                  "id": 1,
+                  "img": "img/design_1.png",
+                  "name":"name of the design",
+                  "slug": "design_1"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+             }]
+              },
+        {
+              "product_id":3,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":13.50,
+              "regular_price":23.12,
+              "selected_attributes": {
+                "size": "Large",
+                "count": 2,
+                "design":{
+                  "id": 3,
+                  "img": "img/design_2.png",
+                  "name":"name of the design",
+                  "slug": "design_3"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+             }]
+              },
+        {
+              "product_id":4,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":14.50,
+              "regular_price":24.12,
+              "selected_attributes": {
+                "size": "Medium",
+                "count": 3,
+                "design":{
+                  "id": 5,
+                  "img": "img/design_1.png",
+                  "name":"name of the design",
+                  "slug": "design_3"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+              }
+              ]
+              },
+        {
+                  "product_id":5,
+                  "category":["shampoo","diapers"],
+                  "name":"Name of the product",
+                  "img":"img/pufies-pack.png",
+                  "price":15.50,
+                  "regular_price":25.12,
+                  "selected_attributes": {
+                    "size": "Medium",
+                    "count": 1,
+                    "design":{
+                      "id": 4,
+                      "img": "img/design_1.png",
+                      "name":"name of the design",
+                      "slug": "design_3"
+                    }
+                  },
+                  "attributes":[
+                    {
+                      "size":"Small",
+                      "designs":[
+                        {
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_1",
+                          "id" : 1
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_2",
+                          "id" : 2
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 3
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_3",
+                          "id" : 4
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 5
+                        }
+                      ]
+                    },
+                    {
+                      "size":"Medium",
+                      "designs":[
+                        {
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_1",
+                          "id" : 1
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_2",
+                          "id" : 2
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 3
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 4
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 5
+                        }
+                      ]
+                    },
+                    {
+                    "size":"Large",
+
+                    "designs":[
+                      {
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_1",
+                        "id" : 1
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_1.png",
+                        "slug":"design_2",
+                        "id" : 2
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 3
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 4
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 5
+                      }
+                    ]
+                  }]
+                }
+      ]
+    },
+      {
+     "order_id": 5,
+     "date": "07-03-2016+15:20",
+     "repeat_available": false,
+     "shipped": "20-01-2016+12:20",
+     "order_status": "completed",
+     "total": 121.5,
+     "count": 9,
+     "products": [
+        {
+              "product_id":1,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":11.50,
+              "regular_price":21.12,
+              "selected_attributes": {
+                "size": "Small",
+                "count": 2,
+                "design":{
+                  "id": 2,
+                  "img": "img/design_2.png",
+                  "name":"name of the design",
+                  "slug": "design_2"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+            }
+            ]},
+        {
+              "product_id":2,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":12.50,
+              "regular_price":22.12,
+              "selected_attributes": {
+                "size": "Small",
+                "count": 1,
+                "design":{
+                  "id": 1,
+                  "img": "img/design_1.png",
+                  "name":"name of the design",
+                  "slug": "design_1"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+             }]
+              },
+        {
+              "product_id":3,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":13.50,
+              "regular_price":23.12,
+              "selected_attributes": {
+                "size": "Large",
+                "count": 2,
+                "design":{
+                  "id": 3,
+                  "img": "img/design_2.png",
+                  "name":"name of the design",
+                  "slug": "design_3"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+             }]
+              },
+        {
+              "product_id":4,
+              "category":["shampoo","diapers"],
+              "name":"Name of the product",
+              "img":"img/pufies-pack.png",
+              "price":14.50,
+              "regular_price":24.12,
+              "selected_attributes": {
+                "size": "Medium",
+                "count": 3,
+                "design":{
+                  "id": 5,
+                  "img": "img/design_1.png",
+                  "name":"name of the design",
+                  "slug": "design_3"
+                }
+              },
+              "attributes":[
+                {
+                  "size":"Small",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                  "size":"Medium",
+                  "designs":[
+                    {
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_1",
+                      "id" : 1
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_2.png",
+                      "slug":"design_2",
+                      "id" : 2
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 3
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 4
+                    },{
+                      "name":"name of design",
+                      "img":"img/design_1.png",
+                      "slug":"design_3",
+                      "id" : 5
+                    }
+                  ]
+                },
+                {
+                "size":"Large",
+
+                "designs":[
+                  {
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_1",
+                    "id" : 1
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_1.png",
+                    "slug":"design_2",
+                    "id" : 2
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 3
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 4
+                  },{
+                    "name":"name of design",
+                    "img":"img/design_2.png",
+                    "slug":"design_3",
+                    "id" : 5
+                  }
+                ]
+              }
+              ]
+              },
+        {
+                  "product_id":5,
+                  "category":["shampoo","diapers"],
+                  "name":"Name of the product",
+                  "img":"img/pufies-pack.png",
+                  "price":15.50,
+                  "regular_price":25.12,
+                  "selected_attributes": {
+                    "size": "Medium",
+                    "count": 1,
+                    "design":{
+                      "id": 4,
+                      "img": "img/design_1.png",
+                      "name":"name of the design",
+                      "slug": "design_3"
+                    }
+                  },
+                  "attributes":[
+                    {
+                      "size":"Small",
+                      "designs":[
+                        {
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_1",
+                          "id" : 1
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_2",
+                          "id" : 2
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 3
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_3",
+                          "id" : 4
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 5
+                        }
+                      ]
+                    },
+                    {
+                      "size":"Medium",
+                      "designs":[
+                        {
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_1",
+                          "id" : 1
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_2.png",
+                          "slug":"design_2",
+                          "id" : 2
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 3
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 4
+                        },{
+                          "name":"name of design",
+                          "img":"img/design_1.png",
+                          "slug":"design_3",
+                          "id" : 5
+                        }
+                      ]
+                    },
+                    {
+                    "size":"Large",
+
+                    "designs":[
+                      {
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_1",
+                        "id" : 1
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_1.png",
+                        "slug":"design_2",
+                        "id" : 2
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 3
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 4
+                      },{
+                        "name":"name of design",
+                        "img":"img/design_2.png",
+                        "slug":"design_3",
+                        "id" : 5
+                      }
+                    ]
+                  }]
+                }
+      ]
+    }
+   ]
+ };
+
   var api = 'https://api.myjson.com/bins/16vje';
-  var api2 = 'http://127.0.0.1/js/orders.js';
+  var api2 = 'js/orders.js';
   var All = function(){
-    return $http.get(api2);
+    return orders;//$http.get(api);
   };
 
   /*var One = function(id){
