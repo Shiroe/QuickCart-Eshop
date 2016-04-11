@@ -23,13 +23,13 @@
   	<div class="row wizardbar-wrap" style="text-align: center;">
 	    <div class="wizardbar" style="display: inline-block !important;">
 			<a class="wizardbar-item current">
-				1 View cart
+				1 Suggested
 			</a>
 			<a class="wizardbar-item current" >
-				2 Promotions
+				2 Deals
 			</a>
 			<a class="wizardbar-item current" >
-				3 Preview & payment
+				3 Checkout
 			</a>
 		</div>
   	</div>
@@ -62,10 +62,6 @@
                       </div>
                       <div class="col">
                         <div class="prices">
-                          <div class="offer price">
-                            <span class="float">{{ getRegularTotal(product) | float}}<br/>€</span>
-                            <span class="int">{{ getRegularTotal(product) | integer}}</span>
-                          </div>
                           <div class="price">
                             <span class="float">{{ getTotal(product) | float }}<br/>€</span>
                             <span class="int">{{ getTotal(product) | integer }}</span>
@@ -85,18 +81,22 @@
           <div class="title">Order total:</div>
         </div>
         <div class="col prices">
-          <div class="price">
+          <div class="price" ng-class="{minprice:  notEnough(cart.total)}">
             <span class="float">{{cart.total | float}}<br/>€</span>
             <span class="int">{{cart.total | integer}}</span>
           </div>
         </div>
       </div>
-      <div class="shipping">
+      <div ng-show="notEnough(cart.total)" class="padding row">
+      <i class="col ion-sad-outline"></i>
+        <pre class="col col-75 title">Minimum order total: 25 &euro;</pre>
+      </div>
+
+      <div class="shipping" ng-hide="notEnough(cart.total)">
 	      <div class="title">Shipping address:</div>
 		  <div class="value"><img ng-src="img/pin.png"> 313 Irakleiou Ave. 14122 (Athens, Greece)<br/></div>
       </div>
-
-      <div class="payment">
+      <div class="payment" ng-hide="notEnough(cart.total)">
 
 	      <div class="pay_tabs">
 		      <div class="row">

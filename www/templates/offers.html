@@ -23,13 +23,13 @@
   	<div class="row wizardbar-wrap" style="text-align: center;">
 	    <div class="wizardbar" style="display: inline-block !important;">
 			<a class="wizardbar-item current">
-				1 View cart
+				1 Suggested
 			</a>
 			<a class="wizardbar-item current" >
-				2 Promotions
+				2 Deals
 			</a>
 			<a class="wizardbar-item" >
-				3 Preview & payment
+				3 Checkout
 			</a>
 		</div>
   	</div>
@@ -43,10 +43,6 @@
 				        <div class="category"><span ng-repeat="cat in product.category">{{cat}} </span></div>
 				        <div class="title">{{product.name}}</div>
 				        <div class="prices">
-					        <div class="offer price">
-										<span class="float">{{product.regular_price | float}}<br/>€</span>
-						        <span class="int">{{product.regular_price | integer}}</span>
-					        </div>
 					        <div class="price">
 										<span class="float">{{product.price | float}}<br/>€</span>
 						        <span class="int">{{product.price | integer}}</span>

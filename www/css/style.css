@@ -343,6 +343,12 @@ ion-side-menu ion-item img{
   font-weight: 300;
   color: #202985;
 }
+
+.minprice span{
+  font-weight: 300;
+  color: #E3170D;
+}
+
 .checkout .total .price .int{
 	font-size: 30px;
 	float: right;
@@ -421,6 +427,12 @@ ion-side-menu ion-item img{
 .checkout .cashDetails p{
 	text-align: center;
 	margin-top: 10px;
+}
+
+i.ion-sad-outline{
+	padding: 10px 10px 10px 10px;
+	font-size: 20vh;
+	color : #E3170D;
 }
 
 /* editProduct */

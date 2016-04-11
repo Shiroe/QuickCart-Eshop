@@ -1,7 +1,7 @@
 <ion-view  view-title=" "   class="modal cart cartmodal" ng-controller="CartCtrl">
-	<div class="bar bar-header bar-light">
+	<div class="bar bar-header bar-light right-nav">
 		<div class="icon ion-android-close"></div>
-		<h1 class="title">Basket</h1>
+		<h3 ng-model="cart" class="title">Count: {{cart.count}}, Total: {{cart.total}} &euro;</h3>
 	</div>
 	<ion-content>
 	<ion-list>
@@ -10,7 +10,7 @@
 		        <div class="product cart row" >
 				        <div class="xbutton"><img ng-src="img/xbutton.png"></div>
 			        <div class="col col-100">
-				        <div class="category"><span ng-repeat="cat in product.category">{{cat}} </span></div>
+				        <!-- <div class="category"><span ng-repeat="cat in product.category">{{cat}} </span></div> -->
 				        <div class="title">{{product.name}}</div>
 				        <div class="attributes">
 					        <span class="label">Size:</span> <span class="value">{{product.selected_attributes.size}}</span>
@@ -31,11 +31,6 @@
 						        </div>
 					        </div>
 					        <div class="col">
-						        <div class="prices">
-							        <div class="offer price">
-								        <span class="float">{{ getRegularTotal(product) | float}}<br/>€</span>
-								        <span class="int">{{ getRegularTotal(product) | integer}}</span>
-							        </div>
 							        <div class="price" >
 								        <span class="float">{{ getTotal(product) | float }}<br/>€</span>
 								        <span class="int">{{ getTotal(product) | integer }}</span>
