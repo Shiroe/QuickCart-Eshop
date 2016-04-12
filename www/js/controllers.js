@@ -200,15 +200,39 @@ angular.module('starter.controllers', [])
 		}
 
 })
-.controller('checkoutCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, Cart) {
+.controller('checkoutCtrl', function($scope, $ionicHistory, $ionicViewSwitcher, $state, $ionicModal, $timeout, Cart) {
 	$scope.cart = Cart.getProducts();
 	$scope.products = $scope.cart.products;
-
-	// $scope.getRegularTotal = function(product){
-	// 	var total = 0;
-	// 	total += (product.regular_price * product.selected_attributes.count);
-	// 	return total;
-	// }
+	$scope.user = {};
+	$scope.user.addresses = [{
+				"name":"Work",
+				"default":true,
+				"country":"Greece",
+				"state":"Attika",
+				"city":"N. Iraklio",
+				"zipcode":"14122",
+				"street":"Irakliou Ave",
+				"number":"313",
+				"flour":2,
+				"notes":"some notes for the work"
+			},{
+				"name":"Home",
+				"default":false,
+				"country":"Not Greece",
+				"state":"Not Attika",
+				"city":"Not N. Iraklio",
+				"zipcode":"14122",
+				"street":"Not Irakliou Ave",
+				"number":"312",
+				"flour":2,
+				"notes":"Not some notes for the home"
+			}];
+	$scope.fbs = 10;
+	$scope.calculateTotal = function(temptotal, fbs){
+		var total = 0;
+		total = temptotal - fbs;
+		return parseInt(total);
+	};
 
 	$scope.notEnough = function(total){
 		if(total < 25){
@@ -216,6 +240,13 @@ angular.module('starter.controllers', [])
 		}else{
 			return false;
 		}
+	};
+
+	$scope.redirect = function(){
+		$ionicHistory.nextViewOptions({
+			disableBack: true
+		});
+		$state.go('app.qcart');
 	};
 
 	$scope.getTotal = function(product){

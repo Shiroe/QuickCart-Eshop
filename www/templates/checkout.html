@@ -78,7 +78,7 @@
 
       <div class="row total">
         <div class="col">
-          <div class="title">Order total:</div>
+          <div class="title">Order sub-total:</div>
         </div>
         <div class="col prices">
           <div class="price" ng-class="{minprice:  notEnough(cart.total)}">
@@ -87,14 +87,40 @@
           </div>
         </div>
       </div>
-      <div ng-show="notEnough(cart.total)" class="padding row">
-      <i class="col ion-sad-outline"></i>
-        <pre class="col col-75 title">Minimum order total: 25 &euro;</pre>
+      <div class="row total" ng-hide="notEnough(cart.total)">
+        <div class="col">
+          <h2 class="title">Friend Bonus System:</h2>
+        </div>
+        <div class="col prices">
+          <div class="price" ng-model="$scope.fbs">
+            <span class="float">{{ fbs | float}}<br/>&euro;</span>
+            <span class="int">{{ fbs | integer}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="row total" ng-hide="notEnough(cart.total)">
+        <div class="col">
+          <h2 class="title">Order total:</h2>
+        </div>
+        <div class="col prices">
+          <div class="price">
+            <span class="float">{{ calculateTotal(cart.total, fbs) | float}}<br/>&euro;</span>
+            <span class="int">{{ calculateTotal(cart.total, fbs) | integer}}</span>
+          </div>
+        </div>
+      </div>
+      <div ng-show="notEnough(cart.total)" class="padding">
+        <button class="button button-block button-assertive" style=" font-weight: 300" ><i class="ion-alert-circled"> Minimum order sub-total: 25 &euro;</i></button>
+        <button class="button button-block button-outline button-assertive" ng-click="redirect()" >Continue Shopping</button>
       </div>
 
       <div class="shipping" ng-hide="notEnough(cart.total)">
 	      <div class="title">Shipping address:</div>
-		  <div class="value"><img ng-src="img/pin.png"> 313 Irakleiou Ave. 14122 (Athens, Greece)<br/></div>
+		  <div class="value" ng-model="$scope.user.addresses"><img ng-src="img/pin.png">
+        <select class="total">
+        <option class="row total" ng-repeat="add in user.addresses">{{add.number}} {{add.street}}, {{add.zipcode}} ({{add.state}}, {{add.country}})</option>
+        </select><br/>
+      </div>
       </div>
       <div class="payment" ng-hide="notEnough(cart.total)">
 
@@ -154,12 +180,13 @@
 		      <p>You will pay with cash upon delivery</p>
 	      </div>
       </div>
-
-
+    <div class="padding">
+      <button ng-hide="notEnough(cart.total)" class="button button-block button-balanced" ng-click="redirect()" >Complete Order</button>
+    </div>
   </ion-content>
 
-	    <div ng-click="showOffers()" keyboard-attach class="bar bar-footer green">
+	    <!-- <div ng-hide="notEnough(cart.total)" ng-click="showOffers()" keyboard-attach class="bar bar-footer green">
 		  <div class="title">Complete Order</div>
-		</div>
+		  </div> -->
 
 </ion-view>
