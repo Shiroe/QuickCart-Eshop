@@ -389,6 +389,15 @@ ion-side-menu ion-item img{
 	text-align: left;
 }
 
+.checkout .ordermin{
+	text-align: center;
+	
+}
+.checkout .ordermin .title{
+	font-size: 80px;
+	line-height: -0px;
+}
+
 .checkout .shipping{
 	padding: 10px 10px 10px 40px;
 }
