@@ -2981,16 +2981,21 @@ angular.module("starter.services", [])
     return orders;//$http.get(api);
   };
 
-  /*var One = function(id){
-    for(var i=0; i<orders.length){
+  var One = function(orderId){
+    var order = {};
+     for(var i=0; i<orders.orders.length; i++){
+       if(orders.orders[i].order_id == orderId){
+         order = orders.orders[i];
+         console.log('Order: ', orders.orders[i]);
+       }
+     }
 
-    }
-    var order = [];
-    return order;
-  }*/
+     return order;
+  };
 
   return{
-    All: All
+    All: All,
+    One: One
   }
 })
 

@@ -10,7 +10,7 @@
 		    	<span class="text">
 		    		<span class="product nav">
 		    			<div class="price">
-						    <span class="float">{{cart.total | float}}<br/>euro</span>
+						    <span class="float">{{cart.total | float}}<br/>&euro;</span>
 						    <span class="int">{{cart.total | integer}}</span>
 					    </div>
 		    		</span>
@@ -42,6 +42,7 @@
 			        <div class="col col-50">
 				        <div class="category"><span ng-repeat="cat in product.category">{{cat}} </span></div>
 				        <div class="title">{{product.name}}</div>
+								<span class="attributes col col-50">- {{ discountBadge(product) | badge}}%</span>
 				        <div class="prices">
 					        <div class="price">
 										<span class="float">{{product.price | float}}<br/>€</span>

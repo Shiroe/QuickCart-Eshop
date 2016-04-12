@@ -1,5 +1,12 @@
 angular.module('starter.filters', [])
 
+.filter('badge', function ($filter) {
+    return function (input) {
+        if (isNaN(input)) return input;
+        return parseInt(input * 100);
+    };
+})
+
 .filter('float', function ($filter) {
     return function (input) {
         if (isNaN(input)) return input;

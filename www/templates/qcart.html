@@ -40,8 +40,9 @@
 			        <div class="category"> <span ng-repeat="cat in item.category">{{cat}} </span></div>
 			        <div class="title">{{item.name}}</div>
 			        <div class="prices">
+								<span class="attributes col col-50">- {{ discountBadge(item) | badge}}%</span>
 				        <div class="price">
-					        <span class="float">{{item.price | float}}<br/>€</span>
+					        <span class="float">{{item.price | float}}<br/>&euro;</span>
 					        <span class="int">{{item.price | integer}}</span>
 				        </div>
 			        </div>

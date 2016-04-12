@@ -106,6 +106,12 @@ angular.module('starter.controllers', [])
 		$state.go('app.offers');
 	};
 
+	$scope.discountBadge = function(product){
+		var discount = 0;
+		discount = ((product.regular_price - product.price)/ product.regular_price);
+		return discount;
+	};
+
 
 	$ionicModal.fromTemplateUrl('templates/cart.html', function($ionicModal) {
         $scope.modal = $ionicModal;
@@ -149,6 +155,12 @@ angular.module('starter.controllers', [])
 	var data = $server.login();
 	$scope.products = data.user_products;
 	console.log(data);
+
+	$scope.discountBadge = function(product){
+		var discount = 0;
+		discount = ((product.regular_price - product.price)/ product.regular_price);
+		return discount;
+	};
 
 	$scope.showCheckout = function(){
 		$state.go('app.checkout');
@@ -237,18 +249,39 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('OrdersCtrl', function($scope, $stateParams, $server, Orders ) {
+.controller('OrdersCtrl', function($scope, $state, $server, Orders ) {
 
 	var data = Orders.All();
 	$scope.orders = data.orders;
 	console.log($scope.orders);
+	$scope.viewOrder = function(orderId){
+		$state.go('app.order', { orderId :orderId});
+	};
 
 })
 .controller('OrderCtrl', function($scope, $stateParams, Orders) {
-	$scope.products=[1,2,3,4,5,6,7,8,9,10,11];
-	/*var data = Orders.All();
-	$scope.orders = data.orders[0];*/
-})//repeatOrderCtrl
+	var orderId = $stateParams.orderId;
+
+	$scope.order = Orders.One(orderId);
+	console.log("scope order:", $scope.order);
+
+	var data = $scope.order.products;
+	$scope.getTotal = function(product){
+		var total = 0;
+		total += (product.price * product.selected_attributes.count);
+		return total;
+	};
+
+	$scope.chunk = function(arr, size){
+		var newArr = [];
+			for (var i=0; i<arr.length; i+=size) {
+				newArr.push(arr.slice(i, i+size));
+			}
+			return newArr;
+	};
+	$scope.products = $scope.chunk(data,2);
+
+})
 
 .controller('repeatOrderCtrl', function($scope, $stateParams, $ionicModal, Orders) {
 
