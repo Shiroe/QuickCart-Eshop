@@ -76,6 +76,14 @@
           </ion-item>
       </ion-list>
 
+      <div ng-show="notEnough(cart.total)" class="minorder padding">
+        <button class="button button-block red-bordered" style=" font-weight: 300" ><i class="ion-alert-circled"> Ελάχιστη παραγγελία: 25 &euro;</i></button>
+        <span class="message">
+        Μπορείς να κάνει αγορές μικρότερες των 25€ από το e-yup.com.<br/>
+        Αυτή η εφαρμογή είναι για λεφτάδες και εσύ δεν είσαι ένας από αυτούς!
+        </span>
+      </div>
+      
       <div class="row total">
         <div class="col">
           <div class="title">Order sub-total:</div>
@@ -110,8 +118,7 @@
         </div>
       </div>
       <div ng-show="notEnough(cart.total)" class="padding">
-        <button class="button button-block button-assertive" style=" font-weight: 300" ><i class="ion-alert-circled"> Minimum order sub-total: 25 &euro;</i></button>
-        <button class="button button-block button-outline button-assertive" ng-click="redirect()" >Continue Shopping</button>
+        <button class="button button-block  green" ng-click="redirect()" ><i class="ion-chevron-left"> Continue Shopping</i></button>
       </div>
 
       <div class="shipping" ng-hide="notEnough(cart.total)">

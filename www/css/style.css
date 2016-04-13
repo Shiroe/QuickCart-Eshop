@@ -397,7 +397,10 @@ ion-side-menu ion-item img{
 	font-size: 80px;
 	line-height: -0px;
 }
-
+.checkout .minorder{
+	text-align: center;
+	color: gray;
+}
 .checkout .shipping{
 	padding: 10px 10px 10px 40px;
 }
@@ -931,6 +934,10 @@ button.add, button.add:hover{
 .orange{
 	background-color: #e72d16;
 	color: white;
+}
+.red-bordered{
+	border-color: red;
+	color: red;
 }
 .product.editable{
 
