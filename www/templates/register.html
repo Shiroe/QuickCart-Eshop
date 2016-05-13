@@ -1,0 +1,66 @@
+<ion-modal-view>
+  <!--ion-header-bar>
+    <h1 class="title">Login</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar-->
+  <ion-content scroll="false"  style="background: url('img/login-bg.jpg');background-size: cover;" >
+	<div id="logindiv" style="-webkit-transform: translate3d(0,-{{contentHeight}},0); position: fixed; top: 0; bottom: 0; left: 0; right: 0;">
+		<div class="row eyuplogo">
+			<div class="col" style="text-align: center"></div>
+		</div>
+		  <div class="row responsive-sm" style="padding: 5%;  background-color: rgba(0,0,0, 0.6); position: fixed; top: 0; bottom: 0; left: 0; right: 0;">
+
+		      <div class="{{inputmaskClass}}" style="height: {{inputHeight * 2}}px;" ng-click="inputDidFocus('pass_input')"></div>
+		      <div class="{{inputmaskClass}}" style="height: {{inputHeight}}px" ng-click="inputDidFocus('user_input')"></div>
+
+
+		    <form ng-submit="doLogin()" style="background-color: transparent; position: absolute; top: 50%; left: 50%; height: 450px; width: 90%; -webkit-transform: translate(-50%,-50%); -moz-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
+		      <div class="list " style="background-color: transparent;" >
+            <div class="" style="background-color: transparent;" >
+              <!-- NEED ICONS FOR REGISTER FORM <i>-->
+              <!-- <div class="row"> -->
+                <h2 class="col col-100"style="color: #fff; text-align: center; margin-bottom: 75px; font-weight: 300;">Register</h2>
+              <label class="item item-input">
+                <i style="color: #2b92ce; font-size: 30px; margin-right: 10px;" class="ion-ios-at-outline"></i>
+
+                <input type="email" id="user_input" ng-model="registerData.username"   placeholder="*Email" required>
+              </label>
+
+              <label class="item item-input">
+                <i style="color: #2b92ce; font-size: 30px; margin-right: 10px;" class="icon ion-ios-locked-outline"></i>
+
+                <input type="password" id="pass_input" ng-click="inputDidFocus($event)"  ng-model="registerData.password" placeholder="*Password" required>
+              </label>
+              <label class="item item-input">
+                <i style="color: #2b92ce; font-size: 30px; margin-right: 10px;" class="icon ion-ios-locked-outline"></i>
+                <input type="password" id="pass_input" ng-click="inputDidFocus($event)"  ng-model="registerData.password2" placeholder="*Repeat Password" required>
+              </label>
+
+              <label class="item item-input">
+                <i style="color: #2b92ce; font-size: 30px; margin-right: 10px;" class="icon ion-ios-person-outline"></i>
+
+                <input type="text" id="user_input" ng-model="registerData.firstname"   placeholder="*Name" required>
+              </label>
+
+              <label class="item item-input">
+                <i style="color: #2b92ce; font-size: 30px; margin-right: 10px;" class="icon ion-ios-person-outline"></i>
+
+                <input type="text" id="user_input" ng-model="registerData.lastname"   placeholder="*Surname" required>
+              </label>
+
+              <button ng-click="register()" class="button button-block button-balanced " >Register</button>
+
+            </div>
+		      </div>
+		    </form>
+
+		</div>
+	</div>
+	<!--ion-footer-bar align-title="left" keyboard-attach class="bar-assertive">
+		<h1 class="title">Title!</h1>
+	</ion-footer-bar-->
+  </ion-content>
+</ion-modal-view>
+</div>
