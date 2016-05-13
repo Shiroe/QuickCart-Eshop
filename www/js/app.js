@@ -43,6 +43,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
     controller: 'LoginCtrl'
   })
 
+  .state('fblogin', {
+    url: '/fblogin',
+    templateUrl: 'templates/fbLoginMW.html',
+    controller: 'fbLoginCtrl'
+  })
+
+  .state('register', {
+    url: '/register',
+    templateUrl: 'templates/register.html',
+    controller: 'RegisterCtrl'
+  })
+
   .state('app', {
     url: '/app',
     abstract: true,

@@ -26,9 +26,14 @@
 			        <img ng-src="{{item.img}}"/>
 			        <div class="category"><span ng-repeat="cat in item.category">{{cat}} </span></div>
 			        <div class="title">{{item.name}}</div>
+              <div class="details">
+                <div class="attributes">
+                  <span class="label">Size:</span> <span class="value">{{item.selected_attributes.size}}</span>
+                </div>
+              </div>
               <div class="row details">
 			        <div class="attributes col col-50">
-				        <span class="label">Size:</span> <span class="value">{{item.selected_attributes.size}}</span>
+				        <!-- <span class="label">Size:</span> <span class="value">{{item.selected_attributes.size}}</span> -->
 				        <span class="label">Color:</span> <span class="value">{{item.selected_attributes.design.id}}</span>
                 <span class="label">QTY:</span> <span class="value">{{item.selected_attributes.count}}</span>
               </div>

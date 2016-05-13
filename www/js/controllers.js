@@ -1,7 +1,16 @@
 angular.module('starter.controllers', [])
 
-.controller('LoginCtrl', function($scope, $state, $ionicViewSwitcher, $ionicModal, $timeout, $ionicPlatform,$ionicLoading,focus,$window) {
+.controller('LoginCtrl', function($rootScope, $scope, $state, $ionicViewSwitcher, $ionicModal, $timeout, $ionicPlatform,$ionicLoading,focus,$window) {
+	$rootScope.showFBbtn = true;
+	$scope.getFBbtn = function(){
+		if($rootScope.showFBbtn){
+			return true;
+		}else{
+			return false;
+		}
+	};
 
+	//$scope.showFBbtn = $rootScope.showFBbtn;
 	$scope.$on('$ionicView.enter', function(e) {
 		$scope.inputHeight = 55;
 		$scope.inputmaskClass = 'input-mask';
@@ -11,7 +20,7 @@ angular.module('starter.controllers', [])
 		$scope.hideKeyboardTimer;
 		$scope.loginact = false;
 	});
-
+	console.log($rootScope.showFBbtn);
 	$scope.inputDidFocus = function (inp){
 	    $scope.contentHeight =  220+'px';
 		$scope.imgContentHeight = 110+'px';
@@ -55,7 +64,10 @@ angular.module('starter.controllers', [])
 	    $scope.$digest();
 	};
 
-
+	$scope.fblogin = function(){
+		//$ionicViewSwitcher.nextDirection('forward');
+		$state.go('fblogin');
+	};
 
 
 	$scope.login = function(){
@@ -73,6 +85,92 @@ angular.module('starter.controllers', [])
 		$state.go('app.dashboard');
 			//$ionicLoading.hide();
 		//}, 5000);
+	};
+
+})
+.controller('fbLoginCtrl', function($rootScope, $scope, $state, $ionicViewSwitcher, $ionicModal, $timeout, $ionicPlatform,$ionicLoading,focus,$window) {
+
+	$scope.answer = function(num){
+		console.log(num);
+		var x = parseInt(num);
+		if(x == 1){
+			$rootScope.showFBbtn = false;
+			$state.go('login');
+		}else{
+			$state.go('register');
+		}
+	};
+
+})
+.controller('RegisterCtrl', function($rootScope, $scope, $state, $ionicViewSwitcher, $ionicModal, $timeout, $ionicPlatform,$ionicLoading,focus,$window) {
+
+	$scope.$on('$ionicView.enter', function(e) {
+		$scope.inputHeight = 55;
+		$scope.inputmaskClass = 'input-mask';
+		$scope.contentHeight =  0+'px';
+		$scope.imgContentHeight = 0+'px';
+		$scope.read=true;
+		$scope.hideKeyboardTimer;
+		$scope.loginact = false;
+	});
+	//console.log($rootScope.showFBbtn);
+	$scope.inputDidFocus = function (inp){
+			$scope.contentHeight =  220+'px';
+		$scope.imgContentHeight = 110+'px';
+		$scope.inputmaskClass = 'input-mask hidden';
+			$timeout(function(){$scope.inputFocus(inp);}, 5);
+	}
+	$scope.inputFocus = function (inp){
+		$scope.read=false;
+		$timeout(function(){
+			focus(inp);
+		},650);
+	}
+
+
+	window.addEventListener('native.keyboardshow', function(e){
+		$scope.keyboardShowHandler(e);
+			$scope.contentHeight =  e.keyboardHeight+'px';
+		$scope.imgContentHeight = (e.keyboardHeight/2.0)+'px';
+			$scope.$digest();
+	});
+
+	$scope.keyboardShowHandler = function(e){
+			$timeout.cancel($scope.hideKeyboardTimer);
+	};
+
+	// This event fires when the keyboard will hide
+
+	window.addEventListener('native.keyboardhide',  function(e){
+		$scope.hideKeyboardTimer = $timeout(function() { $scope.keyboardHideHandler(e); }, 100);
+
+	});
+
+	$scope.keyboardHideHandler = function(e){
+			//console.log('Goodnight, sweet prince');
+			if(!$scope.loginact){
+				$scope.contentHeight =  '0px';
+				$scope.imgContentHeight = 0+'px';
+		}
+			else $scope.loginact = false;
+		$scope.inputmaskClass = 'input-mask';
+			$scope.$digest();
+	};
+
+	$scope.registerData = {};
+
+	$scope.register = function(){
+		console.log($scope.registerData);
+		if($scope.registerData.username && $scope.registerData.password && $scope.registerData.firstname && $scope.registerData.surname){
+			if($scope.registerData.password == $scope.registerData.password2){
+				$rootScope.showFBbtn = false;
+				$state.go('login');
+			}else{
+				console.log('Passwords do not match!');
+			}
+		}else{
+			console.log('Not all fields are filled!');
+		}
 	};
 
 })
@@ -444,8 +542,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('AppCtrl', function($scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
-
+.controller('AppCtrl', function($rootScope, $scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -473,6 +570,7 @@ angular.module('starter.controllers', [])
   // Open the login modal
   $scope.logout = function() {
 		//$ionicViewSwitcher.nextDirection('slide-up'); // 'forward', 'back', etc.
+		$rootScope.showFBbtn = true;
 		$state.go('login');
     //$scope.modal.show();
   };
