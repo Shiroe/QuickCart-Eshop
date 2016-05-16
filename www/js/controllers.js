@@ -298,7 +298,8 @@ angular.module('starter.controllers', [])
 		}
 
 })
-.controller('checkoutCtrl', function($scope, $ionicHistory, $ionicViewSwitcher, $state, $ionicModal, $timeout, Cart) {
+.controller('checkoutCtrl', function($timeout, $scope, $ionicHistory, $ionicViewSwitcher, $state, $ionicModal, $timeout, Cart) {
+
 	$scope.cart = Cart.getProducts();
 	$scope.products = $scope.cart.products;
 	$scope.user = {};

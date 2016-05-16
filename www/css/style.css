@@ -391,7 +391,7 @@ ion-side-menu ion-item img{
 
 .checkout .ordermin{
 	text-align: center;
-	
+
 }
 .checkout .ordermin .title{
 	font-size: 80px;
@@ -1044,4 +1044,10 @@ button.add, button.add:hover{
 	max-width: 20px;
 	max-height: 25px;
 	margin-left: -30px;
+}
+
+/* Hide footer */
+.hide-footer{
+	position: absolute !important;
+	left: -100% !important;
 }
