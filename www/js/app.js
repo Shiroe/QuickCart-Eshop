@@ -172,7 +172,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
         controller: 'PlaylistCtrl'
       }
     }
-  });
+  })
+
+  .state('app.thankyou', {
+      url: '/thankyou',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/thankyou.html',
+          controller: 'thankyouCtrl'
+        }
+      }
+    });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 });

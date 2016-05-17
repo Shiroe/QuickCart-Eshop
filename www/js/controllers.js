@@ -345,7 +345,7 @@ angular.module('starter.controllers', [])
 		$ionicHistory.nextViewOptions({
 			disableBack: true
 		});
-		$state.go('app.qcart');
+		$state.go('app.thankyou');
 	};
 
 	$scope.getTotal = function(product){
@@ -640,5 +640,35 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('thankyouCtrl', function($scope, $stateParams) {
+  $scope.levels = [
+    { 'css_class' : 'level-1', 'img' : '../img/heart.png'},
+    { 'css_class' : 'level-2', 'img' : '../img/diamond.png'},
+    { 'css_class' : 'level-3', 'img' : '../img/shield.png'},
+    { 'css_class' : 'level-4', 'img' : '../img/rocket.png'},
+    { 'css_class' : 'level-5', 'img' : '../img/unicorn.png'},
+    { 'css_class' : 'level-6', 'img' : '../img/diamond.png'},
+  ];
+  $scope.activeLevel = $scope.levels[0];
+
+  $scope.getActiveClass = function(activeLevel) {
+    if (activeLevel.css_class == 'level-1') {
+      return 'level-1';
+    }
+    else if (activeLevel.css_class == 'level-2') {
+      return 'level-1 level-2';
+    }
+    else if (activeLevel.css_class == 'level-3') {
+      return 'level-1 level-2 level-3';
+    }
+    else if (activeLevel.css_class == 'level-4') {
+      return 'level-1 level-2 level-3 level-4';
+    }
+    else if (activeLevel.css_class == 'level-5') {
+      return 'level-1 level-2 level-3 level-4 level-5';
+    }
+    else if (activeLevel.css_class == 'level-6') {
+      return 'level-1 level-2 level-3 level-4 level-5 level-6';
+    }
+  }
 });

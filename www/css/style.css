@@ -1051,3 +1051,236 @@ button.add, button.add:hover{
 	position: absolute !important;
 	left: -100% !important;
 }
+
+/*Thank you page*/
+#thank-you {
+  background: #f3f3f3;
+}
+#thank-you h1.title {
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 32px;
+/*     color: #173655; */
+    margin-top: 30px;
+
+}
+#thank-you p {
+  color: #a0a0a0;
+  text-align: center;
+  font-size: 20px;
+  line-height: 26px;
+}
+#thank-you #reward-level .reward-badge {
+  width: 248px;
+  max-width: 60%;
+  height: 240px;
+  margin: 20px auto;
+/*   background: url('../img/unicorn.png') no-repeat center center; */
+  background-size: contain;
+
+}
+#thank-you #reward-level .reward-badge img {
+  max-width: 100%;
+}
+#thank-you .levels-row {
+  text-align: center;
+  vertical-align: top;
+}
+/*
+#thank-you .levels-row > div {
+  display: inline-block;
+  width: 17.89%;
+
+}
+#thank-you .levels-row > div:last-child {
+  width: 10.52%;
+}
+*/
+#thank-you .levels-row > div:last-child .sep {
+  display: none;
+}
+#thank-you .levels-row .stage {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  border: 2px solid;
+  border-radius: 50%;
+  line-height: 38px;
+  font-weight: 600;
+  text-align: center;
+  background: #fff;
+}
+#thank-you .levels-row  .sep {
+  width: auto;
+  display: inline-block;
+  padding: 0 5px;
+}
+#thank-you .levels-row .stage-1 {
+  border-color: #fbd330;
+  color: #fbd330;
+}
+#thank-you .levels-row .sep-2 {
+  color: #fd8f29;
+}
+#thank-you .levels-row .stage-2 {
+  border-color: #fd8f29;
+  color: #fd8f29;
+}
+#thank-you .levels-row .sep-3 {
+  color: #ea335e;
+}
+#thank-you .levels-row .stage-3 {
+  border-color: #ea335e;
+  color: #ea335e;
+}
+#thank-you .levels-row .sep-4 {
+  color: #9a4086;
+}
+#thank-you .levels-row .stage-4 {
+  border-color: #9a4086;
+  color: #9a4086;
+}
+#thank-you .levels-row .sep-5 {
+   color: #584594;
+}
+#thank-you .levels-row .stage-5 {
+  border-color: #584594;
+  color: #584594;
+}
+#thank-you .levels-row .sep-6 {
+   color: #3673bc;
+}
+#thank-you .levels-row .stage-6 {
+  border-color: #3673bc;
+  color: #3673bc;
+}
+#thank-you #reward-level h1.level-title {
+  text-align: center;
+  margin-bottom: 0;
+}
+#thank-you  .upgrade {
+  color: #a0a0a0;
+  text-align: center;
+  margin: 0px 0 20px 0;
+  font-size: 18px;
+}
+
+ /*Level 1*/
+
+ #thank-you #reward-level.level-1 h1.level-title {
+   color: #fbd330;
+ }
+ #thank-you #reward-level.level-1 .levels-row .stage-1 {
+   background: #fbd330;
+   color: #fff;
+ }
+
+/*Level 2*/
+
+ #thank-you #reward-level.level-2 h1.level-title {
+   color: #fd8f29;
+ }
+ #thank-you #reward-level.level-2 .levels-row .stage-2 {
+   background: #fd8f29;
+   color: #fff;
+ }
+
+ /*Level 3*/
+
+ #thank-you #reward-level.level-3 h1.level-title {
+   color: #ea335e;
+ }
+ #thank-you #reward-level.level-3 .levels-row .stage-3 {
+   background: #ea335e;
+   color: #fff;
+ }
+ /*Level 4*/
+
+ #thank-you #reward-level.level-4 h1.level-title {
+   color: #9a4086;
+ }
+ #thank-you #reward-level.level-4 .levels-row .stage-4 {
+   background: #9a4086;
+   color: #fff;
+ }
+ /*Level 5*/
+
+ #thank-you #reward-level.level-5 h1.level-title {
+   color: #584594;
+ }
+ #thank-you #reward-level.level-5 .levels-row .stage-5 {
+   background: #584594;
+   color: #fff;
+ }
+ /*Level 6*/
+
+ #thank-you #reward-level.level-6 h1.level-title {
+   color: #3673bc;
+ }
+ #thank-you #reward-level.level-6 .levels-row .stage-6 {
+   background: #3673bc;
+   color: #fff;
+ }
+@media screen and (max-width: 320px) {
+  #thank-you h1.title {
+    margin-top: 10px;
+    font-size: 22px;
+    line-height: 25px;
+    margin-bottom: 0;
+  }
+  #thank-you p  {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 0;
+  }
+  #thank-you #reward-level .reward-badge {
+    max-width: 50%;
+    height: auto;
+    margin: 0px auto;
+  }
+  #thank-you #reward-level h1.level-title {
+    margin-top: 0;
+    font-size: 30px;
+  }
+  #thank-you .upgrade {
+    font-size: 14px;
+  }
+  #thank-you .levels-row .stage {
+    width: 36px;
+    height: 36px;
+    line-height: 32px;
+    vertical-align: middle;
+    font-size: 11px;
+  }
+  #thank-you .levels-row  .sep {
+    padding: 0 2px;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #thank-you h1.title {
+    margin-bottom: 0;
+  }
+  #thank-you #reward-level .reward-badge {
+    max-width: 50%;
+    height: auto;
+    margin: 0px auto;
+  }
+  #thank-you .levels-row .stage {
+    width: 36px;
+    height: 36px;
+    line-height: 32px;
+    vertical-align: middle;
+    font-size: 11px;
+  }
+}
+@media screen and ( min-height: 481px ) and ( max-height: 568px ) {
+  #thank-you h1.title {
+    margin-top: 30px;
+  }
+  #thank-you #reward-level .reward-badge {
+     max-width: 60%;
+  }
+}
