@@ -1222,6 +1222,9 @@ button.add, button.add:hover{
    background: #3673bc;
    color: #fff;
  }
+ #thank-you .levels-row .stage {
+   vertical-align: middle !important;
+ }
 @media screen and (max-width: 320px) {
   #thank-you h1.title {
     margin-top: 10px;
