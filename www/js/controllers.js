@@ -674,6 +674,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('scoreCtrl', function($scope) {
+
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },
@@ -683,3 +684,10 @@ angular.module('starter.controllers', [])
     { title: 'Cowbell', id: 6 }
   ];
   });
+
+
+})
+.controller('ProfileCtrl', function($scope) {
+
+});
+

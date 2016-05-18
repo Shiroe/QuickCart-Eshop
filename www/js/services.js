@@ -17,6 +17,27 @@ angular.module("starter.services", [])
   }
 }])
 
+.factory('User', ['$http', function($http){
+    var user = {
+        'user_score_details': {
+            'discount_level': 6,
+            'discount_percentage':'15%',
+            'img': '',
+            'days_left': 5,
+            'points_left': '100',
+            'money_to_promote': '150'
+        },
+    };
+
+    var getScore = function(){
+        return user.user_score_details;
+    };
+
+    return {
+        getScore: getScore
+    }
+}])
+
 .factory('Cart', [function(){
   var cart_data = { "products": [], "total": 0, "count": 0};
 

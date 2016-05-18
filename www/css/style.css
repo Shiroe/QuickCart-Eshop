@@ -248,7 +248,7 @@ ion-side-menu ion-content div.discount{
 	border: 0px;
 	width: 90%;
 	background-color: #9c3d95;
-	border: 2px solid #9c3d95;
+	border: 50px 20px 10px 0px solid #9c3d95;
 	margin: 20px auto 10px auto;
 }
 ion-side-menu ion-content div.discount #triangle{
@@ -283,6 +283,7 @@ ion-side-menu ion-content div.discount h1{
 	margin-top: 10px;
 
 }
+
 
 
 
@@ -1079,6 +1080,18 @@ button.add, button.add:hover{
 	bottom: 5px;
 }
 
+#order-arrow {
+	position: absolute;
+		top: 50%;
+		left: 50%;
+		height: 45px;
+		-webkit-transform: translate(-50%,-50%);
+		-moz-transform: translate(-50%,-50%);
+		-ms-transform: translate(-50%,-50%);
+		-o-transform: translate(-50%,-50%);
+		transform: translate(-50%,-50%);
+}
+
 
 /* profile */
 .profile .user-data{
@@ -1087,13 +1100,13 @@ button.add, button.add:hover{
 .profile .title{
 	color: #0a203e;
 	font-weight: 200;
-	font-size: 35px;
+	font-size: 30px;
 }
 .profile .label{
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 200;
 	margin-bottom: 5px;
-	margin-top: 20px;
+	margin-top: 10px;
 	color: #4b4b4b;
 }
 .profile .value{
@@ -1106,6 +1119,33 @@ button.add, button.add:hover{
 	max-width: 20px;
 	max-height: 25px;
 	margin-left: -30px;
+}
+
+.profile #user-score{
+	width: 90%;
+
+}
+.profile #score-info{
+	background-color: #fff;
+	width: 80%;
+	margin: -15% 10%;
+}
+.profile #score-info h2{
+	font-size: 20px;
+	font-weight: 400;
+	text-align: center;
+	color: #ed2d5a;
+	margin: 5px 5px;
+	padding-top: 15px;
+}
+.profile #score-info p{
+	font-size: 14px;
+	text-align: center;
+	font-weight: 400;
+	margin: 5px 5px;
+	padding-bottom: 15px;
+	color: #737373;
+	opacity: 0.8;
 }
 
 /* Hide footer */
@@ -1584,6 +1624,7 @@ button.add, button.add:hover{
 		transform:rotate(90deg);
 	}
 
+
 #score-wrap .central h1 {
   font-size: 50px;
   line-height: 50px;
@@ -1724,3 +1765,4 @@ p.circle-text {
   line-height: 50px;
   padding: 0 20px;
 }
+
