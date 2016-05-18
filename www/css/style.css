@@ -1287,3 +1287,231 @@ button.add, button.add:hover{
      max-width: 60%;
   }
 }
+
+
+/* My Score */
+
+#score-wrap {
+  background: #f3f3f3;
+  height: 300px;
+  padding-top: 20px;
+}
+.pie {
+		position:absolute;
+		width:100px;
+		height:200px;
+		overflow:hidden;
+/* 		left:150px; */
+		-moz-transform-origin:left center;
+		-ms-transform-origin:left center;
+		-o-transform-origin:left center;
+		-webkit-transform-origin:left center;
+		transform-origin:left center;
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		-o-transform: translateX(-50%);
+		transform: translateX(-50%);
+	}
+
+
+  .central {
+    position: absolute;
+/*     left: 70px; */
+    top: 45px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #f3f3f3;
+    left: 50%;
+		-webkit-transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		-o-transform: translateX(-50%);
+		transform: translateX(-50%);
+  }
+/*
+  this is the actual visible part of the pie.
+  Give it the same dimensions as the regular piece.
+  Use border radius make it a half circle.
+  move transform origin to the middle of the right side.
+  Push it out to the left of the containing box.
+*/
+	.pie:BEFORE {
+		content:"";
+		position:absolute;
+		width:100px;
+		height:200px;
+		left:-100px;
+		border-radius:100px 0 0 100px;
+		-moz-transform-origin:right center;
+		-ms-transform-origin:right center;
+		-o-transform-origin:right center;
+		-webkit-transform-origin:right center;
+		transform-origin:right center;
+
+	}
+
+
+/*
+  add colour to each piece.
+*/
+/*
+	.pie:nth-of-type(1):BEFORE,
+	.pie:nth-of-type(1):AFTER {
+		background-color: #fd8f29;
+	}
+	.pie:nth-of-type(2):AFTER,
+	.pie:nth-of-type(2):BEFORE {
+		background-color: #fd8f29;
+	}
+	.pie:nth-of-type(3):AFTER,
+	.pie:nth-of-type(3):BEFORE {
+		background-color: #ea315c;
+	}
+	.pie:nth-of-type(4):AFTER,
+	.pie:nth-of-type(4):BEFORE {
+		background-color: #9a4086;
+	}
+	.pie:nth-of-type(5):AFTER,
+	.pie:nth-of-type(5):BEFORE {
+		background-color: #584594;
+	}
+	.pie:nth-of-type(6):AFTER,
+	.pie:nth-of-type(6):BEFORE {
+		background-color: #3673bc;
+	}
+*/
+  .pie:AFTER,
+  .pie:BEFORE {
+    background-color: #fff;
+  }
+	.pie:nth-of-type(4):AFTER,
+	.pie:nth-of-type(4):BEFORE {
+		background-color: #fd8f29;
+	}
+/*
+	.level-2 .pie:nth-of-type(5):AFTER,
+	.pie:nth-of-type(5):BEFORE {
+		background-color: #f3f3f3;
+	}
+	.level-3 .pie:nth-of-type(6):AFTER,
+	.pie:nth-of-type(6):BEFORE {
+		background-color: #f3f3f3;
+	}
+	.level-4 .pie:nth-of-type(1):BEFORE,
+	.pie:nth-of-type(1):AFTER {
+		background-color: #f3f3f3;
+	}
+	.level-5 .pie:nth-of-type(2):AFTER,
+	.pie:nth-of-type(2):BEFORE {
+		background-color: #f3f3f3;
+	}
+	.level-6 .pie:nth-of-type(3):AFTER,
+	.pie:nth-of-type(3):BEFORE {
+		background-color: #f3f3f3;
+	}
+*/
+
+
+	.level-2 .pie:nth-of-type(5):AFTER,
+	.level-2 .pie:nth-of-type(5):BEFORE {
+		background-color: #fd8f29;
+	}
+	.level-3 .pie:nth-of-type(6):AFTER,
+	.level-3 .pie:nth-of-type(6):BEFORE {
+		background-color: #ea315c;
+	}
+	.level-4 .pie:nth-of-type(1):BEFORE,
+	.level-4 .pie:nth-of-type(1):AFTER {
+		background-color: #9a4086;
+	}
+	.level-5 .pie:nth-of-type(2):AFTER,
+	.level-5 .pie:nth-of-type(2):BEFORE {
+		background-color: #584594;
+	}
+	.level-6 .pie:nth-of-type(3):AFTER,
+	.level-6 .pie:nth-of-type(3):BEFORE {
+		background-color: #3673bc;
+	}
+	.pie:nth-of-type(7):AFTER,
+	.pie:nth-of-type(7):BEFORE {
+		background-color: #f3f3f3;
+	}
+
+/*
+  now rotate each piece based on their cumulative starting
+  position
+*/
+	.pie[data-start="0"] {
+		-moz-transform: rotate(0deg); /* Firefox */
+		-ms-transform: rotate(0deg); /* IE */
+		-webkit-transform: rotate(0deg); /* Safari and Chrome */
+		-o-transform: rotate(0deg); /* Opera */
+		transform:rotate(0deg);
+	}
+	.pie[data-start="60"] {
+		-moz-transform: rotate(60deg); /* Firefox */
+		-ms-transform: rotate(60deg); /* IE */
+		-webkit-transform: rotate(60deg); /* Safari and Chrome */
+		-o-transform: rotate(60deg); /* Opera */
+		transform:rotate(60deg);
+	}
+	.pie[data-start="120"] {
+		-moz-transform: rotate(120deg); /* Firefox */
+		-ms-transform: rotate(120deg); /* IE */
+		-webkit-transform: rotate(120deg); /* Safari and Chrome */
+		-o-transform: rotate(120deg); /* Opera */
+		transform:rotate(120deg);
+	}
+	.pie[data-start="180"] {
+		-moz-transform: rotate(180deg); /* Firefox */
+		-ms-transform: rotate(180deg); /* IE */
+		-webkit-transform: rotate(180deg); /* Safari and Chrome */
+		-o-transform: rotate(180deg); /* Opera */
+		transform:rotate(180deg);
+	}
+	.pie[data-start="240"] {
+		-moz-transform: rotate(240deg); /* Firefox */
+		-ms-transform: rotate(240deg); /* IE */
+		-webkit-transform: rotate(240deg); /* Safari and Chrome */
+		-o-transform: rotate(240deg); /* Opera */
+		transform:rotate(240deg);
+	}
+	.pie[data-start="300"] {
+		-moz-transform: rotate(300deg); /* Firefox */
+		-ms-transform: rotate(300deg); /* IE */
+		-webkit-transform: rotate(300deg); /* Safari and Chrome */
+		-o-transform: rotate(300deg); /* Opera */
+		transform:rotate(300deg);
+	}
+	.pie[data-start="90"] {
+		-moz-transform: rotate(135deg); /* Firefox */
+		-ms-transform: rotate(135deg); /* IE */
+		-webkit-transform: rotate(135deg); /* Safari and Chrome */
+		-o-transform: rotate(135deg); /* Opera */
+		transform:rotate(135deg);
+	}
+/*
+  and rotate the amount of the pie that's showing.
+
+  NOTE: add an extra degree to all but the final piece,
+  to fill in unsightly gaps.
+*/
+	.pie[data-value="60"]:BEFORE {
+		-moz-transform: rotate(61deg); /* Firefox */
+		-ms-transform: rotate(61deg); /* IE */
+		-webkit-transform: rotate(61deg); /* Safari and Chrome */
+		-o-transform: rotate(61deg); /* Opera */
+		transform:rotate(61deg);
+	}
+	.pie[data-value="90"]:BEFORE {
+		-moz-transform: rotate(90deg); /* Firefox */
+		-ms-transform: rotate(90deg); /* IE */
+		-webkit-transform: rotate(90deg); /* Safari and Chrome */
+		-o-transform: rotate(90deg); /* Opera */
+		transform:rotate(90deg);
+	}
+
+

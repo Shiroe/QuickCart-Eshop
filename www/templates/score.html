@@ -1,0 +1,36 @@
+<ion-view hide-nav-bar="false">
+  <ion-nav-buttons side="right">
+		<div class="right-nav">
+	    	<div class="level">
+		    	<span class="discount">-7%</span><span class="text">DISCOUNT<br/>LEVEL 4</span>
+	    	</div>
+	    	<div class="cart" ng-click="modal.show()">
+		    	<img ng-src="img/nav-cart-white.png"/>
+		    	<span class="items">{{cart.count}}</span>
+		    	<span class="text">
+		    		<span class="product nav">
+		    			<div class="price" ng-model="cart">
+						    <span class="float">{{cart.total | float}}<br/>&euro;</span>
+						    <span class="int">{{cart.total | integer}}</span>
+					    </div>
+		    		</span>
+				</span>
+	    	</div>
+		</div>
+  </ion-nav-buttons>
+  <ion-content id="score">
+    <div id="score-wrap">
+      <div id="score-chart" class="level-1 level-2  level-3  level-4  level-5 level-6">
+        <div class="pie" data-start="0" data-value="60"></div>
+        <div class="pie" data-start="60" data-value="60"></div>
+        <div class="pie" data-start="120" data-value="60"></div>
+        <div class="pie" data-start="180" data-value="60"></div>
+        <div class="pie" data-start="240" data-value="60"></div>
+        <div class="pie" data-start="300" data-value="60"></div>
+        <div class="pie" data-start="90" data-value="90"></div>
+        <div class="central"></div>
+      </div>
+    </div>
+  </ion-content>
+  <ion-bar-footer class="bar bar-footer bar-positive"></ion-bar-footer>
+</ion-view>

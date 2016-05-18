@@ -182,6 +182,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
           controller: 'thankyouCtrl'
         }
       }
+    })
+
+  .state('app.score', {
+      url: '/score',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/score.html',
+          controller: 'scoreCtrl'
+        }
+      }
     });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');

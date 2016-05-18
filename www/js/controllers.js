@@ -671,4 +671,15 @@ angular.module('starter.controllers', [])
       return 'level-1 level-2 level-3 level-4 level-5 level-6';
     }
   }
+})
+
+.controller('scoreCtrl', function($scope) {
+  $scope.playlists = [
+    { title: 'Reggae', id: 1 },
+    { title: 'Chill', id: 2 },
+    { title: 'Dubstep', id: 3 },
+    { title: 'Indie', id: 4 },
+    { title: 'Rap', id: 5 },
+    { title: 'Cowbell', id: 6 }
+  ];
 });
