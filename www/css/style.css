@@ -1079,6 +1079,18 @@ button.add, button.add:hover{
 	bottom: 5px;
 }
 
+#order-arrow {
+	position: absolute;
+		top: 50%;
+		left: 50%;
+		height: 45px;
+		-webkit-transform: translate(-50%,-50%);
+		-moz-transform: translate(-50%,-50%);
+		-ms-transform: translate(-50%,-50%);
+		-o-transform: translate(-50%,-50%);
+		transform: translate(-50%,-50%);
+}
+
 
 /* profile */
 .profile .user-data{
@@ -1575,5 +1587,3 @@ button.add, button.add:hover{
 		-o-transform: rotate(90deg); /* Opera */
 		transform:rotate(90deg);
 	}
-
-

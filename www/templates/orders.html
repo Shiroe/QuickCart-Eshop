@@ -2,28 +2,21 @@
 	<ion-content style="background-color: #f3f3f3;">
 		<div class="row" ng-model="$scope.orders" ng-repeat="order in orders">
 			<div class="order-box">
-				<div class="row data">
+				<div class="row data" style="position: relative">
 			        <div class="col col-50" style="text-align: left">
 				        <div class="title">Order id: {{order.order_id}}</div>
 				        <div class="info"><i class="ion-ios-calendar-outline"></i> {{order.date}}</div>
 				        <div class="info"><i class="ion-ios-box-outline"></i> {{order.shipped }}</div>
 			        </div>
-			        <div class="col col-50" style="text-align: right">
+			        <div class="col col-40" style="text-align: right">
 				        <div class="title">Total price</div>
 				        <div class="price">
-					        <span class="float">{{order.total | float}}<br/>&euro;</span>
-					        <span class="int">{{order.total | integer}}</span>
+					        <span style="font-size: 14px" class="float">{{order.total | float}}<br/>&euro;</span>
+					        <span style="font-size: 38px" class="int">{{order.total | integer}}</span>
 				        </div>
 			        </div>
-		        </div>
-		        <div class="row">
-			        <div class="col ">
-				        <a ng-click="viewOrder({{order.order_id}})"><button  class="button button-block view">View</button></a>
-			        </div>
-			        <!-- <div class="col col-50">
-				        <a href="#/app/orders/repeatOrder/1234"><button ng-click="" class="button button-block repeat">Repeat order</button></a>
-			        </div> -->
-		        </div>
+								<div class="col col-10" style="position: relative"><a id="order-arrow" ng-click="viewOrder({{order.order_id}})"><i style="font-size: 35px; font-weight: 100; color: rgb(220,220,220)" class="ion-ios-arrow-right col" ></i></div>
+						 </div>
 			</div>
 		</div>
 	</ion-content>
