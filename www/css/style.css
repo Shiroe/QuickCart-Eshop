@@ -1355,7 +1355,7 @@ button.add, button.add:hover{
 
 #score-wrap {
   background: #f3f3f3;
-  height: 300px;
+  height: 350px;
   padding-top: 20px;
 }
 .pie {
@@ -1370,6 +1370,7 @@ button.add, button.add:hover{
 		-webkit-transform-origin:left center;
 		transform-origin:left center;
 		left: 50%;
+		top: 20px;
 		-webkit-transform: translateX(-50%);
 		-moz-transform: translateX(-50%);
 		-ms-transform: translateX(-50%);
@@ -1449,9 +1450,9 @@ button.add, button.add:hover{
   .pie:BEFORE {
     background-color: #fff;
   }
-	.pie:nth-of-type(4):AFTER,
-	.pie:nth-of-type(4):BEFORE {
-		background-color: #fd8f29;
+	.level-1 .piece-1:AFTER,
+	.level-1 .piece-1:BEFORE {
+		background-color: #fccf04;
 	}
 /*
 	.level-2 .pie:nth-of-type(5):AFTER,
@@ -1477,28 +1478,28 @@ button.add, button.add:hover{
 */
 
 
-	.level-2 .pie:nth-of-type(5):AFTER,
-	.level-2 .pie:nth-of-type(5):BEFORE {
+	.level-2 .piece-2:AFTER,
+	.level-2 .piece-2:BEFORE {
 		background-color: #fd8f29;
 	}
-	.level-3 .pie:nth-of-type(6):AFTER,
-	.level-3 .pie:nth-of-type(6):BEFORE {
+	.level-3 .piece-3:AFTER,
+	.level-3 .piece-3:BEFORE {
 		background-color: #ea315c;
 	}
-	.level-4 .pie:nth-of-type(1):BEFORE,
-	.level-4 .pie:nth-of-type(1):AFTER {
+	.level-4 .piece-4:BEFORE,
+	.level-4 .piece-4:AFTER {
 		background-color: #9a4086;
 	}
-	.level-5 .pie:nth-of-type(2):AFTER,
-	.level-5 .pie:nth-of-type(2):BEFORE {
+	.level-5 .piece-5:AFTER,
+	.level-5 .piece-5:BEFORE {
 		background-color: #584594;
 	}
-	.level-6 .pie:nth-of-type(3):AFTER,
-	.level-6 .pie:nth-of-type(3):BEFORE {
+	.level-6 .piece-6:AFTER,
+	.level-6 .piece-6:BEFORE {
 		background-color: #3673bc;
 	}
-	.pie:nth-of-type(7):AFTER,
-	.pie:nth-of-type(7):BEFORE {
+	.pie.empty:AFTER,
+	.pie.empty:BEFORE {
 		background-color: #f3f3f3;
 	}
 
@@ -1506,27 +1507,6 @@ button.add, button.add:hover{
   now rotate each piece based on their cumulative starting
   position
 */
-	.pie[data-start="0"] {
-		-moz-transform: rotate(0deg); /* Firefox */
-		-ms-transform: rotate(0deg); /* IE */
-		-webkit-transform: rotate(0deg); /* Safari and Chrome */
-		-o-transform: rotate(0deg); /* Opera */
-		transform:rotate(0deg);
-	}
-	.pie[data-start="60"] {
-		-moz-transform: rotate(60deg); /* Firefox */
-		-ms-transform: rotate(60deg); /* IE */
-		-webkit-transform: rotate(60deg); /* Safari and Chrome */
-		-o-transform: rotate(60deg); /* Opera */
-		transform:rotate(60deg);
-	}
-	.pie[data-start="120"] {
-		-moz-transform: rotate(120deg); /* Firefox */
-		-ms-transform: rotate(120deg); /* IE */
-		-webkit-transform: rotate(120deg); /* Safari and Chrome */
-		-o-transform: rotate(120deg); /* Opera */
-		transform:rotate(120deg);
-	}
 	.pie[data-start="180"] {
 		-moz-transform: rotate(180deg); /* Firefox */
 		-ms-transform: rotate(180deg); /* IE */
@@ -1541,14 +1521,35 @@ button.add, button.add:hover{
 		-o-transform: rotate(240deg); /* Opera */
 		transform:rotate(240deg);
 	}
-	.pie[data-start="300"] {
-		-moz-transform: rotate(300deg); /* Firefox */
-		-ms-transform: rotate(300deg); /* IE */
-		-webkit-transform: rotate(300deg); /* Safari and Chrome */
-		-o-transform: rotate(300deg); /* Opera */
-		transform:rotate(300deg);
+	.pie[data-start="291"] {
+		-moz-transform: rotate(291deg); /* Firefox */
+		-ms-transform: rotate(291deg); /* IE */
+		-webkit-transform: rotate(291deg); /* Safari and Chrome */
+		-o-transform: rotate(291deg); /* Opera */
+		transform:rotate(291deg);
 	}
-	.pie[data-start="90"] {
+	.pie[data-start="342"] {
+		-moz-transform: rotate(342deg); /* Firefox */
+		-ms-transform: rotate(342deg); /* IE */
+		-webkit-transform: rotate(342deg); /* Safari and Chrome */
+		-o-transform: rotate(342deg); /* Opera */
+		transform:rotate(342deg);
+	}
+	.pie[data-start="33"] {
+		-moz-transform: rotate(33deg); /* Firefox */
+		-ms-transform: rotate(33deg); /* IE */
+		-webkit-transform: rotate(33deg); /* Safari and Chrome */
+		-o-transform: rotate(33deg); /* Opera */
+		transform:rotate(33deg);
+	}
+	.pie[data-start="84"] {
+		-moz-transform: rotate(84deg); /* Firefox */
+		-ms-transform: rotate(84deg); /* IE */
+		-webkit-transform: rotate(84deg); /* Safari and Chrome */
+		-o-transform: rotate(84deg); /* Opera */
+		transform:rotate(84deg);
+	}
+	.pie[data-start="135"] {
 		-moz-transform: rotate(135deg); /* Firefox */
 		-ms-transform: rotate(135deg); /* IE */
 		-webkit-transform: rotate(135deg); /* Safari and Chrome */
@@ -1561,12 +1562,19 @@ button.add, button.add:hover{
   NOTE: add an extra degree to all but the final piece,
   to fill in unsightly gaps.
 */
+	.pie[data-value="51"]:BEFORE {
+		-moz-transform: rotate(51deg); /* Firefox */
+		-ms-transform: rotate(51deg); /* IE */
+		-webkit-transform: rotate(51deg); /* Safari and Chrome */
+		-o-transform: rotate(51deg); /* Opera */
+		transform:rotate(51deg);
+	}
 	.pie[data-value="60"]:BEFORE {
-		-moz-transform: rotate(61deg); /* Firefox */
-		-ms-transform: rotate(61deg); /* IE */
-		-webkit-transform: rotate(61deg); /* Safari and Chrome */
-		-o-transform: rotate(61deg); /* Opera */
-		transform:rotate(61deg);
+		-moz-transform: rotate(60deg); /* Firefox */
+		-ms-transform: rotate(60deg); /* IE */
+		-webkit-transform: rotate(60deg); /* Safari and Chrome */
+		-o-transform: rotate(60deg); /* Opera */
+		transform:rotate(60deg);
 	}
 	.pie[data-value="90"]:BEFORE {
 		-moz-transform: rotate(90deg); /* Firefox */
@@ -1576,4 +1584,143 @@ button.add, button.add:hover{
 		transform:rotate(90deg);
 	}
 
+#score-wrap .central h1 {
+  font-size: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin: 0;
+  margin-left: -10px;
+}
+#score-wrap .central h2 {
+  font-size: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0;
+}
+#score-wrap .level-circle {
+  	position: absolute;
+  	height: 80px;
+  	width: 100%;
+  	top: 40%;
+  	-webkit-transform: translateY(-50%);
+  	-moz-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	-o-transform: translateY(-50%);
+  	transform: translateY(-50%);
+}
 
+#score-wrap .level-1 .central h1,
+#score-wrap .level-1 .central h2 {
+  color: #fccf04;
+}
+#score-wrap .level-2 .central h1,
+#score-wrap .level-2 .central h2 {
+  color: #fd8f29;
+}
+#score-wrap .level-3 .central h1,
+#score-wrap .level-3 .central h2 {
+  color: #ea315c;
+}
+#score-wrap .level-4 .central h1,
+#score-wrap .level-4 .central h2 {
+  color: #9a4086;
+}
+#score-wrap .level-5 .central h1,
+#score-wrap .level-5 .central h2 {
+  color: #584594;
+}
+#score-wrap .level-6 .central h1,
+#score-wrap .level-6 .central h2 {
+  color: #3673bc;
+}
+.marker {
+  position: absolute;
+  font-size: 16px;
+}
+#score-chart {
+  width: 250px;
+  height: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+#score-wrap .level-1 .marker {
+  bottom: -10px;
+  left: 5px;
+  color: #fccf04;
+}
+#score-wrap .level-2 .marker {
+  bottom: 90px;
+  left: -2px;
+  color: #fd8f29;
+}
+#score-wrap .level-3 .marker {
+  top: 4px;
+  left: 70px;
+  color: #ea315c;
+}
+#score-wrap .level-4 .marker {
+  top: 14px;
+  left: 170px;
+  color: #9a4086;
+}
+#score-wrap .level-5 .marker {
+  top: 94px;
+  left: 230px;
+  color: #584594;
+}
+#score-wrap .level-6 .marker {
+  display: none;
+}
+#score-wrap .marker.marker-final {
+  display: block;
+  top: 180px;
+  left: 210px;
+
+}
+p.circle-text {
+  position: absolute;
+  top: 120px;
+  text-align: center;
+  width: 100%;
+  color: #a0a0a0;
+  line-height: 16px;
+}
+#score-wrap h1.upgrade {
+  font-size: 20px;
+  font-weight: normal;
+  text-align: center;
+  color: #ae6fa9;
+  position: relative;
+  margin-top: 50px;
+}
+#score-wrap p.upgrade-text {
+  line-height: 16px;
+  text-align: center;
+  color: #a0a0a0;
+}
+
+.bottom-section .banner-part {
+  float: left;
+}
+.bottom-section .banner-part.banner-left {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 50px 20px 10px 0;
+  border-color: #b12e14 #b12e14 transparent transparent;
+}
+.bottom-section .banner-part.banner-days {
+  background: #b12e14;
+  height: 50px;
+  color: #fff;
+  line-height: 50px;
+  padding-right: 20px;
+}
+.bottom-section .banner-part.banner-text {
+  color: #fff;
+  background: #ed3c19;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+}
