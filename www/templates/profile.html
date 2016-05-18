@@ -8,7 +8,12 @@
 		    <div class="value"><img ng-src="img/phone.png"> nikos@mouroutis.com</div>
 		    <div class="label">Shipping address:</div>
 		    <div class="value"><img ng-src="img/pin.png"> 313 Irakleiou Ave. 14122 (Athens, Greece)<br/></div>
-        <div class="label"><button class="button button-block" style="background-color: #63ba3d; color: #fff;">Friend's bonus</button></div> 
+        <div class="label"><button class="button button-block" style="background-color: #63ba3d; color: #fff;">Friend's bonus</button></div>
 	  </div>
+      <user-score id="user-score"ng-show="true"></user-score>
+      <div id="score-info">
+          <h2>You need {{score.points_left}} to LEVEL {{score.discount_level}}</h2>
+          <p>Order products for {{score.money_to_promote}} euro <br>to reach next level!</p>
+      </div>
   </ion-content>
 </ion-view>
