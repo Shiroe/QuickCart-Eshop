@@ -4,13 +4,13 @@
     <h1 class="title padding">THANK YOU, YOUR ORDER<br>IS ACCEPTED</h1>
     <p class="padding">We have recieved your request. Check you e-mail for confirmation message. For any questions contact us at +123 456 789</p>
 
-    <div ng-model="activeLevel" id="reward-level" class="{{getActiveClass(activeLevel)}}">
+    <div ng-model="user" id="reward-level" class="{{user.activeClass}}">
       <div class="reward-badge">
-        <img ng-src="{{activeLevel.img}}" />
+        <img ng-src="{{user.img}}" />
       </div>
 
-      <h1 class="level-title"><strong class="percentage">-3%</strong> LEVEL 3</h1>
-      <div class="upgrade">150 EUR more for next level!</div>
+      <h1 class="level-title"><strong class="percentage">{{user.discount_percentage}}</strong> LEVEL {{user.discount_level}}</h1>
+      <div class="upgrade">{{user.money_to_promote}} EUR more for next level!</div>
       <div class="levels-row">
         <div class="stage stage-1">-1%</div>
         <span class="sep sep-2"><i class="ion-chevron-right"></i></span>
@@ -23,13 +23,6 @@
         <div class="stage stage-5">-10%</div>
         <span class="sep sep-6"><i class="ion-chevron-right"></i></span>
         <div class="stage stage-6">-15%</div>
-
-<!--
-        <div ng-repeat="stage in stages" class="col">
-          <div class="stage {{stage.css_class}}">-{{stage.discount}}%</div>
-          <span class="sep"><i class="ion-chevron-right"></i></span>
-        </div>
--->
       </div>
     </div>
   </ion-content>

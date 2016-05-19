@@ -2,7 +2,7 @@
 	<ion-nav-buttons side="right">
 		<div class="right-nav">
 	    	<div class="level">
-		    	<span class="discount">-7%</span><span class="text">DISCOUNT<br/>LEVEL 4</span>
+		    	<span class="discount">{{user_score.discount_percentage}}</span><span class="text">DISCOUNT<br/>LEVEL {{user_score.discount_level}}</span>
 	    	</div>
 	    	<div class="cart" ng-model="orders">
 		    	<img ng-src="img/nav-cart-white.png"/>

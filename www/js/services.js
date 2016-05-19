@@ -20,21 +20,55 @@ angular.module("starter.services", [])
 .factory('User', ['$http', function($http){
     var user = {
         'user_score_details': {
-            'discount_level': 6,
-            'discount_percentage':'7%',
+            'discount_level': 5,
+            'discount_percentage':'10%',
             'img': '',
-            'days_left': 5,
+            'days_left': 30,
             'points_left': '100',
             'money_to_promote': '150'
         },
     };
+    var imageBadges = [
+        {'path': '../img/heart.png'},
+        {'path': '../img/diamond.png'},
+        {'path': '../img/shield.png'},
+        {'path': '../img/rocket.png'},
+        {'path': '../img/unicorn.png'},
+        {'path': '../img/diamond.png'},
+    ];
+    var getImgBadge = function(activeLevel){
+        return imageBadges[activeLevel - 1].path;
+    }
+
+    var getActiveClass = function(activeLevel){
+        if (activeLevel == '1') {
+          return 'level-1';
+        }
+        else if (activeLevel == '2') {
+          return 'level-1 level-2';
+        }
+        else if (activeLevel == '3') {
+          return 'level-1 level-2 level-3';
+        }
+        else if (activeLevel == '4') {
+          return 'level-1 level-2 level-3 level-4';
+        }
+        else if (activeLevel == '5') {
+          return 'level-1 level-2 level-3 level-4 level-5';
+        }
+        else if (activeLevel == '6') {
+          return 'level-1 level-2 level-3 level-4 level-5 level-6';
+        }
+    }
 
     var getScore = function(){
         return user.user_score_details;
     };
 
     return {
-        getScore: getScore
+        getScore: getScore,
+        getActiveClass: getActiveClass,
+        getImgBadge: getImgBadge
     }
 }])
 

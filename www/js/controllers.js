@@ -543,7 +543,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('AppCtrl', function($rootScope, $scope, $ionicViewSwitcher, $state, $ionicModal, $timeout) {
+.controller('AppCtrl', function($rootScope, $scope, $ionicViewSwitcher, $state, $ionicModal, $timeout, User) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -552,6 +552,7 @@ angular.module('starter.controllers', [])
 
   });
 
+  $rootScope.user_score = User.getScore();
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -630,95 +631,28 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+
 })
 
-.controller('thankyouCtrl', function($scope, $stateParams) {
-  $scope.levels = [
-    { 'css_class' : 'level-1', 'img' : '../img/heart.png'},
-    { 'css_class' : 'level-2', 'img' : '../img/diamond.png'},
-    { 'css_class' : 'level-3', 'img' : '../img/shield.png'},
-    { 'css_class' : 'level-4', 'img' : '../img/rocket.png'},
-    { 'css_class' : 'level-5', 'img' : '../img/unicorn.png'},
-    { 'css_class' : 'level-6', 'img' : '../img/diamond.png'},
-  ];
-  $scope.activeLevel = $scope.levels[0];
+.controller('thankyouCtrl', function($scope, $stateParams, User) {
+  $scope.user = {};
+  $scope.user = User.getScore();
+  $scope.user.activeClass = User.getActiveClass($scope.user.discount_level);
+  $scope.user.img = User.getImgBadge($scope.user.discount_level);
 
-  $scope.getActiveClass = function(activeLevel) {
-    if (activeLevel.css_class == 'level-1') {
-      return 'level-1';
-    }
-    else if (activeLevel.css_class == 'level-2') {
-      return 'level-1 level-2';
-    }
-    else if (activeLevel.css_class == 'level-3') {
-      return 'level-1 level-2 level-3';
-    }
-    else if (activeLevel.css_class == 'level-4') {
-      return 'level-1 level-2 level-3 level-4';
-    }
-    else if (activeLevel.css_class == 'level-5') {
-      return 'level-1 level-2 level-3 level-4 level-5';
-    }
-    else if (activeLevel.css_class == 'level-6') {
-      return 'level-1 level-2 level-3 level-4 level-5 level-6';
-    }
-  }
 })
 
-.controller('scoreCtrl', function($scope, $timeout) {
-
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-
+.controller('scoreCtrl', function($scope, $timeout, User) {
   angular.element(document).ready(function () {
         $timeout(function(){
           var windowHeight = jQuery(window).height();
           var bottomHeight = windowHeight - jQuery('#score-wrap').outerHeight() - jQuery('ion-header-bar').outerHeight() - jQuery('.bar-footer').outerHeight();
           console.log('window' + windowHeight + '#score-wrap' + jQuery('user-score').height() + 'ion-header-bar' + jQuery('ion-header-bar').height() + '.bar-footer' + jQuery('.bar-footer').height());
           jQuery('.bottom-section').height(bottomHeight);
-        }, 400);
-        //jQuery('.banner-text').css('color','#000');
-
+	  }, 100);
     });
-
-
-  $scope.getActiveClass = function(activeLevel) {
-    if (activeLevel.discount_level == '1') {
-      return 'level-1';
-    }
-    else if (activeLevel.discount_level == '2') {
-      return 'level-1 level-2';
-    }
-    else if (activeLevel.discount_level == '3') {
-      return 'level-1 level-2 level-3';
-    }
-    else if (activeLevel.discount_level == '4') {
-      return 'level-1 level-2 level-3 level-4';
-    }
-    else if (activeLevel.discount_level == '5') {
-      return 'level-1 level-2 level-3 level-4 level-5';
-    }
-    else if (activeLevel.discount_level == '6') {
-      return 'level-1 level-2 level-3 level-4 level-5 level-6';
-    }
-  }
-
 })
-.controller('ProfileCtrl', function($scope) {
+
+.controller('ProfileCtrl', function($scope, User) {
 
 });
-

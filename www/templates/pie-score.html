@@ -1,5 +1,5 @@
 <div id="score-wrap">
-  <div id="score-chart" class="{{getActiveClass(score)}}">
+  <div id="score-chart" class="{{activeClass}}">
     <div class="pie piece-1" data-start="180" data-value="60"></div>
     <div class="pie piece-2" data-start="240" data-value="51"></div>
     <div class="pie piece-3" data-start="291" data-value="51"></div>
@@ -12,11 +12,14 @@
         <h1>{{score.discount_percentage}}</h1>
         <h2>LEVEL {{score.discount_level}}</h2>
       </div>
-      <p class="circle-text">150 EUR more<br>for next level!</p>
+      <p class="circle-text">{{score.money_to_promote}} EUR more<br>for next level!</p>
     </div>
     <div class="marker-current marker">{{score.discount_percentage}}</div>
     <div class="marker-final marker">-15%</div>
   </div>
-  <h1 class="upgrade">You need {{score.points_left}} points to Level {{score.discount_level}}</h1>
-  <p class="upgrade-text">Order products for {{score.money_to_promote}} EUR<br>to reach next level!</p>
+  <div ng-hide="score.discount_level == 6">
+      <h1 class="upgrade">You need {{score.points_left}} points to Level {{score.discount_level + 1}}</h1>
+      <p class="upgrade-text">Order products for {{score.money_to_promote}} EUR<br>to reach next level!</p>
+  </div>
+  <h1 ng-show="score.discount_level == 6" class="upgrade">You have reached the <br>maximum discount level!</h1>
 </div>

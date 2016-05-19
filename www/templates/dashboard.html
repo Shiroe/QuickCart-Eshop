@@ -1,7 +1,10 @@
 <ion-view hide-nav-bar="true">
+    <div menu-toggle id="dash-menu-icon"><i class="ion-navicon"></i></div>
   	<img style="position: absolute;width: 100%;min-height: 200px;" ng-src="img/dash-bg.png"/>
   <ion-content>
-  	<div id="dash-content" style="margin-top: 200px; background: white;">
+    <h2 id="dash-order-welcome">Welcome,<br><strong>Alexander Popnedelev</strong></h2>
+  	<div id="dash-content" style="margin-top: 100px; background: white;">
+
 	  	<button  ng-click="showQuickCart()" class="button button-block button-balanced" style="position: absolute; width: 80%; margin: 10%;margin-top: -35px; height: 70px;">
 	  	<img width="25px" ng-src="img/bag-white.png"/>
         <span style="font-size: 25px;font-weight: 300; margin-left: 10px;"> Quick order <i class="ion-ios-arrow-right" style="font-size: 25px;font-weight: 200; margin-left: 10px;" ></i></span></button>
@@ -47,6 +50,7 @@
 
 		        </div>
 	        </div>
+            <user-score></user-score>
         </div>
   	</div>
   </ion-content>

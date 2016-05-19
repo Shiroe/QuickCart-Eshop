@@ -238,7 +238,7 @@ ion-side-menu ion-content p.discount{
 	font-size: 14px;
 	font-weight: 300;
 	color: #737373;
-	text-align: left;
+	text-align: center;
 	margin: 10px 25px;
 }
 
@@ -306,7 +306,7 @@ ion-side-menu ion-content div.discount h1{
 
 /* cart */
 .cartmodal .bar{
-	background-color: #3e5bad;
+	background-color: #fff;
 	padding: 5px;
 }
 .cartmodal .bar .right-nav{
@@ -320,6 +320,98 @@ ion-side-menu ion-content div.discount h1{
 .cartmodal .bar .right-nav .product.nav .price{
 	margin-left: 40px;
 }
+.cartmodal .bar i{
+	font-size: 30px;
+	margin: 1% 2%;
+	color: #3d529f;
+}
+.cartmodal .bar h3{
+	text-align: right;
+	font-size: 28px;
+	font-weight: 300;
+	color: #092c4f;
+}
+.cartmodal div#discount {
+	width: 90%;
+
+}
+
+/*cartmodal ribbon wrapper-div*/
+div#cartmodal{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	/*margin-bottom: 20%;*/
+	background-color: #f3f3f3;
+	/*z-index: 999;*/
+	height: 22%;
+}
+
+/*After ribbon h2 tag*/
+div#cartmodal h2{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	color: #9c3d95;
+	text-align: left;
+	font-size: 24px;
+	font-weight: 200;
+	margin-left: 5%;
+}
+
+/*discount ribbon div on cart modal*/
+div#cartmodal div#discount {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	width: 90%;
+	background-color: #9c3d95;
+	border-width: 50px 20px 10px 0;
+	margin: 20px auto 10px auto;
+}
+
+/*percentage div inside ribbon*/
+div#cartmodal div#discount div{
+	display: inline-block;
+	line-height: 32px;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	text-align: center;
+	font-size: 12px;
+	background-color: #7e3779;
+	font-weight: 500;
+	margin-left: 10%;
+	color: #fff;
+}
+
+div#cartmodal div#discount h1{
+	display: inline-block;
+	font-size: 14px;
+	margin-left: 10px;
+	color: #fff;
+	margin-top: 10px;
+}
+div#cartmodal .price .float{
+	font-size: 12px;
+	color: #2561a5;
+	text-align: right;
+	line-height: 32px;
+	top: 0;
+	margin-top: 1%
+}
+
+div#cartmodal .price .int{
+	font-size: 30px;
+	color: #2561a5;
+}
+div#cartmodal div.price{
+	margin-top: 1%;
+	margin-right: 4%;
+}
+
+
 /*
 
 .cart .bar .icon{
@@ -715,7 +807,12 @@ ion-footer-bar.setbar .button{
 }
 
 /* dashboard */
+
 .dash-order-box{
+	text-align: center;
+	padding-top: 35px;
+}
+.dash-order-box dash-content{
 	text-align: center;
 	padding-top: 35px;
 }
@@ -757,6 +854,25 @@ ion-footer-bar.setbar .button{
 }
 .dash-order-box .data{
 	color: rgba(101, 100, 100, 1);
+}
+#dash-menu-icon{
+	position: absolute;
+	z-index: 999;
+	margin: 2% 3%;
+}
+#dash-menu-icon i{
+	color: #fff;
+	font-size: 40px;
+}
+
+#dash-order-welcome {
+	margin: 0;
+	padding: 0;
+	font-size: 28px;
+	text-align: center;
+	color: #fff;
+	font-weight: 300;
+	padding-top: 10%;
 }
 .order-box .data{
 	font-weight: 100;
@@ -1462,6 +1578,10 @@ user-score {
 
 	}
 
+	.pie.empty:BEFORE{
+		width: 131px;
+	}
+
 
 /*
   add colour to each piece.
@@ -1638,6 +1758,9 @@ user-score {
   margin: 0;
   margin-left: -10px;
 }
+#dash-content  .central h1 {
+	padding-top: 0;
+}
 #score-wrap .central h2 {
   font-size: 30px;
   line-height: 30px;
@@ -1727,7 +1850,7 @@ user-score {
 }
 p.circle-text {
   position: absolute;
-  top: 120px;
+  top: 130px;
   text-align: center;
   width: 100%;
   color: #a0a0a0;

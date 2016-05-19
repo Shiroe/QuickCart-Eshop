@@ -28,8 +28,10 @@ angular.module("starter.directives", [])
         restrict: 'E',
         link: function(scope, elem, attrs){
         ScorePieHtml.loadData().then(function(result){
-            var data = User.getScore();
-            scope.score = data;
+            var _data = User.getScore();
+            var _activeClass = User.getActiveClass(_data.discount_level);
+            scope.score = _data;
+            scope.activeClass = _activeClass;
 
             console.log('RESULT', result);
             console.log('user score', scope.score);

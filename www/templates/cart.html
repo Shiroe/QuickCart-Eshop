@@ -1,28 +1,7 @@
 <ion-view  view-title=" "   class="modal cart cartmodal" ng-controller="CartCtrl">
-	<div class="bar bar-header">
-
-		<div class="right-nav">
-	    	<div class="level">
-		    	<span class="discount">-7%</span><span class="text">DISCOUNT<br/>LEVEL 4</span>
-	    	</div>
-	    	<div class="cart" ng-click="modal.show()">
-		    	<img ng-src="img/nav-cart-white.png"/>
-		    	<span class="items">{{cart.count}}</span>
-		    	<span class="text">
-		    		<span class="product nav">
-		    			<div class="price" ng-model="cart">
-						    <span class="float">{{cart.total | float}}<br/>&euro;</span>
-						    <span class="int">{{cart.total | integer}}</span>
-					    </div>
-		    		</span>
-				</span>
-	    	</div>
-		</div>
-
-		<!--
-		<div class="icon ion-android-close"></div>
-		<h3 ng-model="cart" class="title">Count: {{cart.count}}, Total: {{cart.total}} &euro;</h3>
--->
+	<div class="bar">
+		<i class="ion-ios-arrow-left"></i>
+		<h3 class="title">BASKET</h3>
 	</div>
 	<ion-content>
 	<ion-list>
@@ -65,7 +44,21 @@
 	    	<ion-option-button side="left" class="button-assertive icon ion-trash-a" ng-click="deleteItem(product)"></ion-option-button>
 	    </ion-item>
 	</ion-list>
+
 	</ion-content>
+	<div id="cartmodal">
+		<div id="discount" class="row">
+		  <div>{{user_score.discount_percentage}}</div>
+		  <h1>DISCOUNT LEVEL {{user_score.discount_level}}</h1>
+		</div>
+		<div class="row">
+			<h2 id="discount" class="col col-70">Total price: </h2>
+			<div class="price">
+				<span class="int">33</span>
+				<span class="float">40 &euro;</span>
+			</div>
+		</div>
+	</div>
 	<div class="tabs green">
 	  <a class="tab-item col-60" ng-click="modal.hide()">
 	    Continue shopping
