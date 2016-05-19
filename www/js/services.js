@@ -21,7 +21,7 @@ angular.module("starter.services", [])
     var user = {
         'user_score_details': {
             'discount_level': 6,
-            'discount_percentage':'15%',
+            'discount_percentage':'7%',
             'img': '',
             'days_left': 5,
             'points_left': '100',

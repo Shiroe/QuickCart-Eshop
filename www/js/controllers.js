@@ -673,7 +673,7 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('scoreCtrl', function($scope) {
+.controller('scoreCtrl', function($scope, $timeout) {
 
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
@@ -685,13 +685,37 @@ angular.module('starter.controllers', [])
   ];
 
   angular.element(document).ready(function () {
+        $timeout(function(){
+          var windowHeight = jQuery(window).height();
+          var bottomHeight = windowHeight - jQuery('#score-wrap').outerHeight() - jQuery('ion-header-bar').outerHeight() - jQuery('.bar-footer').outerHeight();
+          console.log('window' + windowHeight + '#score-wrap' + jQuery('user-score').height() + 'ion-header-bar' + jQuery('ion-header-bar').height() + '.bar-footer' + jQuery('.bar-footer').height());
+          jQuery('.bottom-section').height(bottomHeight);
+        }, 400);
         //jQuery('.banner-text').css('color','#000');
-        var windowHeight = jQuery(window).height();
-        var bottomHeight = windowHeight - jQuery('#score-wrap').outerHeight() - jQuery('ion-header-bar').outerHeight() - jQuery('.bar-footer').outerHeight();
-        console.log('window' + windowHeight + '#score-wrap' + jQuery('#score-wrap').height() + 'ion-header-bar' + jQuery('ion-header-bar').height() + '.bar-footer' + jQuery('.bar-footer').height());
-        jQuery('.bottom-section').height(bottomHeight);
+
     });
 
+
+  $scope.getActiveClass = function(activeLevel) {
+    if (activeLevel.discount_level == '1') {
+      return 'level-1';
+    }
+    else if (activeLevel.discount_level == '2') {
+      return 'level-1 level-2';
+    }
+    else if (activeLevel.discount_level == '3') {
+      return 'level-1 level-2 level-3';
+    }
+    else if (activeLevel.discount_level == '4') {
+      return 'level-1 level-2 level-3 level-4';
+    }
+    else if (activeLevel.discount_level == '5') {
+      return 'level-1 level-2 level-3 level-4 level-5';
+    }
+    else if (activeLevel.discount_level == '6') {
+      return 'level-1 level-2 level-3 level-4 level-5 level-6';
+    }
+  }
 
 })
 .controller('ProfileCtrl', function($scope) {
