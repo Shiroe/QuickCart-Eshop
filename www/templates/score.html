@@ -4,7 +4,7 @@
 	    	<div class="level">
 		    	<span class="discount">-7%</span><span class="text">DISCOUNT<br/>LEVEL 4</span>
 	    	</div>
-	    	<div class="cart" ng-click="modal.show()">
+	    	<div class="cart">
 		    	<img ng-src="img/nav-cart-white.png"/>
 		    	<span class="items">{{cart.count}}</span>
 		    	<span class="text">
@@ -20,7 +20,7 @@
   </ion-nav-buttons>
   <ion-content id="score">
     <div class="page-wrap">
-      <div id="score-wrap">
+      <!-- <div id="score-wrap">
         <div id="score-chart" class="level-1 level-2 level-3 level-4 level-5">
           <div class="pie piece-1" data-start="180" data-value="60"></div>
           <div class="pie piece-2" data-start="240" data-value="51"></div>
@@ -41,7 +41,8 @@
         </div>
         <h1 class="upgrade">You need 100 points to Level 5</h1>
         <p class="upgrade-text">Order products for 150 EUR<br>to reach next level!</p>
-      </div>
+    </div> -->
+    <user-score></user-score>
       <div class="bottom-section">
         <div class="banner-wrap">
           <div class="banner-left banner-part"></div>
@@ -53,4 +54,3 @@
   </ion-content>
   <ion-bar-footer class="bar bar-footer bar-positive"></ion-bar-footer>
 </ion-view>
-
