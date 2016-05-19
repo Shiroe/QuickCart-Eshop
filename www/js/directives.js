@@ -23,23 +23,6 @@ angular.module("starter.directives", [])
 
       return ScorePieHtml;
 })
-// .directive('parentDirective', function(ScorePieHtml, User, $compile){
-//       return {
-//           restrict: 'E',
-//           link: function(scope, elem, attrs){
-//           ScorePieHtml.loadData().then(function(result){
-//               User.getScore().then(function(data){
-//                   scope.score = data;
-//               })
-//               console.log('RESULT', result);
-//               scope.data = result.data;
-//               var htm = scope.data;//'<child-directive></child-directive>';
-//               var compiled = $compile(htm)(scope);
-//               elem.append(compiled);
-//           });
-//         }
-//       }
-// })
 .directive('userScore', function(ScorePieHtml, User, $compile){
     return {
         restrict: 'E',
@@ -51,7 +34,7 @@ angular.module("starter.directives", [])
             console.log('RESULT', result);
             console.log('user score', scope.score);
             scope.data = result.data;
-            var htm = scope.data;//'<child-directive></child-directive>';
+            var htm = scope.data;
             var compiled = $compile(htm)(scope);
             elem.append(compiled);
         });
