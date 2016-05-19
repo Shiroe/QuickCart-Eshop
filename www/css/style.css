@@ -1770,7 +1770,7 @@ p.circle-text {
 }
 .bottom-section .banner-wrap {
   height: 50px;
-  width: 300px;
+  width: 280px;
   	position: absolute;
   	top: 50%;
   	left: 50%;
@@ -1780,6 +1780,9 @@ p.circle-text {
   	-o-transform: translate(-50%,-50%);
   	transform: translate(-50%,-50%);
 
+}
+.platform-android .bottom-section .banner-wrap {
+  width: 300px;
 }
 @media screen and (max-width: 320px) {
   #score-wrap {
@@ -1820,7 +1823,7 @@ p.circle-text {
     position: absolute;
 /*     left: 70px; */
     top: 45px;
-    width: 180px;
-    height: 180px;
+    width: 210px;
+    height: 210px;
     }
 }
