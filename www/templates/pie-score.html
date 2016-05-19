@@ -1,5 +1,5 @@
 <div id="score-wrap">
-  <div id="score-chart" class="level-1 level-2 level-3 level-4 level-5">
+  <div id="score-chart" class="{{getActiveClass(score)}}">
     <div class="pie piece-1" data-start="180" data-value="60"></div>
     <div class="pie piece-2" data-start="240" data-value="51"></div>
     <div class="pie piece-3" data-start="291" data-value="51"></div>
@@ -9,7 +9,7 @@
     <div class="pie empty" data-start="135" data-value="90"></div>
     <div class="central">
       <div class="level-circle">
-        <h1>-3%</h1>
+        <h1>{{score.discount_percentage}}</h1>
         <h2>LEVEL {{score.discount_level}}</h2>
       </div>
       <p class="circle-text">150 EUR more<br>for next level!</p>

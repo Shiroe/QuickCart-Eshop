@@ -1398,6 +1398,9 @@ button.add, button.add:hover{
   height: 350px;
   padding-top: 20px;
 }
+user-score {
+    height: 350px;
+  }
 .pie {
 		position:absolute;
 		width:100px;
@@ -1789,6 +1792,9 @@ p.circle-text {
     padding-top: 0;
     height: 300px;
   }
+  user-score {
+    height: 300px;
+  }
   #score-wrap h1.upgrade {
     margin-top: 30px;
   }
@@ -1798,14 +1804,20 @@ p.circle-text {
     padding-top: 20px;
     height: 350px;
   }
+  user-score {
+    height: 350px;
+  }
   #score-wrap h1.upgrade {
     margin-top: 50px;
   }
 }
-@media screen and (min-width: 321px) and (max-width: 414px) {
+@media screen and (min-width: 321px) and (max-width: 480px) {
   #score-wrap {
     padding-top: 30px;
-    height: 400px;
+    height: 450px;
+  }
+  user-score {
+    height: 450px;
   }
   .pie {
     width:130px;
@@ -1825,5 +1837,48 @@ p.circle-text {
     top: 45px;
     width: 210px;
     height: 210px;
+    }
+
+    #score-wrap .level-1 .marker {
+      bottom: -50px;
+      left: -15px;
+      color: #fccf04;
+    }
+    #score-wrap .level-2 .marker {
+      bottom: 70px;
+      left: -25px;
+      color: #fd8f29;
+    }
+    #score-wrap .level-3 .marker {
+      top: 4px;
+      left: 70px;
+      color: #ea315c;
+    }
+    #score-wrap .level-4 .marker {
+      top: 20px;
+      left: 200px;
+      color: #9a4086;
+    }
+    #score-wrap .level-5 .marker {
+      top: 120px;
+      left: 265px;
+      color: #584594;
+    }
+    #score-wrap .level-6 .marker {
+      display: none;
+    }
+    #score-wrap .marker.marker-final {
+      display: block;
+      top: 230px;
+      left: 230px;
+
+    }
+    #score-wrap h1.upgrade {
+      font-size: 25px;
+      margin-top: 110px;
+    }
+    #score-wrap p.upgrade-text {
+      font-size: 18px;
+      line-height: 20px;
     }
 }
