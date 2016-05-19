@@ -1781,6 +1781,9 @@ p.circle-text {
   	transform: translate(-50%,-50%);
 
 }
+.platform-android .bottom-section .banner-wrap {
+  width: 300px;
+}
 @media screen and (max-width: 320px) {
   #score-wrap {
     padding-top: 0;
@@ -1798,4 +1801,29 @@ p.circle-text {
   #score-wrap h1.upgrade {
     margin-top: 50px;
   }
+}
+@media screen and (min-width: 321px) and (max-width: 414px) {
+  #score-wrap {
+    padding-top: 30px;
+    height: 400px;
+  }
+  .pie {
+    width:130px;
+		height:260px;
+  }
+  .pie:BEFORE {
+		content:"";
+		position:absolute;
+		width:130px;
+		height:260px;
+		left:-130px;
+		border-radius:130px 0 0 130px;
+  }
+   .central {
+    position: absolute;
+/*     left: 70px; */
+    top: 45px;
+    width: 210px;
+    height: 210px;
+    }
 }
