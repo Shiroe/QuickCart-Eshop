@@ -683,7 +683,14 @@ angular.module('starter.controllers', [])
     { title: 'Rap', id: 5 },
     { title: 'Cowbell', id: 6 }
   ];
-  });
+
+  angular.element(document).ready(function () {
+        //jQuery('.banner-text').css('color','#000');
+        var windowHeight = jQuery(window).height();
+        var bottomHeight = windowHeight - jQuery('#score-wrap').outerHeight() - jQuery('ion-header-bar').outerHeight() - jQuery('.bar-footer').outerHeight();
+        console.log('window' + windowHeight + '#score-wrap' + jQuery('#score-wrap').height() + 'ion-header-bar' + jQuery('ion-header-bar').height() + '.bar-footer' + jQuery('.bar-footer').height());
+        jQuery('.bottom-section').height(bottomHeight);
+    });
 
 
 })
