@@ -18,7 +18,7 @@ angular.module("starter.directives", [])
       var ScorePieHtml = {};
 
       ScorePieHtml.loadData = function(){
-        return $http.get('/templates/score.html');
+        return $http.get('/templates/pie-score.html');
       }
 
       return ScorePieHtml;
